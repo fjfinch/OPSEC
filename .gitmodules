@@ -1,9 +1,0 @@
-[submodule "tools/php-reverse-shell"]
-	path = tools/php-reverse-shell
-	url = https://github.com/pentestmonkey/php-reverse-shell.git
-[submodule "tools/privilege-escalation-awesome-scripts-suite"]
-	path = tools/privilege-escalation-awesome-scripts-suite
-	url = https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite.git
-[submodule "tools/volatility3"]
-	path = tools/volatility3
-	url = https://github.com/volatilityfoundation/volatility3.git
