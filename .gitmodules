@@ -1,0 +1,3 @@
+[submodule "tools/php-reverse-shell"]
+	path = tools/php-reverse-shell
+	url = https://github.com/pentestmonkey/php-reverse-shell.git
