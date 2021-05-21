@@ -1,0 +1,3 @@
+[submodule "tools/volatility3"]
+	path = tools/volatility3
+	url = https://github.com/volatilityfoundation/volatility3.git
