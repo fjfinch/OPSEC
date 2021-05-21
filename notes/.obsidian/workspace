@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "1. OTHER/Git.md",
+            "file": "ALL_INFO/Git.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1. OTHER/Git.md",
+                "file": "ALL_INFO/Git.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "f7949e7acc80e1a1",
   "lastOpenFiles": [
-    "1. INFO/Git.md",
-    "1. TOPICS TODO/Subjects.md",
-    "1. TOPICS TODO/Git.md",
-    "1. TOPICS TODO/Markdown.md",
-    "1. TOPICS TODO/Untitled 1.md",
-    "1. TOPICS TODO/Untitled.md",
-    "Untitled.md",
+    "ALL_INFO/Git.md",
+    "Topic name/3. Sources.md",
     "Topic name/2. Tools.md",
-    "test.md",
-    "Topic/1. Info.md"
+    "Topic name/1. Info.md",
+    "ALL_INFO/ToDo.md",
+    "ALL_INFO/Markdown.md",
+    "1. OTHER/ToDo.md",
+    "1. OTHER/Markdown.md",
+    "1. OTHER/Git.md",
+    "1. INFO/Git.md"
   ]
 }
