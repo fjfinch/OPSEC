@@ -7,3 +7,9 @@
 [submodule "tools/php-reverse-shell"]
 	path = tools/php-reverse-shell
 	url = https://github.com/pentestmonkey/php-reverse-shell.git
+[submodule "tools/kerbrute"]
+	path = tools/kerbrute
+	url = https://github.com/ropnop/kerbrute.git
+[submodule "tools/evil-winrm"]
+	path = tools/evil-winrm
+	url = https://github.com/Hackplayers/evil-winrm.git

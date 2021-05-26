@@ -17,7 +17,6 @@ Notes
 	Buffer Overflow
 		Windows
 		Linux
-	Active Directory
 	Windows
 	Linux
 		Packaging

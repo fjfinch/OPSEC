@@ -9,6 +9,17 @@
         "state": {
           "type": "markdown",
           "state": {
+            "file": "Active Directory/Info.md",
+            "mode": "source"
+          }
+        }
+      },
+      {
+        "id": "9d1aff5035f7aa79",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
             "file": "--INFO--/ToDo.md",
             "mode": "source"
           }
@@ -68,7 +79,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "--INFO--/ToDo.md",
+                "file": "Active Directory/Info.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +99,15 @@
   },
   "active": "f7949e7acc80e1a1",
   "lastOpenFiles": [
-    "ALL_INFO/ToDo.md",
-    "ALL_INFO/Git.md",
+    "Active Directory/Info.md",
+    "Active Directory.md",
+    "--INFO--/ToDo.md",
+    "Untitled.md",
+    "Reconnaissance/1. Info.md",
+    "Reconnaissance/3. Sources.md",
+    "Reconnaissance/2. Tools.md",
     "Topic name/3. Sources.md",
-    "Topic name/2. Tools.md",
-    "Topic name/1. Info.md",
-    "ALL_INFO/Markdown.md",
-    "1. OTHER/ToDo.md",
-    "1. OTHER/Markdown.md",
-    "1. OTHER/Git.md",
-    "1. INFO/Git.md"
+    "ALL_INFO/ToDo.md",
+    "ALL_INFO/Git.md"
   ]
 }
