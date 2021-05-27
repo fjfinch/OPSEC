@@ -1,25 +1,24 @@
-[LinkName](https://URL/)
-[LinkName]
+[Give me name](https://google.nl/)
 
-[LinkName]: <https://URL/>
 > Quote block
 
-==Highlight==
-~~Dash~~
-*Italic*
-**Bold**
-***Bold+Italic***
+==Highlighted text==
+~~Dashed  text~~
+*Italic  text*
+**Bold  text**
 
-* list1
-    * list1.1
-1. list a
-    1.1 list b
+* list
+	* sublist
 
-* [x] 1
-* [ ] 2
+1. list
+	1.1 sublist
 
-`Inline code`
-```Language
+* [x] check 1
+* [ ] check 2
+
+`Code on line`
+
+```Language code multiple line
 cd folder
 mkdir test
 cd test
@@ -34,6 +33,7 @@ cd test
 | 5 | 101 |
 | 6 | 110 |
 
+---------------------
 
 # Title
 DESCRIPTION

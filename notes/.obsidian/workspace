@@ -9,21 +9,23 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Active Directory/SMB/Attacks.md",
+            "file": "Active Directory/Kerberos/How Kerberos Works.md",
             "mode": "source"
           }
-        }
+        },
+        "group": "a27b3906d2acd429"
       },
       {
-        "id": "9d1aff5035f7aa79",
+        "id": "b922e6771cd3471d",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "--INFO--/ToDo.md",
-            "mode": "source"
+            "file": "Active Directory/Kerberos/How Kerberos Works.md",
+            "mode": "preview"
           }
-        }
+        },
+        "group": "a27b3906d2acd429"
       }
     ],
     "direction": "vertical"
@@ -63,7 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 228
+    "width": 314
   },
   "right": {
     "id": "b68f89393bf0ed75",
@@ -79,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Active Directory/SMB/Attacks.md",
+                "file": "Active Directory/Kerberos/How Kerberos Works.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,15 +101,15 @@
   },
   "active": "1dccd598425fe099",
   "lastOpenFiles": [
-    "Active Directory/SMB/Attacks.md",
-    "Active Directory/Info.md",
-    "Active Directory/Kerberos/Attacks.md",
-    "Reconnaissance/Info.md",
-    "--INFO--/ToDo.md",
-    "Active Directory/SMB/2 Attacks.md",
-    "Active Directory/Kerberos/2 Attacks.md",
-    "Active Directory/SMB/1 Info.md",
-    "Active Directory/Kerberos/1 Info.md",
-    "1 Info.md"
+    "Active Directory/Kerberos/How does Kerberos work.md",
+    "Active Directory/Kerberos/Attacks/1 Kerberos Brute-force.md",
+    "Active Directory/Kerberos/Attacks/8 DCSync attack.md",
+    "Active Directory/Kerberos/Attacks/7 Golden Ticket attack.md",
+    "Active Directory/Kerberos/Attacks/6 Silver Ticket Attack.md",
+    "Active Directory/Kerberos/Attacks/5 Pass The Ticket - Ticket Dump.md",
+    "Active Directory/Kerberos/Attacks/4 Overpass The Hash - Pass The Key (PTK).md",
+    "Active Directory/Kerberos/Attacks/3 Kerberoasting.md",
+    "Active Directory/Kerberos/Attacks/2 AS-REP Roasting.md",
+    "Active Directory/Info.md"
   ]
 }

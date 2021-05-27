@@ -1,8 +1,8 @@
-## Shares Listing
+# Shares Listing
 
 
 
-## Files Listing in Shares (and downloading)
+# Files Listing in Shares (and downloading)
 
 
 `crackmapexec smb <IP> --shares`
@@ -24,7 +24,6 @@
 
 `smbget smb://IP/SHARE -a -R`						    guest
 `smbget smb://IP/SHARE -U USER%PASS -R`
-
 
 nmblookup
 nbtscan
