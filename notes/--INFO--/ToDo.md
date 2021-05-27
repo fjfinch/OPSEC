@@ -20,6 +20,7 @@ Notes
 	Windows
 	Linux
 		Packaging
+			Best way to delete
 	Processes
 		Windows
 		Linux
@@ -41,4 +42,6 @@ Notes
 		Docker
 		Kubernetes
 	Password Attacks
+		Hashcat
+		John
 	Port Redirection and Tunneling

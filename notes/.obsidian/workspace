@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "f7949e7acc80e1a1",
+        "id": "1dccd598425fe099",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Active Directory/Info.md",
+            "file": "Active Directory/SMB/Attacks.md",
             "mode": "source"
           }
         }
@@ -79,7 +79,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Active Directory/Info.md",
+                "file": "Active Directory/SMB/Attacks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,17 +97,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "f7949e7acc80e1a1",
+  "active": "1dccd598425fe099",
   "lastOpenFiles": [
+    "Active Directory/SMB/Attacks.md",
     "Active Directory/Info.md",
-    "Active Directory.md",
+    "Active Directory/Kerberos/Attacks.md",
+    "Reconnaissance/Info.md",
     "--INFO--/ToDo.md",
-    "Untitled.md",
-    "Reconnaissance/1. Info.md",
-    "Reconnaissance/3. Sources.md",
-    "Reconnaissance/2. Tools.md",
-    "Topic name/3. Sources.md",
-    "ALL_INFO/ToDo.md",
-    "ALL_INFO/Git.md"
+    "Active Directory/SMB/2 Attacks.md",
+    "Active Directory/Kerberos/2 Attacks.md",
+    "Active Directory/SMB/1 Info.md",
+    "Active Directory/Kerberos/1 Info.md",
+    "1 Info.md"
   ]
 }

