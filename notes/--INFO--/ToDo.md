@@ -1,5 +1,3 @@
-Test
-
 Rev shells 
 	-oneliners
 	-files
