@@ -42,5 +42,10 @@
 `git clone <HTTP/SSH LINK>`
 
 `git submodule add <HTTP/SSH LINK>`
+
+`git submodule deinit -f <REP>`
+`git rm -f <REP>`
+`rm -rf .git/modules/<REP>`
+
 `git submodule init`
 `git submodule update`
