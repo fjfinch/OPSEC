@@ -7,6 +7,8 @@
 `git config --global pull.rebase false`
 
 `git config --global init.defaultBranch <name>`
+	no:	master
+	yes:	main
 
 # GIT LOCAL REPOSITORY
 `git init`
@@ -23,6 +25,8 @@
 `git checkout -b <BRANCH_NAME>`
 `git branch`
 
+`git branch -M master`
+
 # GITHUB REMOTE REPOSITORY
 `git remote add origin <URL>`
 
@@ -30,7 +34,6 @@
 `git remote set-url origin <HTTP/SSH LINK>`
 `git remote -v`
 
-`git branch -M master`
 `git push -u origin master`
 
 `git pull`
@@ -38,5 +41,6 @@
 
 `git clone <HTTP/SSH LINK>`
 
+`git submodule add <HTTP/SSH LINK>`
 `git submodule init`
 `git submodule update`
