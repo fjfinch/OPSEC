@@ -1,5 +1,5 @@
 # How Kerberos Works
- Kerberos uses shared keys for authentication
+ Kerberos uses shared keys for authentication. (Not authorization)
 	In a Windows domain this is the NTLM hash
 
 DC (Domain Controller)

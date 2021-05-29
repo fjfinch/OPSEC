@@ -6,9 +6,8 @@
 `git config --global user.email "<EMAIL>"`
 `git config --global pull.rebase false`
 
-`git config --global init.defaultBranch <name>`
-	no:	master
-	yes:	main
+`git config --global init.defaultBranch <NAME>`
+	no) master	yes) main
 
 # GIT LOCAL REPOSITORY
 `git init`
@@ -31,7 +30,7 @@
 `git remote add origin <URL>`
 
 `git remote get-url origin`
-`git remote set-url origin <HTTP/SSH LINK>`
+`git remote set-url origin <URL>`
 `git remote -v`
 
 `git push -u origin master`
@@ -39,9 +38,9 @@
 `git pull`
 `git push`
 
-`git clone <HTTP/SSH LINK>`
+`git clone <URL>`
 
-`git submodule add <HTTP/SSH LINK>`
+`git submodule add <URL>`
 
 `git submodule deinit -f <REP>`
 `git rm -f <REP>`
@@ -49,3 +48,4 @@
 
 `git submodule init`
 `git submodule update`
+`git pull --recurse-submodules`
