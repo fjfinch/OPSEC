@@ -6,6 +6,8 @@ NETBIOS Name Service (NBNS) -> TCP/UDP 137
 NETBIOS Datagram Service (NBDS) -> TCP/UDP 138
 NETBIOS Session Service (NBSS) -> TCP/UDP 139
 
+Windows host/computer name (64bytes) != NetBios name (15bytes)
+
 ## Possible Credentials
 |User|Pass|
 |----|----|

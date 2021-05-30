@@ -1,4 +1,4 @@
 # Host Enumeration
-When NBNS enabled (TCP/UDP 137)?
 `nbtscan -r <IP>`
+`nbtscan -v <IP>`
 `nmblookup -A <IP>`
