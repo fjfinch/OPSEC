@@ -1,5 +1,6 @@
 # Shares & Files Listing
 WARNING: Does 'pizza' test need password to pass???
+Maybe need domain tag and port tag.
 
 ## smbclient
 `smbclient -U '' -N -L //<IP>/` (null)
