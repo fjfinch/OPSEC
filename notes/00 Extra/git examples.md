@@ -2,11 +2,11 @@
 `git config --list`
 `git config --global --list`
 
-`git config --global user.name "<USERNAME>"`
+`git config --global user.name "<USER>"`
 `git config --global user.email "<EMAIL>"`
 `git config --global pull.rebase false`
 
-`git config --global init.defaultBranch <NAME>`
+`git config --global init.defaultBranch <BRANCH_NAME>`
 	no) master	yes) main
 
 # GIT LOCAL REPOSITORY

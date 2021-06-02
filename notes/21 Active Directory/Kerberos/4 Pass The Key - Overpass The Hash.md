@@ -1,4 +1,4 @@
-# Overpass The Hash - Pass The Key (PTK)
+# Pass The Key - Overpass The Hash
 `impacket-getTGT DOMAIN/USER -hashes HASH`
 `Rubeus`
 `PsExec`

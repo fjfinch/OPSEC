@@ -1,6 +1,6 @@
 # How RPC Works
 `rpcclient -U '' -N <IP>`
-`rpcclient -U 'USERNAME'%'PASSWORD' <IP>`
+`rpcclient -U '<USER>'%'<PASS>' <IP>`
 Domainname & info & SID
         	lsaquery
         	querydominfo
@@ -30,19 +30,17 @@ Domainname & info & SID
 	       	netshareenumall
 	       	netsharegetinfo
 
-### Bruteforcing usernames
-lookupsid.py -no-pass hostname.local
+## Bruteforcing usernames
+`lookupsid.py -no-pass <DOMAIN>`
 
-### Writeable shares
+## Writeable shares
 `impacket-smbclient '<DOMAIN>/<USER>:<PASS>@<IP>'`
 
-### Enumerate info
+## Enumerate info
 `impacket-samrdump '<DOMAIN>/<USER>:<PASS>@<IP>'`
 	-port 139
 	-port 445
 
-`impacket-rpcdump '<DOMAIN>/<USER>:<PASS>@<IP>'`
-`impacket-rpcdump '<DOMAIN>/<USER>:<PASS>@<IP>'`
 `impacket-rpcdump '<DOMAIN>/<USER>:<PASS>@<IP>'`
 	-port 135
 	-port 139
