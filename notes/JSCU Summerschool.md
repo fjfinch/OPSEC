@@ -1,101 +1,60 @@
 # JSCU Summerschool
-headers 1 & 2
-robots.txt
+## Inhoud
+* [x] Email achterhalen
+* [x] Grep
+* [ ] Firmware encryptie
+* [x] Password dump
+* [x] Yara
+* [x] Trololo
+* [x] Emoji
+* [x] ICMP
+* [x] Extra 1) JavaScript bestand
+* [x] Extra 2) JavaScript tags & base64
+* [x] Extra 3 & 4) HTTP headers
+* [x] Extra 5) robot.txt
 
+----------------
+## Email achterhalen
+De webpagina heeft een div genaamd *winnerwinner*. Op de webpagina wordt deze afgebeeld met het stuk teskst: *Hier klikken*, die met een alert method wat weergeeft. Als je er op drukt:
 
-
-## Email
-Website heeft een div genaamd *winnerwinner*.
-Er is een stuk met de tekst *Hier klikken*. Als je er op drukt: 
 > Stuur je CV en write-up naar ROT13(fhzzrefpubby@zvaomx.ay)
+
+Dit terug te decoderen:
 
 ```bash
 echo -n "fhzzrefpubby@zvaomx.ay" | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 
-Email: summerschool@minbzk.nl
+Geeft het emailadres: summerschool@minbzk.nl
+Wat klopt, want dit emailadres wordt beheert door SSC-ICT van rijksoverheid.
 
---------
-## Extra 1) JavaScript bestand
-Tijdens het bekijken van de source code viel me op dat er javacript code tussen script tags zit. Echter heeft het ook een src=javascript attribute. Bij het bekijken van het javascript bestand zit er nog wat extras:
-> var f14g_rev = "\==QfzMzcfV3T591RuFDa0NjclZVZfR3U1JFdfRHMu9FMktXVDNlS";
-   var f14g = f14g_rev.split().reverse().join()
- 
- ```bash
- echo -n "==QfzMzcfV3T591RuFDa0NjclZVZfR3U1JFdfRHMu9FMktXVDNlS" | rev | base64 -d
- ```
-
-Flag: JSCU{d0_n0t_tRuSt_eVer3th1nG_yOu_s33}
-
---------
-## Extra 2) JavaScript en base64
-Om er niet te diep op in te gaan, de source code had twee plekken met script tags waar veel werd gewerkt met functions, variabelen en base64. Het meest opvallende was de script tag die gebruikt werkt bij de div *winnerwinner*, die eerder al besproken is. Hierin zit een try catch block, waarbij de try de gegeven message geeft, en de catch block niet word gebruikt. 
-
-in deze catch block zit een base64 string die niet te decode valt, als je de omliggende variabelen en functies niet gebruikt. 
-
-Lang verhaal kort: In de base64 string worden bepaalde charackters aangepast. Deze worden veranderd door de javascript replaceAll. Aangepaste chars:
-
-|Old|New|
-|-|-|
-|{|r|
-|(|t|
-|)|y|
-|\[|u|
-|}|i|
-
-Om dit weer terug te zetten, gooi ik de base64 string in het bestand *base*:
-```bash
-cat base | sed 's|{|r|g ; s|(|t|g ; s|)|y|g ; s|\[|u|g ; s|}|i|g' | base64 -d > changed_base
-```
-
-Dit *changed_base* bestand geeft een nieuwe base64 string en een uitleg:
-> // find some library to gunzip this image
-// var gunzipped = gunzip(data)
-// PNG.open(gunzipped)
-
-Ik weet nu dat de decoded base64 een gunzip bestand is. Om het simpeler te houden pipe ik het naar een nieuw bestand (zonder de uitleg) en noem ik het *weird.gz*:
-```bash
-cat changed_base | base64 -d > weird.gz
-```
-
-Unpack dit bestand:
-```bash
-gzip -d weird.gz
-```
-
-geeft een PNG bestand *weird* met de tekst:
-JSCU{IS_NFT_ASCII_ART_A_THING}
-
---------
+----------------
 ## Grep
-Een eigen statisch gecompileerd *grep* programma is gegeven. Om te kijken of er belangrijke strings in het programma zit, gebruik ik *strings* en zoek ik naar *JSCU*:
+Een eigen statisch gecompileerd *grep* programma is gegeven. Om te kijken of er belangrijke tekst in het programma zit, gebruik ik *strings* en zoek ik naar *JSCU*:
 
-```baash
+```bash
 strings grep | /usr/bin/grep -i jscu
 ```
 
-Dit geeft de flag: 
-JSCU{y0u_can_gRep_wHat3v3r_y0u_l1k3}
+Dit geeft de flag: JSCU{y0u_can_gRep_wHat3v3r_y0u_l1k3}
 
---------
+----------------
 ## Firmware encryptie
--
+x
 
-
-
-
-
---------
+----------------
 ## Password dump
-Een bestand met hashes. Laten we ze kraken. het lijkt om NTLM hashes. Eerste deel lijkt echter op standaard null passwords. (in hindsight:) eerst gebruikte ik de *rockyou.txt* lijst, die erop duidde dat elke hash 1 charakter is. Dus maak ik een password bestand aan met alle charakters van ascii:
+Een bestand met hashes. Het lijkt op NTLM hashes. (In hindsight:) eerst gebruikte ik de *rockyou.txt* lijst, die erop duidde dat elke hash 1 charakter is. Dus maakte ik een password bestand aan met alle charakters van ascii:
+
 > ! " # $ % & ' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ _ \` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~
 
-Ik gebruik dit bestand om ze te kraken:
+Te kraken:
+
 ```bash
-hashcat -m 1000 hash charlist --potfile-disable
+hashcat -m 1000 hashes charlist --potfile-disable
 ```
 
-geeft met duplicaten:
+Geeft de waardes:
 
 |Hash|Password|
 |--|--|
@@ -123,20 +82,21 @@ geeft met duplicaten:
 |0A9195A4BF04D808D098CF44A165186E|h|
 |0165B3D4BCC42E2883323B72AEAE32E2|}|
 
-En dat geeft de flag:
-JSCU{pAss_m3_th3_h4sh}
+En dat geeft de flag: JSCU{pAss_m3_th3_h4sh}
 
 P.S. het eerste wachtwoord was niet gekraakt. Als je het LM hash online op crackstation gooit krijg je ww: *asdjfkl*
 
---------
+----------------
 ## Yara
 Hier zie je een yara regel met 3 variabelen in hex. Decoded key2 geeft met
+
 ```bash
 cat key2 | xxd -p -r
 ```
-de flag: JSCU{hEx_eNc0d1nG_rULeSSS}
 
---------
+De flag: JSCU{hEx_eNc0d1nG_rULeSSS}
+
+----------------
 ## Trololo
 Benieuwd of dit een standaard audio CTF is. Open het audio bestand in *audacity*, en zie in spectrogram niks geks. Echter als ik het nummer luister hoor ik na 1 minuut gekke hoge pitch geluiden. Als ik in de spectogram settings de max frequenties verhoog, verschijnt de flag in beeld:
 
@@ -144,9 +104,13 @@ Benieuwd of dit een standaard audio CTF is. Open het audio bestand in *audacity*
 
 De flag: JSCU{BEST_SONG_EVER}
 
---------
+----------------
 ## Emoji
-Wat een irritante opdracht. Nou dan krijg je ook het antwoord. na een lange tijd research gedaan te hebben vond ik een website voor emoji cyphers. Alle emojis van het bestand gaven hiermee het volende in hex:
+Na een lange tijd research gedaan te hebben, vond ik een website voor emoji cyphers:
+
+> https://emoji-cypher.netlify.app/
+
+Alle emojis van het bestand gaven hiermee het volende in hex:
 
 > \\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x67\\x67\\x4d\\x7a\\x49\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x6b\\x67\\x4e\\x44\\x67\\x67\\x4e\\x44\\x6b\\x3d
 
@@ -170,12 +134,93 @@ Dit geeft:
 
 Wat binair staat voor: JSCU{SO_EMOJIONAL}
 
---------
+----------------
 ## ICMP
-In *Wireshark* zie ik alleen ICMP packets. Deze hebben echter veel data hebben, en is volgens mij niet standaard is. Hier zit vast iets geks in. Om deze data te zien en om er mee te spelen gebruik ik *tshark* met *xxd -p -r* om deze data van hex naar ascii te veranderen. Dit laat een base64 string zien. *base64 -d -i* laat eerste bytes zien dat het om een PNG bestand gaat. Alle commands:
+In *Wireshark* zie ik alleen ICMP packets. Deze hebben echter veel data hebben, en is volgens mij niet standaard. Hier zit vast iets geks in. Om deze data te zien en om er mee te spelen gebruik ik *tshark* met *xxd -p -r* om deze data van hex naar ascii te veranderen. Dit geeft een base64. Dit decoded laat zien met de eerste signature/magic bytes dat het om een PNG bestand gaat. Alle commands:
 
 ```bash
 tshark -r icmp.pcap -T fields -e data | xxd -p -r | base64 -d -i > file.png
 ```
 
-Dit geeft de flag: JSCU{NO_PLACE_LIKE_LOCALHOST}
+Het plaatje geeft de flag weer: JSCU{NO_PLACE_LIKE_LOCALHOST}
+
+----------------
+## Extra 1) JavaScript bestand
+Tijdens het bekijken van de source code viel me op dat er javacript code tussen script tags zit. Echter heeft het ook een src=javascript attribute. Bij het bekijken van het javascript bestand zit er nog wat extras:
+
+> var f14g_rev = "\==QfzMzcfV3T591RuFDa0NjclZVZfR3U1JFdfRHMu9FMktXVDNlS";
+   var f14g = f14g_rev.split().reverse().join()
+ 
+ ```bash
+ echo -n "==QfzMzcfV3T591RuFDa0NjclZVZfR3U1JFdfRHMu9FMktXVDNlS" | rev | base64 -d
+ ```
+
+Dit geeft de flag: JSCU{d0_n0t_tRuSt_eVer3th1nG_yOu_s33}
+
+----------------
+## Extra 2) JavaScript tags & base64
+Om er niet te diep op in te gaan, de source code had twee plekken met script tags waar veel werd gewerkt met functions, variabelen en base64. Het meest opvallende was de script tag die gebruikt werkt bij de div *winnerwinner*, die eerder al besproken is. Hierin zit een try catch block, waarbij de try de gegeven message weergeeft, en de catch block niet wordt gebruikt. 
+
+in deze catch block zit een base64 string die, als je de omliggende variabelen en functies niet gebruikt, niet te decoden valt.
+
+Lang verhaal kort: Door deze functies worden bepaalde charakters van de base64 string veranderd. Deze worden veranderd door de javascript replaceAll. Aangepaste chars:
+
+|Old|New|
+|-|-|
+|{|r|
+|(|t|
+|)|y|
+|\[|u|
+|}|i|
+
+Om dit weer terug te zetten, gooi ik de base64 string in het bestand *base*:
+
+```bash
+cat base | sed 's|{|r|g ; s|(|t|g ; s|)|y|g ; s|\[|u|g ; s|}|i|g' | base64 -d > changed_base
+```
+
+Dit *changed_base* bestand geeft een nieuwe base64 string en een uitleg:
+
+> // find some library to gunzip this image
+// var gunzipped = gunzip(data)
+// PNG.open(gunzipped)
+
+Ik weet nu dat de decoded base64 een gunzip bestand is. Om het simpel te houden pipe ik het naar een nieuw bestand (zonder de uitleg) en noem ik het *weird.gz*:
+
+```bash
+cat changed_base | base64 -d > weird.gz
+```
+
+Unpack dit bestand:
+
+```bash
+gzip -d weird.gz
+```
+
+Dit geeft een PNG bestand *weird* met de tekst: JSCU{IS_NFT_ASCII_ART_A_THING}
+
+----------------
+## Extra 3 & 4) HTTP headers
+De website en andere benodigde bestanden worden opgevraagd en meegegeven met de volgende response headers:
+
+JSCU-Flag: SlNDVXtuMWNlX0gzNGQzUnNfZHVkM30=
+PHPSESSID: U2xORFZYdGtNRjl1TUhSZlpqQnlaek4wWDAweklTRWhmUT09
+
+Deze geven met:
+
+```bash
+echo -n "SlNDVXtuMWNlX0gzNGQzUnNfZHVkM30=" | base64 -d
+echo -n "U2xORFZYdGtNRjl1TUhSZlpqQnlaek4wWDAweklTRWhmUT09" | base64 -d | base64 -d
+```
+
+JSCU-Flag: JSCU{n1ce_H34d3Rs_dud3}
+PHPSESSID: JSCU{d0_n0t_f0rg3t_M3!!!}
+
+----------------
+## Extra 5) robot.txt
+De websit heeft een /robots.txt bestand. Deze geeft:
+
+> User-agent: *
+Disallow: /plz_do_not_index_me.txt
+
+De gegeven txt bestand geeft de flag: JSCU{i_h4s_b33n_iNd3x3d}
