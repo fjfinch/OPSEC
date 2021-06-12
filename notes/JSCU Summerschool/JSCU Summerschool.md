@@ -1,32 +1,38 @@
 # JSCU Summerschool
 ## Inhoud
-* [x] Email achterhalen
-* [x] Grep
-* [ ] Firmware encryptie
-* [x] Password dump
-* [x] Yara
-* [x] Trololo
-* [x] Emoji
-* [x] ICMP
-* [x] Extra 1) JavaScript bestand
-* [x] Extra 2) JavaScript tags & base64
-* [x] Extra 3 & 4) HTTP headers
-* [x] Extra 5) robot.txt
+Email:
+* Email achterhalen
+
+Projecten:
+* Grep
+* Firmware encryptie
+* Password dump
+* Yara
+* Trololo
+* Emoji
+* ICMP
+
+Extra:
+* JavaScript bestand
+* JavaScript tags
+* HTTP headers (JSCU-Flag & PHPSESSID)
+* robots.txt
+* CSS
+* DNS
 
 ----------------
 ## Email achterhalen
-De webpagina heeft een div genaamd *winnerwinner*. Op de webpagina wordt deze afgebeeld met het stuk teskst: *Hier klikken*, die met een alert method wat weergeeft. Als je er op drukt:
+De webpagina heeft een div genaamd *winnerwinner*. Op de webpagina staat een stuk met *Hier klikken* die een melding geeft als je er op drukt:
 
 > Stuur je CV en write-up naar ROT13(fhzzrefpubby@zvaomx.ay)
 
-Dit terug te decoderen:
+Dit te decoderen:
 
 ```bash
 echo -n "fhzzrefpubby@zvaomx.ay" | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 
-Geeft het emailadres: summerschool@minbzk.nl
-Wat klopt, want dit emailadres wordt beheert door SSC-ICT van rijksoverheid.
+Geeft het emailadres: summerschool@minbzk.nl. Wat klopt, want dit emailadres wordt beheert door SSC-ICT van rijksoverheid.
 
 ----------------
 ## Grep
@@ -91,7 +97,7 @@ P.S. het eerste wachtwoord was niet gekraakt. Als je het LM hash online op crack
 Hier zie je een yara regel met 3 variabelen in hex. Decoded key2 geeft met
 
 ```bash
-cat key2 | xxd -p -r
+xxd -p -r key2
 ```
 
 De flag: JSCU{hEx_eNc0d1nG_rULeSSS}
@@ -126,7 +132,7 @@ Dit decoded geeft(?):
 Per toeval zag ik dat er telkens 8 charackters tussen de 2'en zitten, wat hint naar een byte van 8 bits. En de I leek op een 1. Dus laat ik die charakters omzetten naar bytes en dan naar ascii:
 
 ```bash
-cat hii | sed 's|2||g ; s|H|0|g ; s|I|1|g'
+sed 's|2||g ; s|H|0|g ; s|I|1|g' hii
 ```
 
 Dit geeft:
@@ -145,7 +151,7 @@ tshark -r icmp.pcap -T fields -e data | xxd -p -r | base64 -d -i > file.png
 Het plaatje geeft de flag weer: JSCU{NO_PLACE_LIKE_LOCALHOST}
 
 ----------------
-## Extra 1) JavaScript bestand
+## JavaScript bestand
 Tijdens het bekijken van de source code viel me op dat er javacript code tussen script tags zit. Echter heeft het ook een src=javascript attribute. Bij het bekijken van het javascript bestand zit er nog wat extras:
 
 > var f14g_rev = "\==QfzMzcfV3T591RuFDa0NjclZVZfR3U1JFdfRHMu9FMktXVDNlS";
@@ -158,7 +164,7 @@ Tijdens het bekijken van de source code viel me op dat er javacript code tussen 
 Dit geeft de flag: JSCU{d0_n0t_tRuSt_eVer3th1nG_yOu_s33}
 
 ----------------
-## Extra 2) JavaScript tags & base64
+## JavaScript tags
 Om er niet te diep op in te gaan, de source code had twee plekken met script tags waar veel werd gewerkt met functions, variabelen en base64. Het meest opvallende was de script tag die gebruikt werkt bij de div *winnerwinner*, die eerder al besproken is. Hierin zit een try catch block, waarbij de try de gegeven message weergeeft, en de catch block niet wordt gebruikt. 
 
 in deze catch block zit een base64 string die, als je de omliggende variabelen en functies niet gebruikt, niet te decoden valt.
@@ -176,7 +182,7 @@ Lang verhaal kort: Door deze functies worden bepaalde charakters van de base64 s
 Om dit weer terug te zetten, gooi ik de base64 string in het bestand *base*:
 
 ```bash
-cat base | sed 's|{|r|g ; s|(|t|g ; s|)|y|g ; s|\[|u|g ; s|}|i|g' | base64 -d > changed_base
+sed 's|{|r|g ; s|(|t|g ; s|)|y|g ; s|\[|u|g ; s|}|i|g' base | base64 -d > changed_base
 ```
 
 Dit *changed_base* bestand geeft een nieuwe base64 string en een uitleg:
@@ -188,7 +194,7 @@ Dit *changed_base* bestand geeft een nieuwe base64 string en een uitleg:
 Ik weet nu dat de decoded base64 een gunzip bestand is. Om het simpel te houden pipe ik het naar een nieuw bestand (zonder de uitleg) en noem ik het *weird.gz*:
 
 ```bash
-cat changed_base | base64 -d > weird.gz
+base64 -d changed_base > weird.gz
 ```
 
 Unpack dit bestand:
@@ -200,7 +206,7 @@ gzip -d weird.gz
 Dit geeft een PNG bestand *weird* met de tekst: JSCU{IS_NFT_ASCII_ART_A_THING}
 
 ----------------
-## Extra 3 & 4) HTTP headers
+## HTTP headers (JSCU-Flag & PHPSESSID)
 De website en andere benodigde bestanden worden opgevraagd en meegegeven met de volgende response headers:
 
 JSCU-Flag: SlNDVXtuMWNlX0gzNGQzUnNfZHVkM30=
@@ -217,10 +223,46 @@ JSCU-Flag: JSCU{n1ce_H34d3Rs_dud3}
 PHPSESSID: JSCU{d0_n0t_f0rg3t_M3!!!}
 
 ----------------
-## Extra 5) robot.txt
-De websit heeft een /robots.txt bestand. Deze geeft:
+## robots.txt
+De website heeft een /robots.txt bestand. Deze geeft:
 
 > User-agent: *
 Disallow: /plz_do_not_index_me.txt
 
 De gegeven txt bestand geeft de flag: JSCU{i_h4s_b33n_iNd3x3d}
+
+----------------
+## CSS
+Er bleek ook iets verstopt te zitten in het CSS betand:
+
+![[Pasted image 20210612155620.png]]
+
+Dit decoded:
+
+```bash
+echo -n "JJJUGVL3MNZXG43TONZXG43INBUGQX3IGFSGS3THL4YW4X3TKR4WYM35" | base32 -d
+```
+
+Geeft de flag: JSCU{csssssssshhhh_h1ding_1n_sTyl3}
+
+----------------
+## DNS
+Bij het bekijken van DNS van *summerschool.sh* vond ik aardig wat queries, waaronder een txt type:
+
+Command:
+
+```bash
+dig summerschool.sh ANY
+```
+
+TXT type in de output: 
+
+> summerschool.sh.        86400   IN      TXT     "SlNDVXtqdXN0X2QxZ19tM30="
+
+Dit decoded:
+
+```bash
+echo -n "SlNDVXtqdXN0X2QxZ19tM30=" | base64 -d
+```
+
+Geeft de flag: JSCU{just_d1g_m3}
