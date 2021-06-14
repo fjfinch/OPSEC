@@ -167,7 +167,7 @@ Dit geeft de flag: JSCU{d0_n0t_tRuSt_eVer3th1nG_yOu_s33}
 ## JavaScript tags
 Om er niet te diep op in te gaan, de source code had twee plekken met script tags waar veel werd gewerkt met functions, variabelen en base64. Het meest opvallende was de script tag die gebruikt werkt bij de div *winnerwinner*, die eerder al besproken is. Hierin zit een try catch block, waarbij de try de gegeven message weergeeft, en de catch block niet wordt gebruikt. 
 
-in deze catch block zit een base64 string die, als je de omliggende variabelen en functies niet gebruikt, niet te decoden valt.
+In deze catch block zit een base64 string die, als je de omliggende variabelen en functies niet gebruikt, niet te decoden valt.
 
 Lang verhaal kort: Door deze functies worden bepaalde charakters van de base64 string veranderd. Deze worden veranderd door de javascript replaceAll. Aangepaste chars:
 
