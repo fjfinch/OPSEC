@@ -1,15 +1,6 @@
-# Info
-AD Fundementals: 
-https://www.pcwdld.com/active-directory-guide
-
-ADUC Fundementals: 
-https://www.varonis.com/blog/active-directory-users-and-computers/
-http://www.yourhowto.nl/?page_id=43
-https://www.pcwdld.com/active-directory-guide
-
-
-
-
+# AD Info
+Passwords in SYSVOL also known as GPP Passwords
+LLMNR Spoofing
 
 
 AD
@@ -28,31 +19,49 @@ AD
 			Attributes
 			Delegate Control
 
+Service account
+	Managed service account (MSA)
+		sMSA
+		gMSA
+	Computer account
+	User account
+		Domain user account
+		Local user account
+
+## User Naming Attributes
+* userPrincipalName - the logon name for the user
+* objectGUID - the unique identifier of a user
+* sAMAccountName - a logon name that supports previous version of Windows
+* objectSID - security identifier (SID) of the user
+* sIDHistory - the previous SIDs for the user object
+
+#### Domain & computers
+NetBIOS name
+DNS name
+
+#### Users
+Down-level logon name:
+NetBios_DOMAIN/samAccountName
+legacy systems - backwards compatible - used for local signon
+20 chars long
+
+User Principal Name (UPN):
+userPrincipalName@DNS_DOMAIN_NAME
+Useful in multi-domain 
+Reflects email style
+
+## Common services used in AD
 LDAP
 	Kerberos vs NTLM?
 	SASL
-	SSL
-	DNS
 	DHCP
 	not SAML and RADIUS
 
-ObjectGUID
-ObjectSID
-
-UserPrincipalName (UPN)
-SAMAccountName
-
-
-Service account
-sMSA
-gMSA
-
-## Common services used in AD
 |Service|port|
 |-|-|
 |DNS|53|
-|Kerberos|88|
-|RPC|135| 
+|Kerberos-kpasswd|88-464|
+|RPC-HTTP enpoint mapper|135-593| 
 |NetBios|137-138-139|
 |LDAP-tls|389-636|
 |SMB|445|
@@ -69,8 +78,7 @@ fir.las
 ## Calculate NTLM hash
 ```Python
 import hashlib,binascii
-hash = hashlib.new('md4', "password".encode('utf-16le')).digest()
-print binascii.hexlify(hash)
+print(binascii.hexlify(hashlib.new('md4', "<PASSWORD>".encode('utf-16le')).digest()))
 ```
 
 ## Password policy
