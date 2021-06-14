@@ -1,4 +1,52 @@
 # Info
+AD Fundementals: 
+https://www.pcwdld.com/active-directory-guide
+
+ADUC Fundementals: 
+https://www.varonis.com/blog/active-directory-users-and-computers/
+http://www.yourhowto.nl/?page_id=43
+https://www.pcwdld.com/active-directory-guide
+
+
+
+
+
+
+AD
+	ADUC
+		Objects
+			User account
+				Domain user account
+				Local user account
+			Computer account
+			Groups
+				Security Group
+				Distribution Group
+			Shares
+			Printers
+			Organizational Units (OU)
+			Attributes
+			Delegate Control
+
+LDAP
+	Kerberos vs NTLM?
+	SASL
+	SSL
+	DNS
+	DHCP
+	not SAML and RADIUS
+
+ObjectGUID
+ObjectSID
+
+UserPrincipalName (UPN)
+SAMAccountName
+
+
+Service account
+sMSA
+gMSA
+
 ## Common services used in AD
 |Service|port|
 |-|-|

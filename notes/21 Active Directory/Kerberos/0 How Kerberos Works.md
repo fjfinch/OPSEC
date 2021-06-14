@@ -2,6 +2,19 @@
  Kerberos uses shared keys for authentication. (Not authorization)
 	In a Windows domain this is the NTLM hash
 
+The Key Distribution Center (KDC)
+The KDC service is the core of the Kerberos server that issues all the tickets. The service runs on all Active Directory domain controllers. When an AD client authenticates with KDC, it issues a TGT.
+Ticket Granting Ticket (TGT)
+It is an authentication file that contains the user’s IP, a validity period, and a TGT session key. The TGT is encrypted during the Kerberos authentication procedure.
+The Ticket Granting Service (TGS)
+This service provides the TGTs and other tickets to the systems.
+
+![[Pasted image 20210612194950.png]]
+
+
+
+
+
 DC (Domain Controller)
 	KDC (Key Distribution Center)
 		AS (Authentication Server)
