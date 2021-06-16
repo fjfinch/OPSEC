@@ -1,7 +1,7 @@
 # JSCU Summerschool
 ## Inhoud
 Email:
-* Email achterhalen
+* Achterhalen email
 
 Projecten:
 * Grep
@@ -21,7 +21,7 @@ Extra:
 * DNS
 
 ----------------
-## Email achterhalen
+## Achterhalen email
 De webpagina heeft een div genaamd *winnerwinner*. Op de webpagina staat een stuk met *Hier klikken* die een melding geeft als je er op drukt:
 
 > Stuur je CV en write-up naar ROT13(fhzzrefpubby@zvaomx.ay)
@@ -169,7 +169,9 @@ Om er niet te diep op in te gaan, de source code had twee plekken met script tag
 
 In deze catch block zit een base64 string die, als je de omliggende variabelen en functies niet gebruikt, niet te decoden valt.
 
-Lang verhaal kort: Door deze functies worden bepaalde charakters van de base64 string veranderd. Deze worden veranderd door de javascript replaceAll. Aangepaste chars:
+Lang verhaal kort: Door deze functies worden bepaalde charakters van de base64 string veranderd. Deze worden veranderd door de javascript replaceAll. 
+
+Aangepaste chars:
 
 |Old|New|
 |-|-|
@@ -271,4 +273,4 @@ Geeft de flag: JSCU{just_d1g_m3}
 
 ----------------
 ## VRAAG
-Is het mogelijk om de antwoorden van alle flags te krijgen? Ook leuk om te zien of ik iets heb gemist. Wat waarschijnlijk zo is :)
+Is het mogelijk om de antwoorden van alle flags te krijgen? Leuk om te zien of ik iets heb gemist. Wat waarschijnlijk zo is :)
