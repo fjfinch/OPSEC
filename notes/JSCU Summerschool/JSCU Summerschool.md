@@ -266,3 +266,7 @@ echo -n "SlNDVXtqdXN0X2QxZ19tM30=" | base64 -d
 ```
 
 Geeft de flag: JSCU{just_d1g_m3}
+
+----------------
+## VRAAG
+Is het mogelijk om de antwoorden van alle flags te krijgen? Ook leuk om te zien of ik iets heb gemist. Wat waarschijnlijk zo is :)
