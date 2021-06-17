@@ -61,10 +61,20 @@ Name:	Bob Brown
 Pass:	Password4!
 pet:pet city:city nickname:nickname
 
-Domain user
+Domain user - bruteforceable
 Full name: Clalk Cohen
 User: clark.cohen
 Pass: Password5!
+
+Domain user - bruteforceable & NO_PREAUTH
+Full name: Daniel Davis
+User: daniel.davis
+Pass: Password6!
+
+Service account - bruteforceable & NO_PREAUTH
+Full name: testservice
+User: testservice
+Pass: Password7!
 
 ## Other ToDo
 SAM (older/used local) vs UPN login

