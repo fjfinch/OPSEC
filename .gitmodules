@@ -13,3 +13,6 @@
 [submodule "tools/evil-winrm"]
 	path = tools/evil-winrm
 	url = https://github.com/Hackplayers/evil-winrm.git
+[submodule "tools/impacket"]
+	path = tools/impacket
+	url = https://github.com/SecureAuthCorp/impacket.git
