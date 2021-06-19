@@ -11,6 +11,12 @@ Weaponized LNK
 local & remote Rubeus
 local powershell
 
+Get TGT ticket
+This Python kerbrute uses TCP, not UDP.
+
+`python3 kerbrute.py -dc-ip <IP> -domain <DOMAIN> -user <USER> -password <PASS>`
+
+
 AD
 	ADUC
 		Objects
@@ -59,11 +65,10 @@ Useful in multi-domain
 Reflects email style
 
 ## Common services used in AD
-LDAP
-	Kerberos vs NTLM?
-	SASL
-	DHCP
-	not SAML and RADIUS
+Kerberos vs NTLM?
+SASL
+DHCP
+not SAML and RADIUS
 
 |Service|port|
 |-|-|

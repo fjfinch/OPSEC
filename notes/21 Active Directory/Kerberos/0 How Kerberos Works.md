@@ -1,32 +1,59 @@
 # How Kerberos Works
- Kerberos uses shared keys for authentication. (Not authorization)
-	In a Windows domain this is the NTLM hash
+Pass The Ticket - Ticket Dump
+Pass The Hash
+ 
+what to use tickets for
+export KRB5CCNAME=/root/impacket-examples/velociraptor.ccache
+python psexec.py jurassic.park/velociraptor@labwws02.jurassic.park -k -no-pass
+smbexec.py
+wmiexec.py
+PsExec
 
-DC (Domain Controller)
-	KDC (Key Distribution Center)
-		AS (Authentication Server): request TGT (Ticket Granting Ticket)
-		TGS (Ticket Granting Server): request ST (Service Ticket)
-AP (Application Server): Services on AD
+Kerberos uses shared keys for authentication. (Not authorization). In a Windows domain this is the NTLM hash. 
+ 
+(Secret) Key -> hash(password+salt)
+Tickets are encrypted with secret key (cached on systems for SSO)
 
-![[Pasted image 20210612194950.png]]
+* DC (Domain Controller)
+	* KDC (Key Distribution Center)
+		* AS (Authentication Server): for TGT (Ticket Granting Ticket)
+		* TGS (Ticket Granting Server): for ST (Service Ticket)
+* AP (Application Server): services on AD
 
-1) User to AS: I need a TGT to authenticate myself.
-	-> User: AS-REQ - Encrypted request with user hash
-	<- AS: AS-REP - Can decrypt it with user hash. Here is TGT encrypted with krbtgt hash and then your hash
+PAC (Privileged Attribute Certificate): List of useful information about a user’s privileges
 
-2) User to TGS: I need a ST to communicate with other APs on domain
-	-> User: TGS-REQ - Here is the TGT. I want a ST for a service
-	<- TGS: TGS-REP - I can decrypt TGT with your hash and my hash. Here is ST encryped with service account hash and your hash
+SPN (Service Principal Names): Mapping between service and a service account. Two types in AD:
+* “host-based” SPN: computer account - tent to be uncrackable
+* “arbitrary” SPN: user account
+
+![KDC](kdc.png)
+
+1) User to AS: I need to authenticate myself and need a TGT
+	* User: AS-REQ - this is me!
+
+	* AS: PREAUTH_FAILED - user w pre-auth is in database. Need a timestamp encrypted by user key
+	* User: AS-REQ - this is me, with the timestamp encrypted with my user key
+	* AS: AS-REP - I give you:
+		* TGT (including client/TGS session key) encrypted with TGS key **(NOT USEABLE?)**
+		* Client/TGS session key encrypted with user key
+			* Depends on hash type if crackable - use impacket-GetNPUsers
+
+	* AS: AS-REP - user wo pre-auth is in database. I give you:
+		* TGT (including client/TGS session key) encrypted with TGS key **(NOT USEABLE?)**
+		* Client/TGS session key encrypted with user key
+			* Depends on hash type if crackable - AS-REP Roasting
+
+	* AS: PRINCIPAL_UNKNOWN - user is not in database
+
+2) User to TGS: I need a ST to communicate with another service on domain
+	* User - TGS-REQ: Here is a TGT + an authenticator encrypted with client/TGS session key. I want a ST for a service
+	* TGS - TGS-REP: Can decrypt TGT with my key, and decrypt the authenticator with client/TGS session key. I give you:
+		* ST (including client/server session key) encrypted with services key *and DC hash*
+		* Client/server session key encrypted with client/TGS session key
 
 3) User to AP: I want to use your services
-	-> User: AP_REQ - Here is a service ticket
-	<- Service: AP_REP - I can decrypt it, it checks out. You may communicate
-
-Service Principal Names (SPNs) determines service account with service to encrypt the service ticket with hash. Two “types” in AD: 
-	“host-based” SPN: domain computer account 
-		tent to be uncrackable
-	“arbitrary” SPN: account
-
+	* User - AP_REQ: Here is a ST, and an authenticator encrypted with client/server session key
+	* Service - AP_REP: I can decrypt ST with my key, and decrypt the authenticator with client/server session key. MIGHT check PAC with DC. You may communicate
 
 https://ludovic-cyber-sec.netlify.app/attacking-kerberos-tryhackme
 https://www.tarlogic.com/en/blog/how-to-attack-kerberos/
