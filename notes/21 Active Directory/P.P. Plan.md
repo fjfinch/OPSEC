@@ -7,15 +7,23 @@
 	2. Good & bad practices
 3. Experts benaderen over Windows AD hacken
 	1. Werk
+		1. Dirk-jan (Fox-IT)
+		2. Cas (Deloitte)
 	2. School
+		1. Daniel
 4. Een Windows omgeving opzetten
 	1. Windows server (DC)
 	2. Windows hosts
+	3. Users
+	4. Shares & others
 5. Kwetsbaarheden opzoeken & per kwetsbaarheid op AD testen
 	1. Wat is de kwetsbaarheid?
-	2. Wanneer werkt de kwetsbaarheid?
-	3. Waarom werkt de kwetsbaarheid?
-	4. Tools used
+	2. Wanneer werkt de kwetsbaarheid (welke opties, bad practice)?
+	3. Waarom werkt de kwetsbaarheid (waarom bestaat het nog en is het niet gepatched)?
+	4. Wat te zien op het netwerk - Wireshark
+	5. Tools used
+		1. Hoe te benaderen remote (linux)
+		2. Hoe te benaderen local (windows)
 
 ## AD opzet
 1. Setup Server & hosts on VM:
@@ -47,48 +55,11 @@
 	1. Add domain to computer
 
 Set password lockout policy
-
-
-## Test AD creds
-Root domain name: opsec.test
-NetBios domain name: OPSEC
-
-DC01 DSRM Pass:	Password2!
-
-DC01 domain administrator
-User:	Administrator
-Pass:	Password1!
-
-Host02 local user/admin
-Name:	Bob Brown
-Pass:	Password4!
-pet:pet city:city nickname:nickname
-
-Domain user
-Full name: Clalk Cohen
-User: clark.cohen
-Pass: Password5!
-
-Domain user - NO_PREAUTH
-Full name: Daniel Davis
-User: daniel.davis
-Pass: Password6!
-
-Service account
-Full name: testservice
-User: testservice
-Pass: Password7!
-
-Domain user - NO_PREAUTH
-Full name: Emily Ernst
-User: emily.ernst
-Pass: Password8!
+Add shares
+Add service account
 
 ## Other ToDo
-SAM (older/used local) vs UPN login
-NetBios name vs DNS/computer name 
-http://blog.schertz.name/2012/08/understanding-active-directory-naming-formats/
-
 dekstop computer not synced for domain users
 local admins nessecary? LAPS?
 No DHCP server
+Domain/local users folder exist on system after user deletion?

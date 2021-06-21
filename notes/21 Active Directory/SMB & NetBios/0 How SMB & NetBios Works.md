@@ -18,4 +18,3 @@ Windows host/computer name (64bytes) != NetBios name (15bytes)
 |tivoli, tmersrvd|tivoli, tmersrvd, admin|
 |backupexec, backup|backupexec, backup, arcada|
 |test, lab, demo|password, test, lab, demo|
-

