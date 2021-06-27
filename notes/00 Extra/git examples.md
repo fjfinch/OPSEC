@@ -1,4 +1,4 @@
-# GLOBAL GIT CONFIG
+## GLOBAL GIT CONFIG
 `git config --list`
 `git config --global --list`
 
@@ -9,7 +9,7 @@
 `git config --global init.defaultBranch <BRANCH_NAME>`
 	no) master	yes) main
 
-# GIT LOCAL REPOSITORY
+## GIT LOCAL REPOSITORY
 `git init`
 
 `git status`
@@ -26,7 +26,7 @@
 
 `git branch -M master`
 
-# GITHUB REMOTE REPOSITORY
+## GITHUB REMOTE REPOSITORY
 `git remote add origin <URL>`
 
 `git remote get-url origin`

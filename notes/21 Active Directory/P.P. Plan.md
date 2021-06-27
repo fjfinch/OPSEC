@@ -57,9 +57,3 @@
 Set password lockout policy
 Add shares
 Add service account
-
-## Other ToDo
-dekstop computer not synced for domain users
-local admins nessecary? LAPS?
-No DHCP server
-Domain/local users folder exist on system after user deletion?

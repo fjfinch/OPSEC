@@ -71,9 +71,23 @@ f.last
 firlas
 fir.las
 
+Possible usernames can be calculated with username-anarchy:
+
+`username-anarchy -i <NAMESLIST>`
+
 ---
 
-## Windows credentials
+## Windows authentication
+Windows uses multiple authentication suites/protocols. Most important are NTLM authentication (LM authentication, NTLMv1, NTLMv2 and NTLM2 Session) and kerberos authentication.
+
+NTLM authentication is a family of authentication protocols that are encompassed in the Windows Msv1_0.dll. The NTLM authentication protocols include LM version 1 and 2, and NTLM version 1 and 2. The NTLM authentication protocols authenticate users and computers based on a challenge/response mechanism that proves to a server or domain controller that a user knows the password associated with an account.
+
+Kerberos authentication is the preferred authentication method for Active Directory environments.
+
+A Windows hash consists of 2 parts: LM:NT. NTLM and Kerberos all use the NT hash, also known as the Unicode hash. LM authentication uses the LM hash:
+* LM hash: 2 parts DES. Stored for backward compatibility reasons. No longer need it
+* NT hash: MD4 hash
+
 SAM: password hashes local account - pass the hash - NTLM
 	encrypted with SYSTEM bootkey
 SECURITY: cached domain credentials - logged on host
@@ -86,12 +100,7 @@ LSASS process from memory: clear-text passwords from logged on users, kerberos t
 Credential Manager
 Protected Storage
 
-#### NTLM/NT hash
-Windows hash consists of: LM:NTLM
-LM (LAN Manager): 2 parts DES. Stored for backward compatibility reasons. No longer need it
-NTLM (NT LAN Manager)/NT: MD4 hash
-
-#### Calculate NTLM/NT hash
+#### Calculate NT hash
 ```Python
 import hashlib,binascii
 print(binascii.hexlify(hashlib.new('md4', "<PASSWORD>".encode('utf-16le')).digest()))

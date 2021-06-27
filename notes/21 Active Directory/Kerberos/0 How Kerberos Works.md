@@ -1,9 +1,7 @@
 # How Kerberos Works
-Kerberos uses shared keys for authentication. (Not authorization). In a Windows domain this is the NTLM hash. 
- 
-(Secret) Key -> hash(password+salt)
-Tickets are encrypted with secret key (cached on systems)
+Kerberos uses keys for authentication. (Not authorization). A secret key is the hash (probably the NT hash) of an users password. Tickets are encrypted with the secret key (and cached on systems).
 
+Servers within AD:
 * DC (Domain Controller)
 	* KDC (Key Distribution Center)
 		* AS (Authentication Server): for TGT (Ticket Granting Ticket)
@@ -12,9 +10,9 @@ Tickets are encrypted with secret key (cached on systems)
 
 PAC (Privileged Attribute Certificate): List of useful information about a user’s privileges
 
-SPN (Service Principal Names): Mapping between service and a service account. Two types in AD:
-* “host-based” SPN: computer account - tent to be uncrackable
-* “arbitrary” SPN: user account
+SPN (Service Principal Names): Mapping between service and a service account:
+* host-based SPN: computer account - tent to be uncrackable
+* arbitrary SPN: user account
 
 ![KDC](../../00%20Extra/screens/kdc.png)
 
@@ -43,7 +41,6 @@ SPN (Service Principal Names): Mapping between service and a service account. Tw
 3) User to AP: I want to use your services
 	* User - AP_REQ: Here is a ST, and an authenticator encrypted with client/server session key
 	* Service - AP_REP: I can decrypt ST with my key, and decrypt the authenticator with client/server session key. MIGHT check PAC with DC. You may communicate
-
 
 https://ludovic-cyber-sec.netlify.app/attacking-kerberos-tryhackme
 https://www.tarlogic.com/en/blog/how-to-attack-kerberos/

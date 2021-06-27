@@ -13,3 +13,12 @@
 [submodule "tools/evil-winrm"]
 	path = tools/evil-winrm
 	url = https://github.com/Hackplayers/evil-winrm.git
+[submodule "adidnsdump"]
+	path = adidnsdump
+	url = https://github.com/dirkjanm/adidnsdump.git
+[submodule "tools/adidnsdump"]
+	path = tools/adidnsdump
+	url = https://github.com/dirkjanm/adidnsdump.git
+[submodule "tools/username-anarchy"]
+	path = tools/username-anarchy
+	url = https://github.com/urbanadventurer/username-anarchy.git
