@@ -1,4 +1,3 @@
 # Host Enumeration
-`nbtscan -r <IP>`
-`nbtscan -v <IP>`
+`nbtscan <IP>`
 `nmblookup -A <IP>`

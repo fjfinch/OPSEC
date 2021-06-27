@@ -16,7 +16,7 @@ SPN (Service Principal Names): Mapping between service and a service account. Tw
 * “host-based” SPN: computer account - tent to be uncrackable
 * “arbitrary” SPN: user account
 
-![KDC](kdc.png)
+![KDC](../../00%20Extra/screens/kdc.png)
 
 1) User to AS: I need to authenticate myself and need a TGT
 	User: AS-REQ - this is me!
