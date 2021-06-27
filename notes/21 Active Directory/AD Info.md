@@ -1,16 +1,20 @@
 # AD Info
-Passwords in SYSVOL also known as GPP Passwords
-LLMNR/NBNS Poisoning
-	Reponder
-SMB Relay attack
-Passwords in user description
-IPv6 DNS Takeover Attacks
-Token Impersonation
-Credential Dumping with Mimikatz
-Weaponized LNK
-mimikatz
-local powershell
-local/remote
+Active Directory is the Windows implementation of a general-purpose directory service.
+
+---
+
+## Common protocols used
+|Service|port|Description|
+|-|-|-|
+|DNS|53|Host/IP translation|
+|Kerberos, kpasswd|88,464|Authentication|
+|RPC, RPC over HTTP|135, 593|Communication|
+|NetBIOS|137, 138, 139|Communication, host/IP translation|
+|LDAP, tls|389, 636|Main directory service, authorization|
+|SMB|445|Communication|
+|Global catalog LDAP, tls|3268, 3269|-|
+
+---
 
 AD Users and Computers:
 * Objects
@@ -36,16 +40,7 @@ Service account:
 	* Domain user account
 	* Local user account
 
-## Common services used in AD
-|Service|port|
-|-|-|
-|DNS|53|
-|Kerberos, kpasswd|88,464|
-|RPC, RPC over HTTP|135, 593| 
-|NetBIOS|137, 138, 139|
-|LDAP, tls|389, 636|
-|SMB|445|
-|Global catalog LDAP, tls|3268, 3269|
+---
 
 ## Domain Naming
 #### Down-level logon name
@@ -76,6 +71,7 @@ f.last
 firlas
 fir.las
 
+---
 
 ## Windows credentials
 SAM: password hashes local account - pass the hash - NTLM
@@ -101,6 +97,8 @@ import hashlib,binascii
 print(binascii.hexlify(hashlib.new('md4', "<PASSWORD>".encode('utf-16le')).digest()))
 ```
 
+---
+
 ## Exploitation
 Check:
 `crackmapexec SERVICE <IP> -u '<USER>' -p <PASS>` hash: -H
@@ -113,6 +111,8 @@ Shell:
 `psexec.py -k -no-pass -dc-ip <IP> AD/administrator@192.168.1.100`
 smbexec.py
 wmiexec.py
+
+---
 
 ## Post-exploitation
 `Bloodhound`

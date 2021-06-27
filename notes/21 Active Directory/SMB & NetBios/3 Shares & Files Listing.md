@@ -30,3 +30,6 @@ mget *
 `crackmapexec smb <IP> --shares` (null)
 `crackmapexec smb <IP> -u 'pizza' --shares` (pizza)
 `crackmapexec smb <IP> -u '<USER>' -p '<PASS>' --shares` (user)
+
+
+impacket-smbclient

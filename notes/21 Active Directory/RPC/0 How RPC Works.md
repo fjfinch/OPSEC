@@ -1,47 +1,10 @@
 # How RPC Works
-`rpcclient -U '' -N <IP>`
-`rpcclient -U '<USER>'%'<PASS>' <IP>`
-Domainname & info & SID
-        	lsaquery
-        	querydominfo
-		enumdomains
-	OS information
-		srvinfo
-	Password Policy
-        	getdompwinfo
-	Printer info
-      		enumprinters
-	Users & get SID & SID lookup
-	       	enumdomusers			(domain users & RIDs)
-	       	querydispinfo			    (accounts & RIDs)
-	       	queryuser RID			   (info domain user)
-	Groups
-	       	enumdomgroups		       (domain groups & RIDs)
-	       	querygroup RID			  (info domain group)
-	       	querygroupmem RID	     (user RID in group)
-		queryusergroups 		(user groups)
-		enumalsgroups builtin	      (builtin groups)
-      		enumalsgroups domain	   (local groups)
-	SID
-      		lsaenumsid			     (LSA SIDs)
-	       	lookupnames USERNAMES   (SID lookup)
-	       	lookupsids SID			    (name lookup)
-	Shares
-	       	netshareenumall
-	       	netsharegetinfo
+A remote procedure call (RPC) is when a computer program causes a procedure to execute in a different address space (commonly on another computer on a shared network), which is coded as if it were a normal (local) procedure call, without the programmer explicitly coding the details for the remote interaction.
 
-## Bruteforcing usernames
-`lookupsid.py -no-pass <DOMAIN>`
+Within Windows environments, many server applications are exposed via RPC. CIFS/SMB via named pipes, HTTP and TCP/UDP are used to provide access to services.
 
-## Writeable shares
-`impacket-smbclient '<DOMAIN>/<USER>:<PASS>@<IP>'`
+![KDC](rpc.png)
 
-## Enumerate info
-`impacket-samrdump '<DOMAIN>/<USER>:<PASS>@<IP>'`
-	-port 139
-	-port 445
+Named Pipes are created on the CIFS/SMB server side by applications and tools that are willing to provide specialized services. A named pipe is a logical connection, similar to a TCP session, between a client and server that are involved in a CIFS/SMB connection. The name of the pipe serves as the endpoint for communication in the same way that a port number serves as the endpoint for TCP sessions.
 
-`impacket-rpcdump '<DOMAIN>/<USER>:<PASS>@<IP>'`
-	-port 135
-	-port 139
-	-port 445
+`rpcclient` can be used to interact with individual RPC endpoints via named pipes.

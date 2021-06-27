@@ -1,8 +1,10 @@
-# Test AD Env
+# Test AD Environment
 Root domain name: opsec.test
 NetBios domain name: OPSEC
 
 DC01 DSRM Pass:	Password2!
+
+---
 
 DC01 domain administrator
 User:	Administrator
