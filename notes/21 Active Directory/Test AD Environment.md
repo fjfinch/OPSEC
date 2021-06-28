@@ -2,7 +2,7 @@
 Root domain name: opsec.test
 NetBios domain name: OPSEC
 
-DC01 DSRM Pass:	Password2!
+DC01 DSRM Pass:	Password2! (The DSRM admin is the local administrator account of the DC. Remote logon needs to be enabled first.)
 
 ---
 
