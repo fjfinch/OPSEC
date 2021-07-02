@@ -7,9 +7,7 @@ Passwords in user description
 IPv6 DNS Takeover Attacks
 	mitm6
 Token Impersonation
-Credential Dumping with Mimikatz
 Weaponized LNK
-mimikatz
 local powershell
 local/remote
 
