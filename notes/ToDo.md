@@ -9,9 +9,8 @@ IPv6 DNS Takeover Attacks
 Token Impersonation
 Weaponized LNK
 local powershell
-local/remote
 
-## AD
+## Problems
 dekstop computer not synced for domain users
 local admins nessecary? LAPS?
 No DHCP server

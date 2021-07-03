@@ -6,7 +6,7 @@ SMB (& RPC): 445 & 135
 * winexe
 
 RDP: 3389
-* impacket-rdp_check	- check creds for RDP
+* `impacket-rdp_check <DOMAIN>/<USER>:<PASS>@<IP>`	check creds for RDP
 * rdesktop 
 * xfreerdp
 * remmina

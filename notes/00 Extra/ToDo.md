@@ -8,7 +8,7 @@ Web
 		Reflected
 		Stored
 		DOM
-	Loa/Remote File Inclusion (LFI/RFI)
+	Locale/Remote File Inclusion (LFI/RFI)
 	Directory/Path Traversal
 	Cross-site request forgery (CSRF)
 	Server-side request forgery (SSRF)
@@ -16,7 +16,7 @@ Buffer Overflow
 	Windows
 	Linux
 Packaging
-		Best way to delete
+	Best way to delete
 Processes
 	Windows
 	Linux

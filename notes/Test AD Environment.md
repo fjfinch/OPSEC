@@ -4,8 +4,6 @@ NetBios domain name: OPSEC
 
 DC01 DSRM Pass:	Password2! (The DSRM admin is the local administrator account of the DC. Remote logon needs to be enabled first.)
 
----
-
 DC01 domain administrator
 User:	Administrator
 Pass:	Password1!
@@ -29,6 +27,11 @@ Domain user - NO_PREAUTH
 Full name: Emily Ernst
 User: emily.ernst
 Pass: Password8!
+
+Domain user - domain admin
+Full name: Frank Fuller
+User: frank.fuller
+Pass: Password10!
 
 Service account
 Full name: sqlaccount

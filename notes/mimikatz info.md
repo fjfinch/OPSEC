@@ -17,6 +17,7 @@ After a user logs on, a variety of credentials are generated and stored in the L
 * `sekurlsa::minidump` - Switch (or reinit) to LSASS minidump context
 * `sekurlsa::bootkey` - Set the SecureKernel Boot Key to attempt to decrypt LSA Isolated credentials
 * `sekurlsa::credman` - 
+* `sekurlsa::wdigest` - 
 
 ## kerberos
 Kerberos module enables modification of Kerberos tickets and interacts with the official Microsoft Kerberos API. No special privileges required.

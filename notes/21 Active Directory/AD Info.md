@@ -1,8 +1,6 @@
 # AD Info
 Active Directory is the Windows implementation of a general-purpose directory service.
 
----
-
 ## Common protocols used
 |Service|port|Description|
 |-|-|-|
@@ -13,34 +11,6 @@ Active Directory is the Windows implementation of a general-purpose directory se
 |LDAP, tls|389, 636|Main directory service, authorization|
 |SMB|445|Communication|
 |Global catalog LDAP, tls|3268, 3269|-|
-
----
-
-AD Users and Computers:
-* Objects
-	* User account
-		* Domain user account
-		* Local user account
-	* Computer account
-	* Groups
-		* Security Group
-		* Distribution Group
-	* Shares
-	* Printers
-	* Organizational Units (OU)
-	* Attributes
-	* Delegate Control
-
-Service account:
-* Managed service account (MSA)
-	* sMSA
-	* gMSA
-* Computer account
-* User account
-	* Domain user account
-	* Local user account
-
----
 
 ## Domain Naming
 #### Down-level logon name
@@ -75,8 +45,6 @@ Possible usernames can be calculated with username-anarchy:
 
 `username-anarchy -i <NAMESLIST>`
 
----
-
 ## Windows authentication
 Windows uses multiple authentication suites/protocols. Most important are NTLM authentication (LM authentication, NTLMv1, NTLMv2 and NTLM2 Session) and kerberos authentication.
 
@@ -88,27 +56,8 @@ A Windows hash consists of 2 parts: LM:NT. NTLM and Kerberos all use the NT hash
 * LM hash: 2 parts DES. Stored for backward compatibility reasons. No longer need it
 * NT hash: MD4 hash
 
-SAM: password hashes local account - pass the hash - NTLM
-	encrypted with SYSTEM bootkey
-SECURITY: cached domain credentials - logged on host
-SYSTEM: LSA secrets
-NTDS.DIT: user hashes on stored on DC
-	DRSUAPI or VSS
-	Kerberos keys
-LSASS process from memory: clear-text passwords from logged on users, kerberos tickets
-
-Credential Manager
-Protected Storage
-
 #### Calculate NT hash
 ```Python
 import hashlib,binascii
 print(binascii.hexlify(hashlib.new('md4', "<PASSWORD>".encode('utf-16le')).digest()))
 ```
-
----
-
-## Post-exploitation
-`Bloodhound`
-	`SharpHound` for local AD
-	`AzureHound` for Azure AD

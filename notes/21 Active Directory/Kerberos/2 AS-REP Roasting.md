@@ -4,8 +4,6 @@ Because UF_DONT_REQUIRE_PREAUTH is set for an account, it doesn't need to pre au
 Requirements:
 * List with users without creds OR an user with creds
 
----
-
 ## Remote
 Users without creds from file:
 `impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/ -usersfile <USERLIST>` 
