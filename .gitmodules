@@ -16,3 +16,6 @@
 [submodule "tools/username-anarchy"]
 	path = tools/username-anarchy
 	url = https://github.com/urbanadventurer/username-anarchy.git
+[submodule "tools/adidnsdump"]
+	path = tools/adidnsdump
+	url = https://github.com/dirkjanm/adidnsdump.git
