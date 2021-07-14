@@ -1,4 +1,4 @@
-# General Information
+# General
 ## DNS
 Any info relating the domain:
 `dig ANY @<DNS_IP> <DOMAIN>`
