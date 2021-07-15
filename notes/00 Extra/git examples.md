@@ -26,6 +26,16 @@
 
 `git branch -M master`
 
+`git submodule add <URL>`
+
+`git submodule deinit -f <REP>`
+`git rm -f <REP>`
+`rm -rf .git/modules/<REP>`
+
+`git submodule init`
+`git submodule update`
+`git pull --recurse-submodules`
+
 ## GITHUB REMOTE REPOSITORY
 `git remote add origin <URL>`
 
@@ -39,13 +49,3 @@
 `git push`
 
 `git clone <URL>`
-
-`git submodule add <URL>`
-
-`git submodule deinit -f <REP>`
-`git rm -f <REP>`
-`rm -rf .git/modules/<REP>`
-
-`git submodule init`
-`git submodule update`
-`git pull --recurse-submodules`
