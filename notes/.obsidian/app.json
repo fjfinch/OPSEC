@@ -26,6 +26,7 @@
     "kerberos",
     "hostname",
     "mimikatz",
-    "NetBIOS"
+    "NetBIOS",
+    "subnet"
   ]
 }

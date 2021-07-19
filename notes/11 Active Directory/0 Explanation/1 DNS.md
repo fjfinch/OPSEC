@@ -1,32 +1,38 @@
 # DNS
-Domain Name System (DNS) is a hierarchical, distributed database that contains mappings of domain names to various types of data, such as IP addresses. DNS enables the location of computers and services by user-friendly names, and it also enables the discovery of other information stored in the database. DNS in mainly used to resolve the DNS name of a computer to its IP address.
+Domain Name System (DNS) is a hierarchical, distributed database that contains mappings of domain names to various types of data, such as IP addresses. These are called records. DNS enables to locate computers and services by user-friendly names, and it also enables the discovery of other information stored in the database. As said DNS in mainly used to resolve the DNS name of a computer to its IP address.
 
-Types of DNS queries:
-* Recursive Query: A DNS client provides a hostname, and the DNS Resolver “must” provide an answer—it responds with either a relevant resource record, or an error message if it can't be found. The resolver starts a recursive query process, starting from the DNS Root Server, until it finds the Authoritative Name Server that holds the IP address and other information for the requested hostname.
+Port: 53
 
-* Iterative Query: A DNS client provides a hostname, and the DNS Resolver returns the best answer it can. If the DNS resolver has the relevant DNS records in its cache, it returns them. If not, it refers the DNS client to the Root Server, or another Authoritative Name Server which is nearest to the required DNS zone. The DNS client must then repeat the query directly against the DNS server it was referred to.
+## DNS queries
+* Recursive Query: "must" provide an answer. It responds with either a relevant resource record, or an error message if it can't be found. The resolver starts a recursive query process, starting from the DNS Root Server, until it finds the Authoritative Name Server that holds the IP address and other information for the requested hostname.
 
-* Non-Recursive Query: A query in which the DNS Resolver already knows the answer. It either immediately returns a DNS record because it already stores it in local cache, or queries a DNS Name Server which is authoritative for the record, meaning it definitely holds the correct IP for that hostname. In both cases, there is no need for additional rounds of queries (like in recursive or iterative queries). Rather, a response is immediately returned to the client.
+* Iterative Query: returns the best answer it can give. It refers the DNS client to the Root Server, or another Authoritative Name Server which is nearest to the required DNS zone. The DNS client must then repeat the query directly against the DNS server it was referred to.
 
-Types of DNS servers:
-* DNS Resolver: A DNS resolver (recursive resolver), is designed to receive DNS queries, which include a human-readable hostname and is responsible for tracking the IP address for that hostname.
+* Non-Recursive Query: a query in which the DNS Resolver already knows the answer. A response is immediately returned to the client.
 
-* DNS Root Server: The root server is the first step in the journey from hostname to IP address. The DNS Root Server extracts the Top Level Domain (TLD) from the user’s query. There are 13 root servers worldwide, indicated by the letters A through M, operated by different organizations and are delegated authority by ICANN (Internet Corporation for Assigned Names and Numbers).
+## DNS servers
+* DNS Resolver: a recursive resolver, is designed to receive DNS queries, which include a human-readable hostname and is responsible for tracking the IP address for that hostname.
 
-* TLD nameserver: The top level domain server (TLD) is the next step in the search for a specific IP address, and it hosts the last portion of a hostname (In example.com, the TLD server is “com”). It gives the proper authoritative server back.
+* DNS Root Server: is the first step in the journey from hostname to IP address. The DNS Root Server extracts the TLD nameserver from the user’s query. There are 13 root servers worldwide, indicated by the letters A through M, operated by different organizations and are delegated authority by ICANN (Internet Corporation for Assigned Names and Numbers).
+
+* Top Level Domain (TLD) nameserver: is the next step in the search for a specific IP address, and it hosts the last portion of a hostname (In example.com, the TLD server is “com”). It gives the proper authoritative server back.
 
 * Authoritative DNS Server: Higher level servers in the DNS hierarchy define which DNS server is the “authoritative” name server for a specific hostname, meaning that it holds the up-to-date information for that hostname. The Authoritative Name Server is the last stop in the name server query—it takes the hostname and returns the correct IP address to the DNS Resolver (or if it cannot find the domain, returns the message NXDOMAIN).
 
 ![KDC](../../00%20Extra/screens/dns.png)
 
-Common DNS records types:
-* A - The record that holds the IP address of a domain. Learn more about the A record.
-* CNAME - Forwards one domain or subdomain to another domain, does NOT provide an IP address. Learn more about the CNAME record.
-* MX - Directs mail to an email server. Learn more about the MX record.
-* TXT - Lets an admin store text notes in the record. Learn more about the TXT record.
-* NS - Stores the name server for a DNS entry. Learn more about the NS record.
-* SOA - Stores admin information about a domain. Learn more about the SOA record.
-* SRV - Specifies a port for specific services. Learn more about the SRV record.
-* PTR - Provides a domain name in reverse-lookups. Learn more about the PTR record.
+## DNS records
+* A - Maps an IPv4 address to a name
+* AAAA - Maps an IPv6 address to a name
+* PTR - Maps a name to a IPv4 address (reverse-lookup)
+* SRV - Specifies a port/service for specific server
+* CNAME - Forwards one domain or subdomain to another domain, does NOT provide an IP address
+* MX - Identifies the mail server
+* NS - Stores the name server for a DNS entry
+* TXT - Lets an admin store text notes in the record
+* SOA - Stores admin information about a domain
+
+## DNS zones
+DNS has a distributed database which means that information about all the domains, subdomains, and host mappings are not stored on just one DNS server but distributed across multiple servers. The management of the DNS database is made easy by dividing the DNS namespace into multiple zones and assigning the responsibility of a zone to a particular server. A zone contains all the information about a domain except for the parts of the domain delegated to other name servers. The zone files begin with an AD DNS Start of Authority (SOA) resource record that indicates the primary name server for the zone.
 
 DNS enumeration is the act of detecting and enumerating all possible DNS records from a domain name. This includes hostnames, DNS record names, DNS record types, TTLs, IP addresses, etc.

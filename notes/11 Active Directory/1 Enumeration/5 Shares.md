@@ -6,10 +6,11 @@ Maybe need domain tag and port tag.
 
 ## SMB
 `smbclient -U '' -N -L //<IP>/` (null)
-`smbclient -U '' -N //<IP>/<SHARE>` (null)
 `smbclient -U 'pizza' -N -L //<IP>/` (pizza)
-`smbclient -U 'pizza' -N //<IP>/<SHARE>` (pizza)
 `smbclient -U '<USER>%<PASS>' -L //<IP>/` (user)
+
+`smbclient -U '' -N //<IP>/<SHARE>` (null)
+`smbclient -U 'pizza' -N //<IP>/<SHARE>` (pizza)
 `smbclient -U '<USER>%<PASS>' //<IP>/<SHARE?` (user)
 
 recurse: on?
@@ -28,11 +29,8 @@ mget *
 `crackmapexec smb <IP> -u 'pizza' --shares` (pizza)
 `crackmapexec smb <IP> -u '<USER>' -p '<PASS>' --shares` (user)
 
-
 `impacket-smbclient '<DOMAIN>/<USER>:<PASS>@<IP>`
 
-
-
-
-`mount -t cifs //<IP>/<SHARE> /mnt/<SHARE>`
-`mount -t cifs -o "username=<USER>,password=<PASS>" //<IP>/<SHARE> /mnt/<SHARE>`
+## RPC
+`rpcclient -U '<USER>%<PASS>' <IP> -c 'netshareenumall'` 
+`rpcclient -U '<USER>%<PASS>' <IP> -c 'netsharegetinfo <SHARE>'` 

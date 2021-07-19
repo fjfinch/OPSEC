@@ -1,6 +1,8 @@
 # Kerberos
 Kerberos uses keys for authentication. (Not authorization). A secret key is the hash (probably the NT hash) of an users password. Tickets are encrypted with the secret key (and cached on systems).
 
+Port: 88, 464
+
 Servers within AD:
 * DC (Domain Controller)
 	* KDC (Key Distribution Center)
@@ -41,8 +43,3 @@ SPN (Service Principal Names): Mapping between service and a service account:
 3) User to AP: I want to use your services
 	* User - AP_REQ: Here is a ST, and an authenticator encrypted with client/server session key
 	* Service - AP_REP: I can decrypt ST with my key, and decrypt the authenticator with client/server session key. MIGHT check PAC with DC. You may communicate
-
-https://ludovic-cyber-sec.netlify.app/attacking-kerberos-tryhackme
-https://www.tarlogic.com/en/blog/how-to-attack-kerberos/
-https://gist.github.com/TarlogicSecurity/2f221924fef8c14a1d8e29f3cb5c5c4a
-https://m0chan.github.io/2019/07/31/How-To-Attack-Kerberos-101.html

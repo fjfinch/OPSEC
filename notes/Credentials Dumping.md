@@ -71,9 +71,6 @@ mimikatz # `sekurlsa::logonPasswords`
 
 
 
-https://docs.microsoft.com/en-us/windows-server/security/windows-authentication/credentials-processes-in-windows-authentication
-
-
 `hashcat -m 1000 <HASH> <PASSLIST> --potfile-disable`
 `hashcat -m 2100 <HASH> <PASSLIST> --potfile-disable`
 

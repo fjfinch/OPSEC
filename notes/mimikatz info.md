@@ -40,11 +40,3 @@ lsadump module enables dumping credential data from the Security Account Manager
 * `lsadump::setntlm` - Ask a server to set a new password/ntlm for one user
 * `lsadump::changentlm` - Ask a server to set a new password/ntlm for one user
 * `lsadump::netsync` - Ask a DC to send current and previous NTLM hash of DC/SRV/WKS
-
-https://github.com/gentilkiwi/mimikatz/wiki
-https://adsecurity.org/?page_id=1821
-https://book.hacktricks.xyz/windows/stealing-credentials/credentials-mimikatz
-https://www.varonis.com/blog/what-is-mimikatz/
-https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/kerberos-golden-tickets
-https://www.hackingarticles.in/powershell-empire-for-pentester-mimikatz-module/
-https://jarnobaselier.nl/mimikatz/
