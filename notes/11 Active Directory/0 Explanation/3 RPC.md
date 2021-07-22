@@ -1,8 +1,6 @@
 # RPC
 Remote Procedure Call (RPC) is a type of IPC. RPC enables applications to call functions remotely. Therefore, RPC makes IPC as easy as calling a function. RPC is when a computer program causes a procedure to execute on another computer on a shared network, which is coded as if it were a normal (local) procedure call, without the programmer explicitly coding the details for the remote interaction.
 
-Port: 135, 593
-
 Within Windows environments, many server applications are exposed via RPC. Multiple protocols  are used:
 * TCP/UDP (135)
 * SMB via named pipes (445) ([[4 NetBIOS & SMB]])

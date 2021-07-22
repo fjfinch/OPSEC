@@ -32,7 +32,7 @@ mimikatz # `token::elevate lsadump::sam /system:<SYSTEM> /SAM:<SAM>`
 mimikatz # `token::elevate lsadump::sam`
 
 ## SECURITY - Cached domain account hashes & LSA secrets
-Each time a user logs on to a domain, Windows caches the credentials supplied and stores them in the security hive in the registry of the operation system. With cached credentials, the user can log on to a domain member without being connected to a domain controller within that domain. Mscash is a Microsoft hashing algorithm that is used for storing cached domain credentials locally on a system after a successful logon. It's worth noting that cached credentials do not expire. Isnot saved on a DC.
+Each time a user logs on to a domain, Windows caches the credentials supplied and stores them in the security hive in the registry of the operation system. With cached credentials, the user can log on to a domain member without being connected to a domain controller within that domain. Mscash is a Microsoft hashing algorithm that is used for storing cached domain credentials locally on a system after a successful logon. It's worth noting that cached credentials do not expire. Is not saved on a DC.
 
 The LSA secrets, which are secret pieces of data that are accessible only to SYSTEM account processes, are stored (in some circumstances) on the hard disk drive. Some of these secrets are credentials that must persist after reboot. Credentials stored as LSA secrets might include:
 * Account password for the computer's Active Directory Domain Services (AD DS) account

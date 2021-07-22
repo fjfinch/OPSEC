@@ -8,3 +8,5 @@ A pipe is a type of IPC. It is a section of shared memory that processes use for
 * Named pipe (FIFO): a named pipe is a named, one-way or duplex pipe for communication between the pipe server and one or more pipe clients. Named pipes can be used to provide communication between processes on the same computer or between processes on different computers across a network. Named pipes are being used over SMB (445). Check out SMB: [[4 NetBIOS & SMB]].
 
 Named pipes are created on the SMB server side by applications and tools that are willing to provide specialized services. A named pipe is a logical connection, similar to a TCP session, between a client and server that are involved in a SMB connection. The name of the pipe serves as the endpoint for communication in the same way that a port number serves as the endpoint for TCP sessions. The IPC$ share is not a directory, but it is used to create named pipes.
+
+With an anonymous null session you can access the IPC$ share and interact with services exposed via named pipes.

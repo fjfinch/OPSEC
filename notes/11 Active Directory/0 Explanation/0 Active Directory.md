@@ -35,16 +35,19 @@ User Principal Name (UPN):
 http://blog.schertz.name/2012/08/understanding-active-directory-naming-formats/
 
 #### AD Naming Conventions
+Possible usernames can be calculated with username-anarchy:
+`username-anarchy -i <NAMESLIST>`
+
 firstlast
 first.last
 flast
 f.last
 firlas
 fir.las
-
-Possible usernames can be calculated with username-anarchy:
-
-`username-anarchy -i <NAMESLIST>`
+lastfirst
+last.first
+lastf
+last.f
 
 ## Windows authentication
 ![KDC](../../00%20Extra/screens/auth.png)

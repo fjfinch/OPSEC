@@ -50,7 +50,7 @@ pet:pet city:city nickname:nickname
 Domain user
 Full name: Clalk Cohen
 User: clark.cohen
-Pass: Password5!
+Pass: Password11!
 
 Domain user - NO_PREAUTH
 Full name: Daniel Davis
@@ -62,12 +62,12 @@ Full name: Emily Ernst
 User: emily.ernst
 Pass: Password8!
 
-Domain user - domain admin
+Domain admin
 Full name: Frank Fuller
 User: frank.fuller
 Pass: Password10!
 
-Service account
+Domain admin - Service account
 Full name: sqlaccount
 User: sqlaccount
 Pass: Password9!

