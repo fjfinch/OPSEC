@@ -14,6 +14,8 @@ mget *
 `smbclient -U 'guest%' -L //<IP>/` (guest)
 `smbclient -U '<USER>%<PASS>' -L //<IP>/` (user)
 
+`smbclient -U '<USER>%<PASS>' //<IP>/ipc$`
+
 `smbclient -U '' -N //<IP>/<SHARE>` (null)
 `smbclient -U 'guest%' //<IP>/<SHARE>` (guest)
 `smbclient -U '<USER>%<PASS>' //<IP>/<SHARE>` (user)
@@ -29,3 +31,13 @@ mget *
 `crackmapexec smb <IP> --shares` (null)
 `crackmapexec smb <IP> -u 'guest' -p '' --shares` (guest)
 `crackmapexec smb <IP> -u '<USER>' -p '<PASS>' --shares` (user)
+
+Mount to SMB share:
+`mount -t cifs -o username=<USER>,password=<PASS> //<IP>/<SHARE> /tmp/mount/`
+
+## NFS
+check NFS mount:
+`showmount -e <IP>`
+
+Mount to NFS share:
+`mount -t nfs -o username=<USER>,password=<PASS> <IP>:<SHARE> /tmp/mount/ -nolock`

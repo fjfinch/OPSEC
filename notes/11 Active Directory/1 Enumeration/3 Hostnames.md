@@ -1,4 +1,4 @@
-# Host & Domain Names
+# Hostnames
 ## DNS
 Names via PTR record type (reverse lookup):
 `dig @<DNS_IP> -x 127.0.0.1`
@@ -17,24 +17,20 @@ DC name via SRV record type:
 `dig srv @<DNS_IP> _kerberos._tcp.<DNS_DOMAIN>`
 `dig srv @<DNS_IP> _kpasswd._tcp.<DNS_DOMAIN>`
 
-gobuster dns -d spookysec.local -r 10.10.27.158 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
-
-## RPC
-Domain name & info:
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'lsaquery'` (null,creds)
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'lookupdomain <DOMAIN>'` (null,creds)
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'enumdomains'` (null,creds)
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'querydominfo'` (null,creds)
+Brute force subdomains:
+`gobuster dns -d <DNS_DOMAIN> -r <DNS_IP> -w <WORDLIST>`
 
 ## NetBIOS & SMB
-Domain name & hosts:
+Hosts:
 `nbtscan <IP>/<SUBNET>`
 `nmblookup -A <IP>`
 `crackmapexec smb <IP>`
 
 ## LDAP
 Domain name:
-`ldapsearch -x -h <DC_IP> -s base namingContexts ldapServiceName serverName dnsHostName`
+`ldapsearch -h <DC_IP> -x -s base ldapServiceName serverName dnsHostName`
+
+`ldapsearch -h <DC_IP> -x -LLL -W -D "<USER>@<DOMAIN>" -b "dc=<DOMAIN>,dc=<DOMAIN>" "(objectclass=computer)" "DNSHostName" "OperatingSystem"`
 
 All DNS records of domain:
 `adidnsdump -u <DOMAIN>\\<USER> -p <PASS> <DC_IP>` (creds)

@@ -1,4 +1,4 @@
-# Accounts & Groups
+# Accounts & groups
 ## Kerberos
 Brute force - Won't lockout user account:
 `kerbrute userenum --dc <DC_IP> -d <DOMAIN> <USERLIST>`
@@ -26,10 +26,7 @@ All user accounts:
 `impacket-samrdump '<DOMAIN>/<USER>:<PASS>@<IP>'` (null,creds)
 `crackmapexec smb <IP> -u <USER> -p <PASS> --users` (null,creds)
 
-Check guest account
-`crackmapexec smb <IP> -u 'guest' -p ''` (null,creds)
-
-Brute force accounts with RID when able to read IPC$:
+Brute force accounts with RID when able to read IPC$ (null & guest):
 `impacket-lookupsid '<DOMAIN>/<USER>:<PASS>@<IP>'` (null,guest,creds)
 `crackmapexec smb <IP> -u <USER> -p <PASS> --rid-brute` (null,guest,creds)
 
