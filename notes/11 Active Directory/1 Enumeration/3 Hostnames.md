@@ -30,11 +30,7 @@ Hosts:
 Domain name:
 `ldapsearch -h <DC_IP> -x -s base ldapServiceName serverName dnsHostName`
 
-`ldapsearch -h <DC_IP> -x -LLL -W -D "<USER>@<DOMAIN>" -b "dc=<DOMAIN>,dc=<DOMAIN>" "(objectclass=computer)" "DNSHostName" "OperatingSystem"`
+`ldapsearch -h <DC_IP> -x -LLL -W -D "<USER>@<DOMAIN>" -b "dc=<DOMAIN>,dc=<DOMAIN>" "(objectclass=computer)" "DNSHostName" "OperatingSystem"` (null,creds)
 
 All DNS records of domain:
-`adidnsdump -u <DOMAIN>\\<USER> -p <PASS> <DC_IP>` (creds)
-
-## Locally
-DC name:
-`nltest /dclist:<DOMAIN>`
+`adidnsdump -u <DOMAIN>\\<USER> -p <PASS> <DC_IP>` (null,creds)
