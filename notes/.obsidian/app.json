@@ -27,6 +27,7 @@
     "hostname",
     "mimikatz",
     "NetBIOS",
-    "subnet"
+    "subnet",
+    "Hostnames"
   ]
 }

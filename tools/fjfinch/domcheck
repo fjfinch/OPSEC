@@ -39,14 +39,19 @@ except:
 myconnection.close()
 
 myconnection = SMBConnection("duck", ip)
-myconnection.login("", "", domname)
 
-tree_id = myconnection.connectTree("IPC$")
+try:
+	myconnection.login("", "", domname)
+	tree_id = myconnection.connectTree("IPC$")
+	print("Null session (auth):\t" + RED_BOLD + "YES" + RESET)
+except:
+	print("Null session (auth):\tno")
+
 try:
 	myconnection.openFile(tree_id, "srvsvc")
-	print("Null auth:\t\t" + RED_BOLD + "YES" + RESET)
+	print("Null session (read):\t" + RED_BOLD + "YES" + RESET)
 except:
-	print("Null auth:\t\tno")
+	print("Null session (read):\tno")
 
 try:
 	myconnection.login("guest", "", domname)

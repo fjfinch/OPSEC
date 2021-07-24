@@ -24,13 +24,12 @@ Brute force subdomains:
 Hosts:
 `nbtscan <IP>/<SUBNET>`
 `nmblookup -A <IP>`
-`crackmapexec smb <IP>`
 
 ## LDAP
 Domain name:
 `ldapsearch -h <DC_IP> -x -s base ldapServiceName serverName dnsHostName`
 
-`ldapsearch -h <DC_IP> -x -LLL -W -D "<USER>@<DOMAIN>" -b "dc=<DOMAIN>,dc=<DOMAIN>" "(objectclass=computer)" "DNSHostName" "OperatingSystem"` (null,creds)
+`ldapsearch -h <DC_IP> -x -LLL -W -D "<USER>@<DOMAIN>" -b "dc=<DOMAIN>,dc=<DOMAIN>" "(objectclass=computer)" "DNSHostName" "OperatingSystem"` (creds)
 
 All DNS records of domain:
-`adidnsdump -u <DOMAIN>\\<USER> -p <PASS> <DC_IP>` (null,creds)
+`adidnsdump -u <DOMAIN>\\<USER> -p <PASS> <DC_IP>` (creds)
