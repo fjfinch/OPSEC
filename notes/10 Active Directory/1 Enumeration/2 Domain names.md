@@ -1,4 +1,4 @@
-# Domain name
+# Domain names
 ## NetBIOS & SMB & RPC
 Domain name (& info):
 `rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'lsaquery'`
