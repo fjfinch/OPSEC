@@ -1,14 +1,17 @@
+
 # Subdomains
 DNS
 	`dnsrecon -d <DOMAIN> -D <LIST> -t brt`
-	`ffuf -w <LIST> -u http://FUZZ.<DOMAIN>`
-	`gobuster dns -d <DOMAIN> -w <LIST>`
+	`ffuf -u http://FUZZ.<DOMAIN> -w <LIST>`
+	`gobuster dns -d <DOMAIN> -w <LIST> -i`
 Virtual Hosts
-	`ffuf -w <LIST> -u http://<IP/DOMAIN>/ -H "Host: FUZZ.<DOMAIN>"`
+	`ffuf -u http://<IP/DOMAIN>/ -H "Host: FUZZ.<DOMAIN>" -w <LIST>`
 	`gobuster vhost -u <DOMAIN> -w <LIST>`
 OSINT
-	Certs
+	Certificates
+		Subject Alt Names
 		https://crt.sh
+		https://transparencyreport.google.com/https/certificates
 	Google
 		site:*.<DOMAIN> -site:www.<DOMAIN>
 	Tooling

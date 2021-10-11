@@ -11,3 +11,4 @@
 * Directory/Path Traversal
 * Cross-site request forgery (CSRF)
 * Server-side request forgery (SSRF)
+* WHOIS

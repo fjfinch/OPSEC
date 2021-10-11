@@ -1,4 +1,7 @@
 {
   "baseFontSize": 15,
-  "translucency": true
+  "translucency": true,
+  "enabledCssSnippets": [
+    "clean-embeds"
+  ]
 }
