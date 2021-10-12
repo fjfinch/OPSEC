@@ -1,10 +1,12 @@
 ~/.bashrc OR ~/.zshrc
 
+# ZSH
 PROMPT='%B%F{red}[%D{%Y-%m-%d %H:%M:%S}] %B%F{blue}%n %B%F{green}%~%b%F{reset} > '
 PROMPT='%B%F{red}[%D{%H:%M:%S}] %B%F{blue}%n %B%F{green}%~%b%F{reset} > '
 
-PS1='\[\033[01;31m\][\D{%Y-%m-%d %H:%M:%S}] \[\033[01;34m\]\u \[\033[01;32m\]\w\[\033[00m\] > '
-PS1='\[\033[01;31m\][\D{%H:%M:%S}] \[\033[01;34m\]\u \[\033[01;32m\]\w\[\033[00m\] > '
+# BASH
+PS1='\[\033[1;31m\][\D{%Y-%m-%d %H:%M:%S}] \[\033[1;34m\]\u \[\033[1;32m\]\w\[\033[00m\] > '
+PS1='\[\033[1;31m\][\D{%H:%M:%S}] \[\033[1;34m\]\u \[\033[1;32m\]\w\[\033[00m\] > '
 
 alias lla='ls -lA'
 alias thm='sudo openvpn ~/Finch.ovpn'
