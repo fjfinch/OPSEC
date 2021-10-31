@@ -1,0 +1,137 @@
+#!/usr/bin/env python3
+
+import sys
+from impacket import nt_errors
+from impacket.smbconnection import SMBConnection, SessionError
+from impacket.dcerpc.v5.transport import SMBTransport
+from impacket.dcerpc.v5 import lsat, lsad, rpcrt
+
+if len(sys.argv) != 2:
+	print(f"Use: python3 {sys.argv[0]} <IP>")
+	sys.exit(1)
+
+BOLD = '\033[1;31m'
+RESET = '\033[0m'
+TARGET = sys.argv[1]
+
+is_null = False
+is_null_cread = False
+is_guest = False
+is_guest_cread = False
+
+# NULL -------
+username = ""
+password = ""
+
+try:
+	conn = SMBConnection(TARGET, TARGET)
+except OSError:
+	print(f"{BOLD}Connection error{RESET}")
+	sys.exit(1)
+
+try:
+	conn.login(username, password)
+
+	try:
+		tree_id = conn.connectTree("IPC$")
+		file_id = conn.openFile(tree_id, "srvsvc")
+		is_null = True
+		conn.closeFile(tree_id, file_id)
+	except SessionError as e:
+		if e.getErrorCode() == nt_errors.STATUS_ACCESS_DENIED:
+			conn.disconnectTree(tree_id)
+
+	try:
+		conn.listPath("C$", "\*")
+		is_null_cread = True
+	except SessionError as e:
+		if e.getErrorCode() == nt_errors.STATUS_USER_SESSION_DELETED:
+			pass
+except SessionError as e:
+	if e.getErrorCode() == nt_errors.STATUS_LOGON_FAILURE:
+		pass
+finally:
+	host_netbios = conn.getServerName() if conn.getServerName().rstrip('\x00') else "-"
+	host_dns = conn.getServerDNSHostName() if conn.getServerDNSHostName().rstrip('\x00') else "-"
+	domain_netbios = conn.getServerDomain() if conn.getServerDomain().rstrip('\x00') else "-"
+	#domain_dns = conn.getServerDNSDomainName() if conn.getServerDNSDomainName().rstrip('\x00') else "-"
+	domain_dns = conn.getServerDNSDomainName() if conn.getServerDomain().rstrip('\x00') else "-"
+
+conn.close()
+
+# GUEST ------
+username = "Guest"
+password = ""
+
+try:
+	conn = SMBTransport(TARGET, filename = "lsarpc", username = username, password = password)
+	dce = conn.get_dce_rpc()
+	dce.connect()
+
+	try:
+		dce.bind(lsat.MSRPC_UUID_LSAT)
+		resp = lsad.hLsarOpenPolicy2(dce, lsad.POLICY_LOOKUP_NAMES)
+		policyHandle = resp['PolicyHandle']
+		lsat.hLsarLookupNames2(dce, policyHandle, (username,))
+		is_guest = True
+	except:
+		pass
+
+	try:
+		s = conn.get_smb_connection()
+		s.listPath("C$", "\*")
+		is_guest_cread = True
+	except SessionError as e:
+		if e.getErrorCode() == nt_errors.STATUS_USER_SESSION_DELETED:
+			pass
+
+	dce.disconnect()
+except SessionError as e:
+	if e.getErrorCode() == nt_errors.STATUS_ACCESS_DENIED:
+		pass
+
+# OUTPUT -----
+print(f"NetBIOS computer name:\t: {BOLD}{host_netbios}{RESET}")
+print(f"DNS host name:\t\t: {BOLD}{host_dns.split('.')[0]}{RESET}")
+print(f"NetBIOS domain name:\t: {BOLD}{domain_netbios}{RESET}")
+print(f"DNS domain name:\t: {BOLD}{domain_dns}{RESET}")
+print()
+
+if is_null:
+	print(f"Null session:\t\t: {BOLD}YES (shares | enum4linux){RESET}")
+	if is_null_cread:
+		print("C$ READ")
+else:
+	print(f"Null session:\t\t: No")
+
+if is_guest:
+	print(f"Guest logon:\t\t: {BOLD}YES (shares | impacket-lookupsid | cme --rid-brute | enum4linux){RESET}")
+	if is_guest_cread:
+		print("C$ READ")
+else:
+	print(f"Guest logon:\t\t: No")
+
+
+
+
+
+'''
+try:
+	tree_id = conn.connectTree("IPC$")
+	conn.openFile(tree_id, "srvsvc")
+	shares = conn.listShares()
+except:
+	pass
+
+def list_shares(shares):
+	for share in range(len(shares)):
+		print(" --",shares[share]['shi1_netname'][:-1])
+
+domainSid = resp['ReferencedDomains']['Domains'][0]['Sid'].formatCanonical()
+
+try:
+	test = conn.listPath("IPC$", "\*")
+	is_null_read = True
+except:
+	pass
+'''

@@ -11,9 +11,11 @@ if len(sys.argv) != 2:
 BOLD = '\033[1;31m'
 RESET = '\033[0m'
 TARGET = sys.argv[1]
+
 is_null = False
-is_null_read = False
+#is_null_read = False
 is_guest = False
+is_guest2 = False
 
 # NULL -------
 username = ""
@@ -27,12 +29,6 @@ except OSError:
 
 try:
 	conn.login(username, password)
-
-	print(f"NetBIOS domain name:\t{BOLD}{conn.getServerDomain()}{RESET}")
-	print(f"DNS domain name:\t{BOLD}{conn.getServerDNSDomainName()}{RESET}\n")
-	print(f"NetBIOS computer name:\t{BOLD}{conn.getServerName()}{RESET}")
-	print(f"DNS host name:\t\t{BOLD}{conn.getServerDNSHostName()}{RESET}\n")
-
 	try:
 		tree_id = conn.connectTree("IPC$")
 		conn.openFile(tree_id, "srvsvc")
@@ -40,16 +36,21 @@ try:
 		conn.disconnectTree(tree_id)
 	except:
 		pass
-
-	try:
-		conn.listPath("IPC$", "\*")
-		is_null_read = True
-	except:
-		pass
-
-	conn.close()
+#	try:
+#		test = conn.listPath("IPC$", "\*")
+#		is_null_read = True
+#	except:
+#		pass
 except smbconnection.SessionError:
 	pass
+finally:
+	print(f"NetBIOS domain name:\t{BOLD}{conn.getServerDomain()}{RESET}")
+	print(f"DNS domain name:\t{BOLD}{conn.getServerDNSDomainName()}{RESET}")
+	print(f"NetBIOS computer name:\t{BOLD}{conn.getServerName()}{RESET}")
+	print(f"DNS host name:\t\t{BOLD}{conn.getServerDNSHostName()}{RESET}")
+	print()
+
+conn.close()
 
 # GUEST ------
 username = "Guest"
@@ -59,6 +60,7 @@ try:
 	test = transport.SMBTransport(TARGET, filename = "lsarpc", username = username, password = password)
 	dce = test.get_dce_rpc()
 	dce.connect()
+	is_guest2 = True
 
 	try:
 		dce.bind(lsat.MSRPC_UUID_LSAT)
@@ -70,16 +72,12 @@ try:
 		pass
 
 	dce.disconnect()
-except:
+except smbconnection.SessionError:
 	pass
 
 # OUTPUT -----
-
 if is_null:
-	if is_null_read:
-		print(f"Null session:\t\t{BOLD}YES + IPC$ READ! (shares | CME --rid-brute | impacket-lookupsid){RESET}")
-	else:
-		print(f"Null session:\t\t{BOLD}YES (shares | rpcclient){RESET}")
+	print(f"Null session:\t\t{BOLD}YES (shares | rpcclient){RESET}")
 else:
 	print(f"Null session:\t\tNo")
 
@@ -87,6 +85,16 @@ if is_guest:
 	print(f"Guest logon:\t\t{BOLD}YES (shares | CME --rid-brute | impacket-lookupsid){RESET}")
 else:
 	print(f"Guest logon:\t\tNo")
+
+if is_guest2:
+        print(f"Guest2 logon:\t\t{BOLD}YES{RESET}")
+else:
+        print(f"Guest2 logon:\t\tNo")
+
+
+
+
+
 
 
 '''
