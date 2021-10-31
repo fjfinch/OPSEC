@@ -9,17 +9,15 @@ Users:
 `rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'querydispinfo'` (null,creds)
 `rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'queryuser <RID>'` (null,creds)
 
-SID:
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'lookupsids <SID>'` (null,creds)
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'lookupnames <USER>'` (null,creds)
-
-All user accounts:
+All user accounts **IPC$ read??**:
 `impacket-samrdump '<DOMAIN>/<USER>:<PASS>@<IP>'` (null,creds)
 `crackmapexec smb <IP> -u <USER> -p <PASS> --users` (null,creds)
 
 Brute force accounts with RID when able to read IPC$:
 `impacket-lookupsid '<DOMAIN>/<USER>:<PASS>@<IP>'` (null,guest,creds)
 `crackmapexec smb <IP> -u <USER> -p <PASS> --rid-brute` (null,guest,creds)
+
+enum4linux
 
 ## LDAP
 All domain user accounts:
