@@ -19,3 +19,6 @@
 [submodule "tools/adidnsdump"]
 	path = tools/adidnsdump
 	url = https://github.com/dirkjanm/adidnsdump.git
+[submodule "tools/enum4linux-ng"]
+	path = tools/enum4linux-ng
+	url = https://github.com/cddmp/enum4linux-ng.git

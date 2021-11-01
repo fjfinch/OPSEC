@@ -16,8 +16,6 @@ Privilege Escalation
 Metasploit & searchsploit
 
 Programming
-* Python
-* Bash
 * Powershell
 
 Antivirus Evasion
