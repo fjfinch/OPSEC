@@ -1,5 +1,46 @@
 #!/usr/bin/env python3
 
+
+'''
+HKLM\System\CurrentControlSet\Control\Lsa\RestrictAnonymous		1 - Null sessions can not be used to enumerate shares
+HKLM\System\CurrentControlSet\Control\Lsa\RestrictAnonymousSAM		1 - (Default) Null sessions can not enumerate user names
+HKLM\System\CurrentControlSet\Control\Lsa\EveryoneIncludesAnonymous	0 - (Default) Null sessions have no special rights
+
+
+
+enable - Network access: Do not allow anonymous enumeration of SAM accounts
+enable - Network access: Do not allow anonymous enumeration of SAM accounts and shares
+disable - Network access: Let Everyone permissions apply to anonymous users
+
+enable - Network access: Restrict Anonymous access to Named Pipes and Shares
+disable - Network access: Allow anonymous SID/Name translation
+
+enable - Network access: Shares that can be accessed anonymously
+disable - Restrict Null Sessions in the Registry
+
+
+
+
+
+enable - Network access: Restrict anonymous access to Named Pipes and Shares
+restricts null session access
+	except listed in the NullSessionPipes and NullSessionShares registry entries.
+
+shares RestrictNullSessAccess with the value 1 to the registry key HKLM\System\CurrentControlSet\Services\LanManServer\Parameters.
+
+But if you set 6 Group Policies follow the method in the link you provide, you disable all null session access.
+
+
+gpupdate /force
+Default Domain Controllers policy
+Default Domain Policy
+Local Security Policy
+
+registry vs group policy
+
+
+
+'''
 import sys
 from impacket import nt_errors
 from impacket.smbconnection import SMBConnection, SessionError
@@ -52,9 +93,8 @@ except SessionError as e:
 		pass
 finally:
 	host_netbios = conn.getServerName() if conn.getServerName().rstrip('\x00') else "-"
-	host_dns = conn.getServerDNSHostName() if conn.getServerDNSHostName().rstrip('\x00') else "-"
 	domain_netbios = conn.getServerDomain() if conn.getServerDomain().rstrip('\x00') else "-"
-	#domain_dns = conn.getServerDNSDomainName() if conn.getServerDNSDomainName().rstrip('\x00') else "-"
+	host_dns = conn.getServerDNSHostName() if conn.getServerDNSHostName().rstrip('\x00') else "-"
 	domain_dns = conn.getServerDNSDomainName() if conn.getServerDomain().rstrip('\x00') else "-"
 
 conn.close()
@@ -92,8 +132,8 @@ except SessionError as e:
 
 # OUTPUT -----
 print(f"NetBIOS computer name:\t: {BOLD}{host_netbios}{RESET}")
-print(f"DNS host name:\t\t: {BOLD}{host_dns.split('.')[0]}{RESET}")
 print(f"NetBIOS domain name:\t: {BOLD}{domain_netbios}{RESET}")
+print(f"DNS host name:\t\t: {BOLD}{host_dns.split('.')[0]}{RESET}")
 print(f"DNS domain name:\t: {BOLD}{domain_dns}{RESET}")
 print()
 
