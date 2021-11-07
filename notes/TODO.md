@@ -26,12 +26,7 @@ Containers
 * Docker
 * Kubernetes
 
-Password Attacks
-* Hashcat
-* John
-
 Port Redirection and Tunneling
 
 Rev shells 
-* one-liners
 * files

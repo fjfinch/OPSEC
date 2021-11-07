@@ -1,7 +1,6 @@
 * Handy info
 	* robots.txt
 	* .git
-* Fuzzing
 * SQL Injection (SQLi)
 * Cross-Site Scripting (XSS)
 	* Reflected

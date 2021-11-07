@@ -19,7 +19,6 @@ Find DC name via SRV record type:
 
 Find subdomains through DNS brute force:
 `gobuster dns -d <DNS_DOMAIN> -r <DNS_IP> -w <WORDLIST>`
-/usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
 
 ## NetBIOS & SMB
 Find host names:

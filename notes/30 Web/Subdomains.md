@@ -1,4 +1,3 @@
-
 # Subdomains
 DNS
 	`dnsrecon -d <DOMAIN> -D <LIST> -t brt`
@@ -17,5 +16,12 @@ OSINT
 	Tooling
 		`sublist3r.py -d <DOMAIN>`
 
-/usr/share/seclists/Discovery/DNS/namelist.txt
-/usr/share/seclists/Discovery/DNS/*
+
+
+
+
+theHarvester -d <DOMAIN> -b bing,duckduckgo,google,yahoo -v
+	rm ~/.local/share/theHarvester/stash.sqlite
+Burp Suite								Target -> Site map
+https://dnsdumpster.com/
+https://spyse.com/

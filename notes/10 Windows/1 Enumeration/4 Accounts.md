@@ -2,8 +2,6 @@
 ## Kerberos
 Brute force - Won't lockout user account:
 `kerbrute userenum --dc <DC_IP> -d <DOMAIN> <USERLIST>`
-/usr/share/seclists/Usernames/xato-net-10-million-usernames.txt
-/usr/share/wordlists/rockyou.txt
 
 ## NetBIOS & SMB & RPC
 SAMR enumerate all user accounts:

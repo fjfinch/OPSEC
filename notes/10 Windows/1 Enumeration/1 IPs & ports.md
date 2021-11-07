@@ -2,6 +2,8 @@
 cssclass: clean-embeds
 ---
 
+# IPs & ports
+
 ![[Global Enumeration]]
 
 ## NetBIOS & SMB
