@@ -14,7 +14,7 @@ The added tools are submodules linked to their main git repository or other usef
 ## Configs
 Just a folder containing some configuration files for certain programs. So I don't have to manually setup everything, every time I create a new VM.
 
-## Backup
+## Backups
 Old notes/tools/configs.
 
 ## ToDo
