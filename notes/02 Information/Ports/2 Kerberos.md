@@ -18,7 +18,7 @@ SPN (Service Principal Names): Mapping between service and a service account:
 
 ![KDC](kdc.png)
 
-1) User to AS: I need to authenticate myself and need a TGT
+1) User to AS: I need to authenticate myself, therefore I need a TGT
 	User: AS-REQ - this is me!
 	AS: PREAUTH_FAILED - user w pre-auth is in database. Need a timestamp encrypted by user key
 	User: AS-REQ - this is me, with the timestamp encrypted with my user key
@@ -37,9 +37,20 @@ SPN (Service Principal Names): Mapping between service and a service account:
 2) User to TGS: I need a ST to communicate with another service on domain
 	* User - TGS-REQ: Here is a TGT + an authenticator encrypted with client/TGS session key
 	* TGS - TGS-REP: Can decrypt TGT with my key, and decrypt the authenticator with client/TGS session key. I give you:
-		* ST (including client/server session key) encrypted with services key ***and DC hash??***
+		* ST (including client/server session key and TGT (if Unconstrained Delegation is set in UAC)) encrypted with services key ***and DC hash??***
 		* Client/server session key encrypted with client/TGS session key
 
 3) User to AP: I want to use your services
 	* User - AP_REQ: Here is a ST, and an authenticator encrypted with client/server session key
 	* Service - AP_REP: I can decrypt ST with my key, and decrypt the authenticator with client/server session key. MIGHT check PAC with DC. You may communicate
+
+#### Unconstrained Delegation
+This is the original implementation of delegation, and also the least secure. Under the covers, when unconstrained delegation is configured, the userAccountControl attribute of the object gets updated to include the “TRUSTED_FOR_DELEGATION” flag. When an object authenticates to a host with unconstrained delegation configured, the ticket-granting ticket (TGT) for that account gets stored in memory. This is so the host with unconstrained delegation configured can impersonate as that user later on if needed.
+
+Used with the ‘printer bug’ to get the domain controller to authenticate to your host, leaving the TGT for that account in memory.
+
+#### Constrained Delegation
+-
+
+#### Resource-Based Constrained Delegation (RBCD)
+-

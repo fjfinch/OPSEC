@@ -6,11 +6,13 @@
 winexe
 
 ## RDP: 3389
-`impacket-rdp_check <DOMAIN>/<USER>:<PASS>@<IP>` check
-rdesktop 
-xfreerdp
-remmina
+`impacket-rdp_check '<DOMAIN>/<USER>:<PASS>@<IP>'` check
+ `xfreerdp /u:DOMAIN\<USER> /p:<PASS> /v:<IP> /dynamic-resolution /drive:share,/tmp`
+`remmina`
 
 ## WinRM: 5985, 5986
 `crackmapexec winrm <IP> -u <USER> -p <PASS>` check
 `evil-winrm -i <IP> -u <USER> -p <PASS>` (PtH)
+
+## VNC
+??

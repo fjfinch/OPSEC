@@ -1,10 +1,3 @@
-dnsrecon -d opsec.tets -r 192.168.178.7/24 -n 192.168.178.7
-Fierce
-dnscan 
-dnsdict6 
-dnsrevenum6 
-ntlmrelayx
-
 ## Active Directory ToDo
 DNS
 * Cache Poisoning
@@ -19,9 +12,17 @@ Token Impersonation
 Weaponized LNK
 local powershell
 check all tools with auth for guest/anon/null
+dnsrecon -d opsec.tets -r 192.168.178.7/24 -n 192.168.178.7
+Fierce
+dnscan 
+dnsdict6 
+dnsrevenum6 
+ntlmrelayx
 
-#### Problems
-desktop computer not synced for domain users
-local admins nessecary? LAPS?
-No DHCP server
-Domain/local users folder exist on system after user deletion?
+## Powershell
+powersploit
+
+## Bloodhound
+bloodhound
+bloodhound.py
+sharphound

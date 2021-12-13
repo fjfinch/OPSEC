@@ -1,14 +1,16 @@
 # Domain names
 ## NetBIOS & SMB & RPC
-Find domain name (& other info):
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'lsaquery'` (creds) LSA
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'lookupdomain <DOMAIN>'` (creds) SAMR
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'enumdomains'` (creds) SAMR
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'querydominfo'` (creds) SAMR
+Domain name & related info through LSA:
+`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'lsaquery'`
 
-Find domain name, host name, and check for null session & guest account:
-`python3 domcheck <DC_IP>`
+Domain name & related info through SAMR:
+`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'lookupdomain <DOMAIN>'`
+`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'enumdomains'`
+`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'querydominfo'`
+
+Domain name, host name, & check for null session and guest account through SRVSVC & LSA:
+`domcheck <DC_IP>`
 
 ## LDAP
-Find domain name:
+Domain name:
 `ldapsearch -h <DC_IP> -x -s base namingContexts`

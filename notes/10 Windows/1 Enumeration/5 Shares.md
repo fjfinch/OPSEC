@@ -2,8 +2,8 @@
 Windows AD also has a option "Enable access-based enumeration", which displays the shares based on user permissions. If a user does not have read permission, the share will not be visible.
 
 ## NetBIOS & SMB & RPC
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'netshareenumall'` (SRVSVC) (creds)
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'netsharegetinfo <SHARE>'` (SRVSVC) (creds)
+`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'netshareenumall'` (SRVSVC)
+`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'netsharegetinfo <SHARE>'` (SRVSVC)
 
 `crackmapexec smb <IP> -u '' -p '' --shares` (null)
 `crackmapexec smb <IP> -u 'guest' -p '' --shares` (guest)
@@ -23,11 +23,11 @@ recurse: on, prompt: off, mget *
 `smbget -U '<USER>%<PASS>' -R smb://IP/SHARE` (user)
 
 Mount to SMB share:
-`mount -t cifs -o username=<USER>,password=<PASS> //<IP>/<SHARE> /tmp/mount/` (creds)
+`mount -t cifs -o username=<USER>,password=<PASS> //<IP>/<SHARE> /tmp/mount/`
 
 ## NFS
 check NFS mount:
 `showmount -e <IP>`
 
 Mount to NFS share:
-`mount -t nfs -o username=<USER>,password=<PASS> <IP>:<SHARE> /tmp/mount/ -nolock` (creds)
+`mount -t nfs -o username=<USER>,password=<PASS> <IP>:<SHARE> /tmp/mount/ -nolock`

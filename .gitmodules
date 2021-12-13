@@ -22,3 +22,6 @@
 [submodule "tools/enum4linux-ng"]
 	path = tools/enum4linux-ng
 	url = https://github.com/cddmp/enum4linux-ng.git
+[submodule "tools/impacket"]
+	path = tools/impacket
+	url = https://github.com/SecureAuthCorp/impacket.git

