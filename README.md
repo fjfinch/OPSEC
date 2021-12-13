@@ -7,7 +7,7 @@ These are the notes about pentesting. It is written for me to understand certain
 NOTE: Notes are made with obsidian and are not optimized for GitHub. Text might look janky and pictures might not load.
 
 ## Tools
-The added tools are submodules linked to their main git repository. They are included for me to be easily pulled. Credits to the writers and contributors for making these awesome tooling.
+The added tools are submodules linked to their main git repository or other usefull tools. They are included for me to be easily pulled. Credits to the writers and contributors for making these awesome tooling.
 
 ## Configs
 Just a folder containing some configuration files for certain programs. So I don't have to manually setup everything, every time I create a new VM.
