@@ -4,12 +4,12 @@ Active Directory is the Windows implementation of a centralized general-purpose 
 ## Common protocols
 |Service|port|Description|
 |-|-|-|
-|DNS|53|Name resolution|
-|Kerberos, kpasswd|88,464|Authentication|
-|RPC, RPC over HTTP|135, 593|Communication|
-|NetBIOS|137, 138, 139|Communication, name resolution|
-|LDAP, tls|389, 636|Main directory service|
-|SMB|445|Communication|
+|[[53 DNS\|DNS]]|53|Name resolution|
+|[[88 Kerberos\|Kerberos, kpasswd]]|88,464|Authentication|
+|[[135 RPC\|RPC, RPC over HTTP]]|135, 593|Communication|
+|[[139,445 NetBIOS & SMB\|NetBIOS]]|137, 138, 139|Communication, name resolution|
+|[[389 LDAP\|LDAP, tls]]|389, 636|Main directory service|
+|[[139,445 NetBIOS & SMB\|SMB]]|445|Communication|
 |Global catalog LDAP, tls|3268, 3269|-|
 
 ## Naming Formats

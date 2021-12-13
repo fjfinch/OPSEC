@@ -2,14 +2,9 @@ Buffer Overflow
 * Windows
 * Linux
 
-Packaging
-* Best way to delete
-
 Processes
 * Windows
 * Linux
-
-Metasploit & searchsploit
 
 Programming
 * Powershell
@@ -27,6 +22,3 @@ Containers
 * Kubernetes
 
 Port Redirection and Tunneling
-
-Rev shells 
-* files

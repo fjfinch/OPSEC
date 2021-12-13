@@ -1,3 +1,4 @@
+# FQDN
 |x|x|subdomain|
 |--|--|--|
 |URL|https://www.trello.com/login.php||
@@ -10,10 +11,6 @@
 |Host name|winhost01/www|network (with IP)|
 |FQDN||full domain name|
 
-fqdn
-
-subdomain
-
 hostnames **may** DNS domain, separated from the host-specific label by a period ("dot").
 In the latter form, a hostname = domain name
 domain name + TLD > hostname = FQDN
@@ -21,11 +18,5 @@ Hostnames that include DNS domains are often stored in the Domain Name System to
 
 Individual Internet host computers use domain names as host identifiers, also called hostnames.
 
-
-
-NetBIOS computer name: HOST01
-Device/Computer name: Host01
-Full device/computer name: Host01.opsec.test
-
-Computer name (NetBIOS name)
-Host name/Device name (DNS name)
+Computer name (NetBIOS)
+Host name/Device name (DNS)

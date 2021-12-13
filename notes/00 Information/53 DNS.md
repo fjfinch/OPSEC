@@ -1,8 +1,6 @@
 # DNS
 Domain Name System (DNS) is a hierarchical, distributed database that contains mappings of domain names to various types of data, such as IP addresses. These are called records. DNS enables to locate computers and services by user-friendly names, and it also enables the discovery of other information stored in the database. As said DNS in mainly used to resolve the DNS name of a computer to its IP address.
 
-Port: 53
-
 ## DNS queries
 * Recursive Query: "must" provide an answer. It responds with either a relevant resource record, or an error message if it can't be found. The resolver starts a recursive query process, starting from the DNS Root Server, until it finds the Authoritative Name Server that holds the IP address and other information for the requested hostname.
 

@@ -1,7 +1,7 @@
 # Kerberos
-Kerberos uses keys for authentication. (Not authorization). A secret key is the hash (probably the NT hash) of an users password. Tickets are encrypted with the secret key (and cached on systems).
+88,464
 
-Port: 88, 464
+Kerberos uses keys for authentication. (Not authorization). A secret key is the hash (probably the NT hash) of an users password. Tickets are encrypted with the secret key (and cached on systems).
 
 Servers within AD:
 * DC (Domain Controller)
