@@ -29,5 +29,7 @@
     "NetBIOS",
     "subnet",
     "Hostnames"
-  ]
+  ],
+  "legacyEditor": false,
+  "livePreview": true
 }
