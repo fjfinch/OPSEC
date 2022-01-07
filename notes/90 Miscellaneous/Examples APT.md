@@ -1,12 +1,13 @@
 # Examples APT
-## Binaries
+## Remove
+#### Binaries
 `sudo apt remove <PACKAGE>`
 
-## Other config
+#### Other config
 `sudo apt purge <PACKAGE>`
 
-## Dependencies
+#### Dependencies
 `sudo apt autoremove`
 
-## All
+#### All
 `sudo apt purge --auto-remove <PACKAGE>`

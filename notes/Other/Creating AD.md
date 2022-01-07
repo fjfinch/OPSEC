@@ -1,14 +1,11 @@
 # Creating AD
 ## AD setup
-1. Setup Server & hosts on VM:
-	Windows Server ISO: https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019
-	Windows 10 Enterprise ISO: https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise
-	Windows 10: https://www.microsoft.com/nl-nl/software-download/windows10
+1. Install Server & hosts:
 	1. Time & currency: Dutch (Netherlands)
 	2. For server: Windows Server 2019 Standard Evaluation (Desktop Experience)
 	3. Custom install
 	4. For server: add Administrator creds
-	5. Add guestadditions
+	5. Add guestadditions/vmware tools
 
 2. Change settings:
 	1. Change IPv4 settings
@@ -71,3 +68,9 @@ Domain admin - Service account
 Full name: sqlaccount
 User: sqlaccount
 Pass: Password9!
+
+
+
+Local DC Administrator
+User: Administrator
+Pass: Password1!

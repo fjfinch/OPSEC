@@ -8,7 +8,8 @@
 `git config --global pull.rebase false`
 
 `git config --global init.defaultBranch <BRANCH_NAME>`
-	no) master	yes) main
+	yes) main
+	no) master
 
 ## GIT LOCAL REPOSITORY
 `git init`
@@ -41,10 +42,10 @@
 `git remote add origin <URL>`
 
 `git remote get-url origin`
-`git remote set-url origin <URL>`
+`git remote set-url origin git@github.com:fjfinch/<REP>.git`
 `git remote -v`
 
-`git push -u origin master`
+`git push -u origin main`
 
 `git pull`
 `git push`
