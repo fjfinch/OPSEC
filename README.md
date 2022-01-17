@@ -1,5 +1,5 @@
 # OPSEC
-Personal repository for bundling important stuff to help me learn pentesting. Consists out of 4 folders:
+Personal repository for bundling important stuff to help me learn offensive security. Rep consists out of 4 folders: notes, tools, configs and backups.
 
 ## Notes
 The notes about pentesting. It is written for me to understand certain topics, not to explain it to others. Probably ignored important things, because I either really understand it, still have to write it, or ignored it bc I think it is not important :-). 
@@ -11,6 +11,12 @@ Note: it is written with obsidian and is not optimized for GitHub. Text might lo
 ## Tools
 The added tools are submodules linked to their main git repository, or other usefull tools. They are included for me to be easily pulled. Credits to the writers and contributors for making these awesome tools.
 
+To use the submodules after cloning the repository, you need to init and update them:
+
+```
+git submodule update --init
+```
+
 ## Configs
 Just a folder containing some configuration files for certain programs. So I don't have to manually setup everything, every time I create a new VM.
 
@@ -18,5 +24,5 @@ Just a folder containing some configuration files for certain programs. So I don
 Old notes/tools/configs.
 
 ## ToDo
-* Create docker support for the tooling
-* Eventually automate with Ansible (playbooks)
+* Tools: create docker/venv support
+* Tools: eventually automate with Ansible (playbooks)
