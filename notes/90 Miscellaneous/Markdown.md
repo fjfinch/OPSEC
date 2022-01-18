@@ -1,4 +1,4 @@
-# Examples Markdown
+# Markdown
 [Give me name](https://google.nl/)
 
 > Quote block
@@ -39,27 +39,23 @@ cd test
 # Title
 DESCRIPTION
 
-## 1. Introduction
-WHY I MADE I THE PROJECT
+## Install dependencies
+This script uses the following programs: `PROGRAMS`/makes use of `libraries`.
 
-## 2. Setup
-This project is made on/for (Debian) Kali Linux.
+* Program A: `apt install A`
+* Program B: `apt install B`
+* Library: `pip3 install LIBRARY`
 
-Download project using: `git clone REPOSITORY` or by downloading the ZIP.
-
-This script uses the following programs: `PROGRAMS`
-
-* `PROGRAM1`: `apt install`
-* `PROGRAM2`: `apt install`
-
-## 3. Usage
+## Run
+Input:
 `COMMAND`
 
 * `Arg 1`: meaning this
 * `Arg 2`: meaning this
 
-#### Output
+Output:
+
 ![DESCRIPTION](https://miro.medium.com/max/509/1*uf9t8g5GZy8V1yI8Rzo7rw.jpeg)
 
-## 4. ToDo
+## ToDo
 * FUTURE THINGS

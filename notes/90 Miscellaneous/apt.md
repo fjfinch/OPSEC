@@ -1,4 +1,4 @@
-# Examples APT
+# apt
 ## Remove
 #### Binaries
 `sudo apt remove <PACKAGE>`
