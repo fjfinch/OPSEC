@@ -36,9 +36,9 @@
 
 `git submodule add <URL>`
 
-`git submodule deinit -f <REP>`
-`git rm -f <REP>`
-`rm -rf .git/modules/<REP>`
+`git submodule deinit -f <DIRECTORY>/<REP>`
+`git rm -f <DIRECTORY>/<REP>`
+`rm -rf .git/modules/<DIRECTORY>/<REP>`
 
 `git submodule update --init`
 
