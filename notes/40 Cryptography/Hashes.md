@@ -8,7 +8,7 @@
 https://crackstation.net/
 
 ## Hashcat
-`hashcat -m <MODE> <HASH> <PASSLIST> --force --potfile-disable -r /usr/share/hashcat/rules/<RULE>`
+`hashcat -m <MODE> <HASH> <PASSLIST> --potfile-disable -r /usr/share/hashcat/rules/<RULE>`
 
 List:
 * 0 MD5
