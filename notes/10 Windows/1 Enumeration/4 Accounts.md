@@ -1,26 +1,20 @@
 # Accounts
 ## Kerberos
-Brute force - Won't lockout user account:
-`kerbrute userenum --dc <DC_IP> -d <DOMAIN> <USERLIST>`
+Brute force accounts:
+`kerbrute userenum --dc <IP> -d <DOMAIN> <USERLIST>`
 
-## NetBIOS & SMB & RPC
-Enumerate all user accounts through SAMR:
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'enumdomusers'`
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'querydispinfo'`
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'queryuser <RID>'`
-`impacket-samrdump '<DOMAIN>/<USER>:<PASS>@<IP>'`
-
+## SMB & RPC
 Brute force accounts with RID through LSA:
-`impacket-lookupsid '<DOMAIN>/<USER>:<PASS>@<IP>'`
-`crackmapexec smb <IP> -u <USER> -p <PASS> --rid-brute`
-`enum4linux -u '<USER>' -p '<PASS>' -r -R 500-650,1000-1150 <IP> 2>/dev/null | grep -v unknown`
-`python3 enum4linux-ng.py -u '<USER>' -p '<PASS>' -R -r 500-650,1000-1150 <IP>`
+`impacket-lookupsid '<DOMAIN>/<USER>:<PASS>@<IP>'` (null,guest,user)
+`crackmapexec smb <IP> -u <USER> -p <PASS> --rid-brute` (null,guest,user)
+`enum4linux-ng -u '<USER>' -p '<PASS>' -R -r 500-650,1000-1150 <IP>` (null,guest,user)
 
-`crackmapexec smb <IP> -u <USER> -p <PASS> --users`
+Enumerate all user accounts through SAMR:
+`rpcclient -U '<USER>%<PASS>' <IP> -c 'enumdomusers'` (null,guest,user)
+`rpcclient -U '<USER>%<PASS>' <IP> -c 'querydispinfo'` (null,guest,user)
+`rpcclient -U '<USER>%<PASS>' <IP> -c 'queryuser <RID>'` (null,guest,user)
+`impacket-samrdump '<DOMAIN>/<USER>:<PASS>@<IP>'` (null,guest,user)
 
 ## LDAP
-All domain user accounts:
-`impacket-GetADUsers -all -dc-ip <DC_IP> <DOMAIN>/<USER>:<PASS>`
-
-All useful LDAP objects (accounts/computers/groups/trust/policy):
-`ldapdomaindump -u <DOMAIN>\\<USER> -p <PASS> --no-json --no-grep <DC_IP>`
+All user accounts:
+`impacket-GetADUsers -all -dc-ip <IP> <DOMAIN>/<USER>:<PASS>` (user)

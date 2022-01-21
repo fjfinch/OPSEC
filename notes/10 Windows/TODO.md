@@ -21,8 +21,3 @@ ntlmrelayx
 
 ## Powershell
 powersploit
-
-## Bloodhound
-bloodhound
-bloodhound.py
-sharphound

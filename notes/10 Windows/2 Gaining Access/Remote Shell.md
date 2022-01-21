@@ -7,7 +7,9 @@
 
 ## RDP: 3389
 `impacket-rdp_check '<DOMAIN>/<USER>:<PASS>@<IP>'` check
- `xfreerdp /u:DOMAIN\<USER> /p:<PASS> /v:<IP> /dynamic-resolution /drive:share,/tmp`
+ `xfreerdp /v:<IP> /u:DOMAIN\<USER> /p:<PASS> /dynamic-resolution /drive:share,/tmp`
+ /cert:ignore
+ +clipboard
 `remmina`
 
 ## WinRM: 5985, 5986

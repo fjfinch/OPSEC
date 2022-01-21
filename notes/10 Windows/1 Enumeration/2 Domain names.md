@@ -1,16 +1,13 @@
 # Domain names
-## NetBIOS & SMB & RPC
-Domain name & related info through LSA:
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'lsaquery'`
+## SMB & RPC
+Domain name & SID through LSARPC:
+`rpcclient -U '<USER>%<PASS>' <IP> -c 'lsaquery'` (null,guest,user)
 
-Domain name & related info through SAMR:
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'lookupdomain <DOMAIN>'`
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'enumdomains'`
-`rpcclient -U '<USER>%<PASS>' <DC_IP> -c 'querydominfo'`
-
-Domain name, host name, & check for null session and guest account through SRVSVC & LSA:
-`domcheck <DC_IP>`
+Domain name & more through SAMR:
+`rpcclient -U '<USER>%<PASS>' <IP> -c 'lookupdomain <DOMAIN>'` (null,guest,user)
+`rpcclient -U '<USER>%<PASS>' <IP> -c 'enumdomains'` (null,guest,user)
+`rpcclient -U '<USER>%<PASS>' <IP> -c 'querydominfo'` (null,guest,user)
 
 ## LDAP
 Domain name:
-`ldapsearch -h <DC_IP> -x -s base namingContexts`
+`ldapsearch -h <IP> -x -s base namingContexts`
