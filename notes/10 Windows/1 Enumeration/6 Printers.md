@@ -1,4 +1,4 @@
-# printers
+# Printers
 ## SMB & RPC
 Enum printers through SPOOLSS:
 ```bash
