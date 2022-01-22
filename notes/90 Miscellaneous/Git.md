@@ -3,8 +3,8 @@
 `git config --list`
 `git config --global --list`
 
-`git config --global user.name "<USER>"`
-`git config --global user.email "<EMAIL>"`
+`git config --global user.name '<USER>'`
+`git config --global user.email '<EMAIL>'`
 `git config --global pull.rebase true`
 
 `git remote set-url origin git@github.com:fjfinch/<REP>.git`
