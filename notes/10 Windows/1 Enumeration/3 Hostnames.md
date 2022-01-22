@@ -5,11 +5,11 @@ Hostnames through PTR (reverse lookup):
 `dig @<DNS_IP> -x <IP>`
 
 LDAP/Kerberos hostname through SRV:
-`dig srv @<DNS_IP> _ldap._tcp.<DNS_DOMAIN>`
-`dig srv @<DNS_IP> _kerberos._tcp.<DNS_DOMAIN>`
+`dig srv @<DNS_IP> _ldap._tcp.<DOMAIN_DNS>`
+`dig srv @<DNS_IP> _kerberos._tcp.<DOMAIN_DNS>`
 
 Subdomains through DNS brute force:
-`gobuster dns -d <DNS_DOMAIN> -r <DNS_IP> -w <WORDLIST>`
+`gobuster dns -d <DOMAIN_DNS> -r <DNS_IP> -w <WORDLIST>`
 
 ## NetBIOS
 Hostnames:

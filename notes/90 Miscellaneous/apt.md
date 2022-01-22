@@ -1,13 +1,13 @@
 # apt
 ## Remove
-#### Binaries
+##### Binaries
 `sudo apt remove <PACKAGE>`
 
-#### Other config
+##### Binaries + configs (except in /home/)
 `sudo apt purge <PACKAGE>`
 
-#### Dependencies
+##### Dependencies
 `sudo apt autoremove`
 
-#### All
+##### All
 `sudo apt purge --auto-remove <PACKAGE>`

