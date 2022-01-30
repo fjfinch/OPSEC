@@ -1,30 +1,25 @@
 # Shares
-## SMB & RPC
-Enum shares through SRVSVC:
+SMB & RPC - Enum shares through SRVSVC:
 ```bash
-rpcclient -U '<USER>%<PASS>' <IP> -c 'netshareenumall' # (null,guest,user)
-rpcclient -U '<USER>%<PASS>' <IP> -c 'netsharegetinfo <SHARE>' # (null,guest,user)
+rpcclient -U '<USER>%<PASS>' <IP> -c 'netshareenumall' # PTH
+rpcclient -U '<USER>%<PASS>' <IP> -c 'netsharegetinfo <SHARE>' # PTH
+smbmap -u '<USER>' -p '<PASS>' -r -H <IP> # PTH
 
-smbmap -r -H <IP> # (null)
-smbmap -u 'guest' -p '' -r -H <IP> # (guest)
-smbmap -u '<USER>' -p '<PASS>' -r -H <IP> # (user)
-
+smbclient -U '<USER>%<PASS>' //<IP>/<SHARE> # PTH
 # recurse: on & prompt: off & mget *
-smbclient -U '<USER>%<PASS>' //<IP>/<SHARE> # (null,guest,user)
 ```
 
-Mount to SMB share:
+SMB & RPC - Mount to SMB share:
 ```bash
-mount -t cifs -o username=<USER>,password=<PASS> //<IP>/<SHARE> /tmp/mount/ # (null,guest,user)
+mount -t cifs -o username='<USER>',password='<PASS>' //<IP>/<SHARE> /tmp/mount/
 ```
 
-## NFS
-Check NFS mounts:
+NFS - Check NFS mounts:
 ```bash
 showmount -e <IP>
 ```
 
-Mount to NFS share:
+NFS - Mount to NFS share:
 ```bash
-mount -t nfs -o username=<USER>,password=<PASS> <IP>:<SHARE> /tmp/mount/ -nolock
+mount -t nfs -o username='<USER>',password='<PASS>' <IP>:<SHARE> /tmp/mount/ -nolock
 ```

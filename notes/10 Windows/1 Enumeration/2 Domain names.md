@@ -1,19 +1,17 @@
 # Domain names
-## SMB & RPC
-Domain name & SID through LSARPC:
+SMB & RPC - Domain name & SID through LSARPC:
 ```bash
-rpcclient -U '<USER>%<PASS>' <IP> -c 'lsaquery' # (null,guest,user)
+rpcclient -U '<USER>%<PASS>' <IP> -c 'lsaquery' # PTH
 ```
 
-Domain name & more through SAMR:
+SMB & RPC - Domain name & more through SAMR:
 ```bash
-rpcclient -U '<USER>%<PASS>' <IP> -c 'lookupdomain <DOMAIN>' # (null,guest,user)
-rpcclient -U '<USER>%<PASS>' <IP> -c 'enumdomains' # (null,guest,user)
-rpcclient -U '<USER>%<PASS>' <IP> -c 'querydominfo' # (null,guest,user)
+rpcclient -U '<USER>%<PASS>' <IP> -c 'lookupdomain <DOMAIN>' # PTH
+rpcclient -U '<USER>%<PASS>' <IP> -c 'enumdomains' # PTH
+rpcclient -U '<USER>%<PASS>' <IP> -c 'querydominfo' # PTH
 ```
 
-## LDAP
-Domain name:
+LDAP - Domain name:
 ```bash
 ldapsearch -h <IP> -x -s base namingContexts
 ```
