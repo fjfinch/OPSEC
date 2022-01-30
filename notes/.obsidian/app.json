@@ -31,5 +31,6 @@
     "Hostnames"
   ],
   "legacyEditor": false,
-  "livePreview": true
+  "livePreview": true,
+  "foldHeading": false
 }
