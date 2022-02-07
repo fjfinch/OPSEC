@@ -3,6 +3,7 @@ SMB & RPC - Enum shares through SRVSVC:
 ```bash
 rpcclient -U '<USER>%<PASS>' <IP> -c 'netshareenumall' # PTH
 rpcclient -U '<USER>%<PASS>' <IP> -c 'netsharegetinfo <SHARE>' # PTH
+
 smbmap -u '<USER>' -p '<PASS>' -r -H <IP> # PTH
 
 smbclient -U '<USER>%<PASS>' //<IP>/<SHARE> # PTH

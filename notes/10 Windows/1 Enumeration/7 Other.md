@@ -10,6 +10,7 @@ rpcclient -U '<USER>%<PASS>' <IP> -c 'getdompwinfo' # PTH
 rpcclient -U '<USER>%<PASS>' <IP> -c 'getusrdompwinfo <RID>' # PTH
 
 polenum -u '<USER>' -p '<PASS>' -d <IP>
+
 crackmapexec smb <IP> -u '<USER>' -p '<PASS>' --pass-pol # PTH
 ```
 
