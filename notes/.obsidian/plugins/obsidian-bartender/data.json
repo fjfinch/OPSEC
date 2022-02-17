@@ -1,0 +1,32 @@
+{
+  "statusBarOrder": [],
+  "ribbonBarOrder": [],
+  "fileExplorerOrder": {
+    "10 Windows": [
+      "10 Windows/1 Enumeration",
+      "10 Windows/2 Gaining Access",
+      "10 Windows/3 Privilege Escalation",
+      "10 Windows/4 Lateral Movement",
+      "10 Windows/Encryption.md",
+      "10 Windows/Golden Ticket attack.md",
+      "10 Windows/Mimikatz.md",
+      "10 Windows/Silver Ticket Attack.md",
+      "10 Windows/Tickets.md",
+      "10 Windows/TODO.md"
+    ],
+    "10 Windows/1 Enumeration": [
+      "10 Windows/1 Enumeration/1 IP & ports.md",
+      "10 Windows/1 Enumeration/2 Domain names.md",
+      "10 Windows/1 Enumeration/3 Hostnames.md",
+      "10 Windows/1 Enumeration/4 Accounts.md",
+      "10 Windows/1 Enumeration/5 Shares.md",
+      "10 Windows/1 Enumeration/6 Credentials",
+      "10 Windows/1 Enumeration/7 Other.md",
+      "10 Windows/1 Enumeration/all.md"
+    ]
+  },
+  "actionBarOrder": {},
+  "autoHide": false,
+  "autoHideDelay": 2000,
+  "dragDelay": 200
+}
