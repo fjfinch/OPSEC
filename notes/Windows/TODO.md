@@ -18,6 +18,9 @@ dnscan
 dnsdict6 
 dnsrevenum6 
 ntlmrelayx
+silver ticket attack
+golden ticket attack
+skeleton attack?
 
 ## Powershell
 powersploit
