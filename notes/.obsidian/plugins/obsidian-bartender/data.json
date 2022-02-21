@@ -23,6 +23,58 @@
       "10 Windows/1 Enumeration/6 Credentials",
       "10 Windows/1 Enumeration/7 Other.md",
       "10 Windows/1 Enumeration/all.md"
+    ],
+    "/": [
+      "INFORMATION",
+      "Enumeration Local",
+      "Windows",
+      "Linux",
+      "Web",
+      "Cryptography",
+      "Steganography",
+      "Forensics",
+      "Reverse Engineering",
+      "Binary Exploitation",
+      "Miscellaneous",
+      "Other"
+    ],
+    "Windows": [
+      "Windows/Enumeration Remote",
+      "Windows/Gaining Access",
+      "Windows/Enumeration Local",
+      "Windows/Privilege Escalation",
+      "Windows/Lateral Movement",
+      "Windows/Encryption.md",
+      "Windows/Golden Ticket attack.md",
+      "Windows/Mimikatz.md",
+      "Windows/Silver Ticket Attack.md",
+      "Windows/Tickets.md",
+      "Windows/TODO.md"
+    ],
+    "Web": [
+      "Web/Fuzzing.md",
+      "Web/Subdomains.md",
+      "Web/SQL Injection.md",
+      "Web/Cross Site Scripting.md",
+      "Web/TODO.md"
+    ],
+    "Windows/Enumeration Remote": [
+      "Windows/Enumeration Remote/IP & ports.md",
+      "Windows/Enumeration Remote/Domain names.md",
+      "Windows/Enumeration Remote/Hostnames.md",
+      "Windows/Enumeration Remote/Shares.md",
+      "Windows/Enumeration Remote/Accounts.md",
+      "Windows/Enumeration Remote/Credentials",
+      "Windows/Enumeration Remote/Other.md",
+      "Windows/Enumeration Remote/all.md"
+    ],
+    "Windows/Enumeration Remote/Credentials": [
+      "Windows/Enumeration Remote/Credentials/Check password.md",
+      "Windows/Enumeration Remote/Credentials/Brute-forcing.md",
+      "Windows/Enumeration Remote/Credentials/AS-REP Roasting.md",
+      "Windows/Enumeration Remote/Credentials/Kerberoasting.md",
+      "Windows/Enumeration Remote/Credentials/Credentials Dumping.md",
+      "Windows/Enumeration Remote/Credentials/Vulnerabilities.md"
     ]
   },
   "actionBarOrder": {},

