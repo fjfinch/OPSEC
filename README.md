@@ -2,8 +2,9 @@
 Personal repository for bundling important stuff to help me learn offensive security. Rep consists out of 4 folders: notes, tools, configs and backups.
 
 ## Notes
-The notes about pentesting. It is written for me to understand certain topics, not to explain it to others. Probably ignored important things, because I either really understand it, still have to write it, or ignored it bc I think it is not important :-). 
+Notes are written for me to understand certain topics, not to explain it to others. Probably ignored important things, because I either really understand it, still have to write it, or ignored it bc I think it is not important :-). 
 
+[deprecated]
 Attacks and tooling used for Windows and Linux are categorised per protocol. This is what protocol they use. NOT WHAT THEY ARE USED FOR. For example, the tool 'adidnsdump', which is used to extract all DNS records, is placed in LDAP, because it uses the LDAP protocol to extract data. Not in DNS because it extracts DNS records. This is done to quickly identify what underlying protocol is being used. Certain protocol didn't show up in a Nmap scan? Propably can't use this tool/attack.
 
 Note: it is written with obsidian and is not optimized for GitHub. Text might look janky and pictures might not load.
