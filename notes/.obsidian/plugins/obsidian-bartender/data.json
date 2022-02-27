@@ -59,9 +59,9 @@
       "Web/TODO.md"
     ],
     "Windows/Enumeration Remote": [
-      "Windows/Enumeration Remote/IP & ports.md",
-      "Windows/Enumeration Remote/Domain names.md",
-      "Windows/Enumeration Remote/Hostnames.md",
+      "Windows/Enumeration Remote/Domain name.md",
+      "Windows/Enumeration Remote/Hosts.md",
+      "Windows/Enumeration Remote/Services on host.md",
       "Windows/Enumeration Remote/Shares.md",
       "Windows/Enumeration Remote/Accounts.md",
       "Windows/Enumeration Remote/Credentials",
@@ -75,6 +75,11 @@
       "Windows/Enumeration Remote/Credentials/Kerberoasting.md",
       "Windows/Enumeration Remote/Credentials/Credentials Dumping.md",
       "Windows/Enumeration Remote/Credentials/Vulnerabilities.md"
+    ],
+    "Windows/Enumeration Local": [
+      "Windows/Enumeration Local/IP & ports.md",
+      "Windows/Enumeration Local/Domain Names.md",
+      "Windows/Enumeration Local/Config Files.md"
     ]
   },
   "actionBarOrder": {},

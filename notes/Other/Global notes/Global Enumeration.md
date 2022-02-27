@@ -1,8 +1,3 @@
-IP addresses on subnet:
-```bash
-sudo nmap -sn <IP>/<SUBNET>
-```
-
 Check if host is Windows or Linux:
 ```bash
 ping <IP>
@@ -10,12 +5,16 @@ ping <IP>
 # TTL 64 - Linux/Unix
 ```
 
-All ports and services on TCP:
+All open ports:
 ```bash
+# TCP
 sudo nmap -sC -sV -p- <IP>
+
+# UDP
+sudo nmap -sU -sC -sV -p- <IP>
 ```
 
-All ports and services on UDP:
+IP addresses on subnet:
 ```bash
-sudo nmap -sU -sC -sV -p- <IP>
+sudo nmap -sn <IP>/<SUBNET>
 ```

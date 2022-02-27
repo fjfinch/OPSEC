@@ -1,3 +1,9 @@
+Nmap scan report for 192.168.56.100
+Nmap scan report for 192.168.56.110
+Nmap scan report for 192.168.56.150
+Nmap scan report for 192.168.56.160
+
+
 --DOMAIN:
 NETBIOS: CSTLAB
 DNS: castlab.local

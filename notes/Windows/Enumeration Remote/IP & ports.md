@@ -1,2 +1,0 @@
-# IP & ports
-![[Global Enumeration]]

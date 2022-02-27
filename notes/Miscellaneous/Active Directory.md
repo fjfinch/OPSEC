@@ -12,29 +12,7 @@ Active Directory is the Windows implementation of a centralized general-purpose 
 |[[139,445 NetBIOS & SMB\|SMB]]|445|Communication|
 |Global catalog LDAP, tls|3268, 3269|-|
 
-## Naming Formats
-User account naming:
-* userPrincipalName
-* sAMAccountName
-
-Domain & computers naming:
-* DNS name (machine/host name)
-* NetBIOS name
-
-#### Logon names
-Down-level logon name:
-* NetBIOS_domain_name/samAccountName
-* legacy systems - backwards compatible - used for local signon
-* 20 chars long
-
-User Principal Name (UPN):
-* userPrincipalName@DNS_domain_name
-* Useful in multi-domain 
-* Reflects email style
-
-http://blog.schertz.name/2012/08/understanding-active-directory-naming-formats/
-
-#### AD Naming Conventions
+## AD Naming Conventions
 Possible usernames can be calculated with username-anarchy:
 `username-anarchy -i <NAMESLIST>`
 
