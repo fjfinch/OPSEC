@@ -61,12 +61,13 @@
     "Windows/Enumeration Remote": [
       "Windows/Enumeration Remote/Domain name.md",
       "Windows/Enumeration Remote/Hosts.md",
+      "Windows/Enumeration Remote/Hosts 1.md",
+      "Windows/Enumeration Remote/Hosts",
       "Windows/Enumeration Remote/Services on host.md",
       "Windows/Enumeration Remote/Shares.md",
       "Windows/Enumeration Remote/Accounts.md",
       "Windows/Enumeration Remote/Credentials",
-      "Windows/Enumeration Remote/Other.md",
-      "Windows/Enumeration Remote/all.md"
+      "Windows/Enumeration Remote/other.md"
     ],
     "Windows/Enumeration Remote/Credentials": [
       "Windows/Enumeration Remote/Credentials/Check password.md",
@@ -80,6 +81,11 @@
       "Windows/Enumeration Local/IP & ports.md",
       "Windows/Enumeration Local/Domain Names.md",
       "Windows/Enumeration Local/Config Files.md"
+    ],
+    "Windows/Enumeration Remote/Hosts": [
+      "Windows/Enumeration Remote/Hosts/All IP's or host names.md",
+      "Windows/Enumeration Remote/Hosts/IP-host name translation.md",
+      "Windows/Enumeration Remote/Hosts/Specific host name.md"
     ]
   },
   "actionBarOrder": {},

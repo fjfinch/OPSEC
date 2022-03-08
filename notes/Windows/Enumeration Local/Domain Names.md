@@ -25,7 +25,6 @@ net accounts /domain #Password and lockout policy
 nltest /domain_trust #Mapping of the trust relationships.
 ```
 
-
 ```bash
 USERDOMAIN=OPSEC # NetBIOS domain name / NetBIOS host name
 USERDNSDOMAIN=OPSEC.TEST # DNS domain name / unset
