@@ -1,4 +1,5 @@
 ~/.config/wireshark/dfilter_buttons
+%APPDATA%\Wireshark\dfilter_buttons
 
 "TRUE","Windows Accounts","kerberos.msg_type==10 && !(kerberos.CNameString contains $)",""
 "TRUE","Hostnames","(dhcp.option.hostname && !dhcp.option.dhcp in {5 8}) || (nbns.flags.opcode in {5 8} && nbns.nb_flags.group==0 && !nbns.name contains \x22<1d>\x22) || (kerberos.msg_type==10 && kerberos.CNameString contains $) || browser.server || mscldap.nb_hostname || netlogon.secchan.nl_auth_message.nb_host",""
