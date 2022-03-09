@@ -1,4 +1,5 @@
 ~/.config/wireshark/preferences
+%APPDATA%\Wireshark\preferences
 
 gui.column.format: 
 	"No.", "%m",
