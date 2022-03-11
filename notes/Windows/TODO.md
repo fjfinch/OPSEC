@@ -22,5 +22,8 @@ silver ticket attack
 golden ticket attack
 skeleton attack?
 
+HiveNightmare (CVE-2021–36934)
+	Read any HIVE on windows
+
 ## Powershell
 powersploit

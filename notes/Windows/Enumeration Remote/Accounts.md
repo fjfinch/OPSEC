@@ -26,8 +26,3 @@ All user accounts through LDAP query:
 ```bash
 impacket-GetADUsers -all -dc-ip <IP> '<DOMAIN>/<USER>:<PASS>' # PTH
 ```
-
-
-OU:
-- User accounts
-- Computer accounts

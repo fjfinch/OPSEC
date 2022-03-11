@@ -1,4 +1,11 @@
 # other
+Check if host is Windows or Linux:
+```bash
+ping <IP>
+# TTL 128 - Windows
+# TTL 64 - Linux/Unix
+```
+
 All useful LDAP objects through LDAP query:
 ```bash
 ldapdomaindump -u '<DOMAIN>\<USER>' -p '<PASS>' --no-json --no-grep <DC_IP> # PTH
