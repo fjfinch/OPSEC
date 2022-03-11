@@ -1,0 +1,15 @@
+gui.column.format: 
+	"No.", "%m",
+	"Time", "%t",
+	"Protocol", "%p",
+	"Src. port", "%uS",
+	"Dst. port", "%uD",
+	"Forwarded-For", "%Cus:http.x_forwarded_for:0:R",
+	"Src. IP", "%s",
+	"Dst. IP", "%d",
+	"Length", "%L",
+	"test", "%Cus:dhcp.option.hostname || nbns.name || kerberos.CNameString || browser.server || mscldap.nb_hostname || netlogon.secchan.nl_auth_message.nb_host:1:R",
+	"DNS query", "%Cus:dns.qry.name:0:R",
+	"Web server", "%Cus:http.host || tls.handshake.extensions_server_name:0:R",
+	"User-agent", "%Cus:http.user_agent:0:R",
+	"Info", "%i"
