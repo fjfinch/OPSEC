@@ -1,5 +1,5 @@
 # Services on host
-All open ports:
+All open ports/services:
 ```bash
 # TCP
 sudo nmap -sC -sV -p- <IP>
