@@ -40,15 +40,10 @@
     ],
     "Windows": [
       "Windows/Enumeration Remote",
-      "Windows/Gaining Access",
       "Windows/Enumeration Local",
+      "Windows/Gaining Access",
       "Windows/Privilege Escalation",
       "Windows/Lateral Movement",
-      "Windows/Encryption.md",
-      "Windows/Golden Ticket attack.md",
-      "Windows/Mimikatz.md",
-      "Windows/Silver Ticket Attack.md",
-      "Windows/Tickets.md",
       "Windows/TODO.md"
     ],
     "Web": [

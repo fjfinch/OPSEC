@@ -1,8 +1,0 @@
-~/.config/wireshark/dfilter_buttons
-%APPDATA%\Wireshark\dfilter_buttons
-
-"TRUE","Windows Accounts","kerberos.msg_type==10 && !(kerberos.CNameString contains $)",""
-"TRUE","Hostnames","(dhcp.option.hostname && !dhcp.option.dhcp in {5 8}) || (nbns.flags.opcode in {5 8} && nbns.nb_flags.group==0 && !nbns.name contains \x22<1d>\x22) || (kerberos.msg_type==10 && kerberos.CNameString contains $) || browser.server || mscldap.nb_hostname || netlogon.secchan.nl_auth_message.nb_host",""
-"TRUE","exe/dll","ip contains \x22This program\x22",""
-"TRUE","Web:Syn","(http.request || tls.handshake.type==1 || (tcp.flags==2 && tcp.analysis.rto_frame)) && !(ssdp) && !(ocsp)",""
-"TRUE","Web:Syn:DNS","(http.request || tls.handshake.type==1 || (tcp.flags==2 && tcp.analysis.rto_frame) || (dns && dns.flags.response==1) || (dns && dns.flags.response==0 && !dns.response_in && !dns.retransmit_request)) && !(ssdp) && !(ocsp)",""

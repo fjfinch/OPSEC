@@ -1,5 +1,5 @@
-# IP & ports
-List open ports:
+# Services on host
+List all open ports/services:
 ```bash
 netstat -an | findstr "\[\:\:\] 0.0.0.0"
 ```

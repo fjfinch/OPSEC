@@ -1,3 +1,6 @@
+~/.config/wireshark/preferences
+%APPDATA%\Wireshark\preferences
+
 gui.column.format: 
 	"No.", "%m",
 	"Time", "%t",
@@ -8,8 +11,7 @@ gui.column.format:
 	"Src. IP", "%s",
 	"Dst. IP", "%d",
 	"Length", "%L",
-	"test", "%Cus:dhcp.option.hostname || nbns.name || kerberos.CNameString || browser.server || mscldap.nb_hostname || netlogon.secchan.nl_auth_message.nb_host:1:R",
 	"DNS query", "%Cus:dns.qry.name:0:R",
 	"Web server", "%Cus:http.host || tls.handshake.extensions_server_name:0:R",
 	"User-agent", "%Cus:http.user_agent:0:R",
-	"Info", "%i"
+	"Info", "%i"
