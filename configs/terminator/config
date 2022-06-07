@@ -1,5 +1,3 @@
-~/.config/terminator/config
-
 [global_config]
   window_state = maximise
   inactive_color_offset = 1.0
