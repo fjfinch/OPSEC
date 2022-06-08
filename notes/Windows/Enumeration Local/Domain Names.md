@@ -18,7 +18,7 @@ net view /domain #Lis of PCs of the domain
 nltest /dclist:<DOMAIN> #List domain controllers
 net group "Domain Controllers" /domain #List PC accounts of domains controllers
 net group "Domain Admins" /domain #List users with domain admin privileges
-net localgroup administrators /domain #List uses that belongs to the administrators group inside the domain (the grup "Domain Admins" is included here)
+net localgroup administrators /domain #List users that belongs to the administrators group inside the domain (the group "Domain Admins" is included here)
 net user /domain #List all users of the domain
 net user <ACCOUNT_NAME> /domain #Get information about that user
 net accounts /domain #Password and lockout policy

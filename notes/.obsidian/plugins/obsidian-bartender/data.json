@@ -79,6 +79,11 @@
       "Windows/Enumeration Remote/Hosts/All IP's or host names.md",
       "Windows/Enumeration Remote/Hosts/Specific host name.md",
       "Windows/Enumeration Remote/Hosts/IP-host name translation.md"
+    ],
+    "CST practicum": [
+      "CST practicum/Info.md",
+      "CST practicum/Local user -> Local admin",
+      "CST practicum/Local admin -> Domain admin"
     ]
   },
   "actionBarOrder": {},

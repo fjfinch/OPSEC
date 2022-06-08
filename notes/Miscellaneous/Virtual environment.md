@@ -1,12 +1,19 @@
 # Virtual environment
-pyvenv (deprecated)
-
-## os virtual environment
+## OS virtual environment
 docker
 
 ## Python virtual environment
-virtualenv
-venv
+virtualenv +virtualenvwrapper
+	venv (same as pyvenv)
+conda
+pyvenv (deprecated)
 
-pipenv
+
+pipenv (uses virtualenv)
 poetry
+
+
+pyenv +pyenv-virtualenv +pyenv-virtualenvwrapper
+
+
+pew
