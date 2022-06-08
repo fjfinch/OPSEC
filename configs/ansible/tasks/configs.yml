@@ -1,23 +1,23 @@
 - block:
 
-  - name: CONFIG - terminator
+  - name: "CONFIG : terminator"
     ansible.builtin.copy:
       src: ../terminator/config
       dest: ~/.config/terminator/
 
-  - name: CONFIG - .zshrc
+  - name: "CONFIG : .zshrc"
     blockinfile:
       path: ~/.zshrc
       block: "{{ lookup('file', '../shell/.zshrc') }}"
 
-  - name: CONFIG - .zshrc
+  - name: "CONFIG : .zshrc"
     ansible.builtin.lineinfile:
       path: ~/.zshrc
       regexp: '^PROMPT_ALTERNATIVE=twoline$'
       backrefs: yes
       line: PROMPT_ALTERNATIVE=oneline
 
-  - name: CONFIG - .zshrc
+  - name: "CONFIG : .zshrc"
     ansible.builtin.lineinfile:
       path: ~/.zshrc
       regexp: '^NEWLINE_BEFORE_PROMPT=yes$'
@@ -25,22 +25,18 @@
       line: NEWLINE_BEFORE_PROMPT=no
 
 
+#  - name: "CONFIG : wireshark"
+#    blockinfile:
+#      path: ~/.config/wireshark/preferences
+#      block: "{{ lookup('file', '../shell/.zshrc') }}"
+#      create: yes
 
 
-  - name: CONFIG - wireshark
-    blockinfile:
-      path: ~/.config/wireshark/preferences
-      block: "{{ lookup('file', '../shell/.zshrc') }}"
-      create: yes
-
-
-  - name: CONFIG - wireshark
-    blockinfile:
-      path: ~/.config/wireshark/dfilter_buttons
-      block: "{{ lookup('file', '../shell/.zshrc') }}"
-      create: yes
-
-
+#  - name: "CONFIG : wireshark"
+#    blockinfile:
+#      path: ~/.config/wireshark/dfilter_buttons
+#      block: "{{ lookup('file', '../shell/.zshrc') }}"
+#      create: yes
 
   rescue:
     - name: Errors

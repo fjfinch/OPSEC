@@ -1,0 +1,23 @@
+--- backup
+# check become
+    - name: test1
+      ansible.builtin.shell: whoami
+      register: command_output
+    - debug:
+        var: command_output.stdout_lines
+
+--- command
+ansible-playbook main.yml -i inventory.ini -K
+
+--- todo
+fix paths : relative vs absolute : ~/test vs /home/user/test
+fix rescue : error/debug
+apt install : latest?
+single/double quotes
+
+enum4linux-ng
+
+COMMANDS:
+source zshrc
+pipx autocomplete
+git submodule update --init

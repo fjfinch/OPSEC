@@ -1,6 +1,0 @@
-test
-# BEGIN ANSIBLE MANAGED BLOCK
-Match User ansible-agent
-# END ANSIBLE MANAGED BLOCK
-test2
-test3

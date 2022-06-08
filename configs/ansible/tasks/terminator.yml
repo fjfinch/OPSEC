@@ -1,0 +1,11 @@
+- block:
+
+  - name: "TERMINATOR : copy config"
+    ansible.builtin.copy:
+      src: ../terminator/config
+      dest: ~/.config/terminator/
+
+  rescue:
+    - name: Errors
+      ansible.builtin.debug:
+        msg: 'ERROR'

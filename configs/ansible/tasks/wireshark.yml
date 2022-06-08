@@ -1,0 +1,19 @@
+- block:
+
+#  - name: "CONFIG : wireshark"
+#    blockinfile:
+#      path: ~/.config/wireshark/preferences
+#      block: "{{ lookup('file', '../shell/.zshrc') }}"
+#      create: yes
+
+
+#  - name: "CONFIG : wireshark"
+#    blockinfile:
+#      path: ~/.config/wireshark/dfilter_buttons
+#      block: "{{ lookup('file', '../shell/.zshrc') }}"
+#      create: yes
+
+  rescue:
+    - name: Errors
+      ansible.builtin.debug:
+        msg: 'ERROR'
