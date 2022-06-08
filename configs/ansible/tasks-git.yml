@@ -1,0 +1,16 @@
+- block:
+
+#git config --global pull.rebase true
+
+  - name: GIT config user
+    ansible.builtin.command: git config --global user.name '{{ git_user }}'
+    when: git_user|length > 0
+
+  - name: GIT config email
+    ansible.builtin.command: git config --global user.email '{{ git_email }}'
+    when: git_email|length > 0
+
+  rescue:
+    - name: Errors
+      ansible.builtin.debug:
+        msg: 'ERROR'

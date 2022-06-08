@@ -1,0 +1,22 @@
+- block:
+
+  - name: APT - pipx
+    apt:
+      name: pipx
+      state: latest
+
+  - name: APT - terminator
+    apt:
+      name: terminator
+      state: latest
+
+  - name: APT - wireshark
+    apt:
+      name: wireshark
+      state: latest
+
+  become: true
+  rescue:
+    - name: Errors
+      ansible.builtin.debug:
+        msg: 'apt - ERROR INSTALLING PACKAGES'

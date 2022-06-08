@@ -1,0 +1,35 @@
+---
+- name: OPSEC
+  hosts: localhost
+  become_method: sudo
+  gather_facts: false
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
+  vars_prompt:
+    - name: git_user
+      prompt: What is your git username?
+      private: false
+
+    - name: git_email
+      prompt: What is your git email?
+      private: false
+
+  tasks:
+  - import_tasks: tasks-update-upgrade.yml
+#  - import_tasks: tasks-apt.yml
+#  - import_tasks: tasks-pipx.yml
+#  - import_tasks: tasks-configs.yml
+  - import_tasks: tasks-git.yml
+
+# enum4linux-ng
+
+  # RUN COMMANDS
+#  - block:
+#    - name: COMMAND - source zshrc
+#    - name: COMMAND - pipx autocomplete
+
+# MEEEEEEEEEE
+#alias lla='ls -lA'
+#alias thm='sudo openvpn ~/Finch.ovpn'
+#alias holo='sudo openvpn ~/Finch-hololive.ovpn'
+...
