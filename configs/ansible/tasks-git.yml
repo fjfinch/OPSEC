@@ -10,6 +10,10 @@
     ansible.builtin.command: git config --global user.email '{{ git_email }}'
     when: git_email|length > 0
 
+  - name: generate SSH key
+    community.crypto.openssh_keypair:
+      path: ~/.ssh/id_rsa
+
   rescue:
     - name: Errors
       ansible.builtin.debug:
