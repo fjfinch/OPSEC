@@ -1,21 +1,16 @@
 - block:
 
-  - name: ".ZSHRC : change settings"
-    ansible.builtin.lineinfile:
+  - name: '.ZSHRC : change settings'
+    lineinfile:
       path: ~/.zshrc
-      regexp: "{{ item.regexp }}"
-      line: "{{ item.line }}"
+      regexp: '{{ item.regexp }}'
+      line: '{{ item.line }}'
       backrefs: yes
-    with_items:
-      - { regexp: '^PROMPT_ALTERNATIVE=twoline$', line: 'PROMPT_ALTERNATIVE=oneline' }
-      - { regexp: '^NEWLINE_BEFORE_PROMPT=yes$', line: 'NEWLINE_BEFORE_PROMPT=no' }
+    loop:
+      - { regexp: ^PROMPT_ALTERNATIVE=twoline$, line: PROMPT_ALTERNATIVE=oneline }
+      - { regexp: ^NEWLINE_BEFORE_PROMPT=yes$, line: NEWLINE_BEFORE_PROMPT=no }
 
-  - name: ".ZSHRC : add settings"
+  - name: '.ZSHRC : add settings'
     blockinfile:
       path: ~/.zshrc
-      block: "{{ lookup('file', '../shell/.zshrc') }}"
-
-  rescue:
-    - name: Errors
-      ansible.builtin.debug:
-        msg: 'ERROR'
+      block: '{{ lookup("file", "../shell/.zshrc") }}'

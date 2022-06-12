@@ -1,3 +1,7 @@
+--- command
+ansible-playbook main.yml -i inventory.ini -K
+
+
 --- backup
 # check become
     - name: test1
@@ -6,14 +10,14 @@
     - debug:
         var: command_output.stdout_lines
 
---- command
-ansible-playbook main.yml -i inventory.ini -K
 
 --- todo
 fix paths : relative vs absolute : ~/test vs /home/user/test
-fix rescue : error/debug
+debug
 apt install : latest?
 single/double quotes
+no internet fail
+remove other same installed tools
 
 enum4linux-ng
 

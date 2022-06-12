@@ -1,28 +1,15 @@
 - block:
 
-  - name: "GIT : global user"
+  - name: 'GIT : global settings'
     community.general.git_config:
-      name: user.name
-      scope: global
-      value: '{{ git_user }}'
+      name: '{{ item.name }}'
+      scope: '{{ item.scope }}'
+      value: '{{ item.value }}'
+    loop:
+      - { name: user.name, scope: global, value: '{{ git_user }}' }
+      - { name: user.email, scope: global, value: '{{ git_email }}' }
+      - { name: pull.rebase, scope: global, value: true }
 
-  - name: "GIT : global email"
-    community.general.git_config:
-      name: user.email
-      scope: global
-      value: '{{ git_email }}'
-
-  - name: "GIT : global rebase"
-    community.general.git_config:
-      name: pull.rebase
-      scope: global
-      value: true
-
-  - name: "GIT : SSH keypair"
+  - name: 'GIT : SSH keypair'
     community.crypto.openssh_keypair:
       path: ~/.ssh/id_rsa
-
-  rescue:
-    - name: Errors
-      ansible.builtin.debug:
-        msg: 'ERROR'

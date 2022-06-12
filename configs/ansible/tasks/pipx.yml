@@ -1,31 +1,10 @@
 - block:
 
-  - name: "PIPX : install tools"
+  - name: 'PIPX : install tools'
     community.general.pipx:
-      name: "{{ item.name }}"
-    with_items:
+      name: '{{ item.name }}'
+    loop:
       - { name: crackmapexec }
       - { name: ldapdomaindump }
       - { name: impacket }
       - { name: adidnsdump }
-
-#  - name: "PIPX : crackmapexec"
-#    community.general.pipx:
-#      name: crackmapexec
-
-#  - name: "PIPX : ldapdomaindump"
-#    community.general.pipx:
- #     name: ldapdomaindump
-
- # - name: "PIPX : impacket"
- #   community.general.pipx:
- #     name: impacket
-
- # - name: "PIPX : adidnsdump"
- #   community.general.pipx:
- #     name: adidnsdump
-
-  rescue:
-    - name: Errors
-      ansible.builtin.debug:
-        msg: 'ERROR'
