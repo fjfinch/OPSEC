@@ -8,7 +8,7 @@
     loop:
       - { name: user.name, scope: global, value: '{{ git_user }}' }
       - { name: user.email, scope: global, value: '{{ git_email }}' }
-      - { name: pull.rebase, scope: global, value: true }
+      - { name: pull.rebase, scope: global, value: 'true' }
 
   - name: 'GIT : SSH keypair'
     community.crypto.openssh_keypair:

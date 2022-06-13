@@ -19,6 +19,9 @@ single/double quotes
 no internet fail
 remove other same installed tools
 
+ansible-galaxy collection install community.general
+[WARNING]: Collection community.general does not support Ansible version 2.10.8
+
 enum4linux-ng
 
 COMMANDS:
