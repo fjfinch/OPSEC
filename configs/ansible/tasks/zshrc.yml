@@ -1,6 +1,6 @@
 - block:
 
-  - name: '.ZSHRC : change settings'
+  - name: '.ZSHRC : change config'
     lineinfile:
       path: ~/.zshrc
       regexp: '{{ item.regexp }}'
@@ -10,7 +10,7 @@
       - { regexp: ^PROMPT_ALTERNATIVE=twoline$, line: PROMPT_ALTERNATIVE=oneline }
       - { regexp: ^NEWLINE_BEFORE_PROMPT=yes$, line: NEWLINE_BEFORE_PROMPT=no }
 
-  - name: '.ZSHRC : add settings'
+  - name: '.ZSHRC : add config'
     blockinfile:
       path: ~/.zshrc
       block: '{{ lookup("file", "../shell/.zshrc") }}'

@@ -1,6 +1,6 @@
 - block:
 
-  - name: 'GIT : global settings'
+  - name: 'GIT : add global config'
     community.general.git_config:
       name: '{{ item.name }}'
       scope: '{{ item.scope }}'
@@ -10,6 +10,11 @@
       - { name: user.email, scope: global, value: '{{ git_email }}' }
       - { name: pull.rebase, scope: global, value: 'true' }
 
-  - name: 'GIT : SSH keypair'
+  - name: 'GIT : create .ssh/ directory'
+    file:
+      path: ~/.ssh/
+      state: directory
+
+  - name: 'GIT : create ssh keypair'
     community.crypto.openssh_keypair:
       path: ~/.ssh/id_rsa
