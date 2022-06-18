@@ -5,7 +5,7 @@
       name: '{{ item.name }}'
       state: '{{ item.state }}'
     loop:
-      - { name: pipx, state: latest }
+#      - { name: pipx, state: latest }
       - { name: terminator, state: latest }
       - { name: wireshark, state: latest }
 

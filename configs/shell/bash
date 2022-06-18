@@ -1,0 +1,3 @@
+PS1='\[\033[1;31m\][\D{%H:%M:%S}] \[\033[1;34m\]\u \[\033[1;32m\]\w\[\033[00m\] > '
+alias lla='ls -lA'
+alias thm='sudo openvpn ~/Finch.ovpn'

@@ -19,18 +19,6 @@ single/double quotes
 no internet fail
 remove other same installed tools
 
-community.general.git_config:
-community.crypto.openssh_keypair:
-community.general.pipx:
-copy:
-apt:
-lineinfile:
-blockinfile:
-
-ansible-galaxy collection install community.mysql
-ansible-galaxy collection install community.general
-[WARNING]: Collection community.general does not support Ansible version 2.10.8
-
 enum4linux-ng
 
 COMMANDS:

@@ -1,3 +1,15 @@
+# CONFIG FOR BASH
+- block:
+
+  - name: '.BASHRC : add config'
+    blockinfile:
+      path: ~/.bashrc
+      block: '{{ lookup("file", "../shell/bashrc") }}'
+
+  when: default_shell is search("/bash")
+
+
+# CONFIG FOR ZSH
 - block:
 
   - name: '.ZSHRC : change config'
@@ -13,4 +25,6 @@
   - name: '.ZSHRC : add config'
     blockinfile:
       path: ~/.zshrc
-      block: '{{ lookup("file", "../shell/.zshrc") }}'
+      block: '{{ lookup("file", "../shell/zshrc") }}'
+
+  when: default_shell is search("/zsh")
