@@ -1,14 +1,14 @@
 - block:
 
-#  - name: 'CONFIG : wireshark'
-#    blockinfile:
-#      path: ~/.config/wireshark/preferences
-#      block: '{{ lookup('file', '../shell/.zshrc') }}'
-#      create: yes
+  - name: 'WIRESHARK : add preferences'
+    blockinfile:
+      path: ~/.config/wireshark/preferences
+      block: '{{ lookup("file", "../wireshark/preferences") }}'
+      create: yes
 
 
-#  - name: 'CONFIG : wireshark'
-#    blockinfile:
-#      path: ~/.config/wireshark/dfilter_buttons
-#      block: '{{ lookup('file', '../shell/.zshrc') }}'
-#      create: yes
+  - name: 'WIRESHARK : add dfilter_buttons'
+    blockinfile:
+      path: ~/.config/wireshark/dfilter_buttons
+      block: '{{ lookup("file", "../wireshark/dfilter_buttons") }}'
+      create: yes

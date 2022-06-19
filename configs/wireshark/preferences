@@ -1,6 +1,4 @@
-~/.config/wireshark/preferences
-%APPDATA%\Wireshark\preferences
-
+gui.layout_type: 2
 gui.column.format: 
 	"No.", "%m",
 	"Time", "%t",

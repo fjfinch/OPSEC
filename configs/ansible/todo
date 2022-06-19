@@ -13,15 +13,15 @@ ansible-playbook main.yml -i inventory.ini -K
 
 --- todo
 fix paths : relative vs absolute : ~/test vs /home/user/test
+  "{{ ansible_env.HOME }}"
 debug
 apt install : latest?
 single/double quotes
 no internet fail
 remove other same installed tools
 
+
 enum4linux-ng
 
 COMMANDS:
-source zshrc
-pipx autocomplete
 git submodule update --init
