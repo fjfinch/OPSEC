@@ -1,7 +1,0 @@
-`crackmapexec smb <IP> -u '' -p '' --shares` (null)
-`crackmapexec smb <IP> -u 'guest' -p '' --shares` (guest)
-`crackmapexec smb <IP> -u '<USER>' -p '<PASS>' --shares` (user)
-
-`smbget -a -R smb://<IP>/<SHARE>` (null)
-`smbget -U 'guest%' -R smb://IP/SHARE` (guest)
-`smbget -U '<USER>%<PASS>' -R smb://IP/SHARE` (user)

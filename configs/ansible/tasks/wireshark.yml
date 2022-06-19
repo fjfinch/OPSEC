@@ -1,14 +1,10 @@
 - block:
 
-  - name: 'WIRESHARK : add preferences'
+  - name: 'WIRESHARK : add config'
     blockinfile:
-      path: ~/.config/wireshark/preferences
-      block: '{{ lookup("file", "../wireshark/preferences") }}'
+      path: '{{ item.path }}'
+      block: '{{ item.block }}'
       create: yes
-
-
-  - name: 'WIRESHARK : add dfilter_buttons'
-    blockinfile:
-      path: ~/.config/wireshark/dfilter_buttons
-      block: '{{ lookup("file", "../wireshark/dfilter_buttons") }}'
-      create: yes
+    loop:
+      - { path: ~/.config/wireshark/preferences, block: '{{ lookup("file", "../wireshark/preferences") }}' }
+      - { path: ~/.config/wireshark/dfilter_buttons, block: '{{ lookup("file", "../wireshark/dfilter_buttons") }}' }
