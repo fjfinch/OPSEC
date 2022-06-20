@@ -1,5 +1,14 @@
 # OPSEC
-Personal repository for bundling important stuff to help me learn offensive security. Rep consists out of 4 folders: notes, tools, configs and backups.
+Personal repository to configure an offensive security VM, and to learn about pentesting/red teaming. Rep consists out of 3 folders:
+
+* configs
+* notes
+* tools
+
+Everything can be automatically
+
+## Configs
+A folder containing configuration files for different programs. So I don't have to manually setup everything, every time I create a new VM. Configuring can be done automatically with Ansible.
 
 ## Notes
 Notes are written for me to understand certain topics, not to explain it to others. Probably ignored important things, because I either really understand it, still have to write it, or ignored it bc I think it is not important :-). 
@@ -17,9 +26,6 @@ To use the submodules after cloning the repository, you need to init and update 
 ```
 git submodule update --init
 ```
-
-## Configs
-Just a folder containing some configuration files for certain programs. So I don't have to manually setup everything, every time I create a new VM.
 
 ## Backups
 Old notes/tools/configs.

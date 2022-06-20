@@ -17,7 +17,7 @@
       path: ~/.zshrc
       regexp: '{{ item.regexp }}'
       line: '{{ item.line }}'
-      backrefs: yes
+      backrefs: true
     loop:
       - { regexp: ^PROMPT_ALTERNATIVE=twoline$, line: PROMPT_ALTERNATIVE=oneline }
       - { regexp: ^NEWLINE_BEFORE_PROMPT=yes$, line: NEWLINE_BEFORE_PROMPT=no }

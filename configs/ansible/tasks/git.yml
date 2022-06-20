@@ -1,5 +1,10 @@
 - block:
 
+  - name: 'GIT : repo submodules init'
+    command: git submodule update --init
+    changed_when: output.stdout is search("Submodule path")
+    register: output
+
   - name: 'GIT : add global config'
     community.general.git_config:
       name: '{{ item.name }}'
@@ -14,6 +19,7 @@
     file:
       path: ~/.ssh/
       state: directory
+      mode: '700'
 
   - name: 'GIT : create ssh keypair'
     community.crypto.openssh_keypair:

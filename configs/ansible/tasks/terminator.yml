@@ -4,3 +4,4 @@
     copy:
       src: ../terminator/config
       dest: ~/.config/terminator/
+      mode: '644'

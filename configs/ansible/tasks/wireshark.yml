@@ -4,7 +4,8 @@
     blockinfile:
       path: '{{ item.path }}'
       block: '{{ item.block }}'
-      create: yes
+      create: true
+      mode: '644'
     loop:
       - { path: ~/.config/wireshark/preferences, block: '{{ lookup("file", "../wireshark/preferences") }}' }
       - { path: ~/.config/wireshark/dfilter_buttons, block: '{{ lookup("file", "../wireshark/dfilter_buttons") }}' }

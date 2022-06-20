@@ -36,17 +36,23 @@ pull:
 
 
 
-
-git pull --recurse-submodules
-git push
-
 git submodule add <URL>
 
 git submodule deinit -f <DIRECTORY>/<REP>
 git rm -f <DIRECTORY>/<REP>
 rm -rf .git/modules/<DIRECTORY>/<REP>
 
+
+git clone --recurse-submodules <REPO>
+
 git submodule update --init
+	git submodule init
+	git submodule update
+		git pull --recurse-submodules
+
+git pull --recurse-submodules
+
+
 
 .gitignore
 .git/info/exclude
