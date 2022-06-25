@@ -1,5 +1,4 @@
 - block:
-
   - name: 'TERMINATOR : copy config'
     copy:
       src: ../terminator/config

@@ -1,8 +1,7 @@
 - block:
-
-  - name: 'GIT : repo submodules init'
+  - name: 'GIT : init submodules repo'
     command: git submodule update --init
-    changed_when: output.stdout is search("Submodule path")
+    changed_when: output.stdout is search('Submodule path')
     register: output
 
   - name: 'GIT : add global config'

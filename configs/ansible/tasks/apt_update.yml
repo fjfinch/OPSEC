@@ -1,8 +1,8 @@
 - block:
-
   - name: 'APT : update & upgrade packages'
     apt:
       update_cache: true
       upgrade: safe
+      autoremove: true
 
   become: true

@@ -1,18 +1,16 @@
 # CONFIG FOR BASH
 - block:
-
-  - name: 'SHELL : add .bashrc config'
+  - name: 'BASH : add .bashrc config'
     blockinfile:
       path: ~/.bashrc
       block: '{{ lookup("file", "../shell/bashrc") }}'
 
-  when: default_shell is search("/bash")
+  when: default_shell is search('/bash')
 
 
 # CONFIG FOR ZSH
 - block:
-
-  - name: 'SHELL : change .zshrc config'
+  - name: 'ZSH : change .zshrc config'
     lineinfile:
       path: ~/.zshrc
       regexp: '{{ item.regexp }}'
@@ -22,9 +20,9 @@
       - { regexp: ^PROMPT_ALTERNATIVE=twoline$, line: PROMPT_ALTERNATIVE=oneline }
       - { regexp: ^NEWLINE_BEFORE_PROMPT=yes$, line: NEWLINE_BEFORE_PROMPT=no }
 
-  - name: 'SHELL : add .zshrc config'
+  - name: 'ZSH : add .zshrc config'
     blockinfile:
       path: ~/.zshrc
       block: '{{ lookup("file", "../shell/zshrc") }}'
 
-  when: default_shell is search("/zsh")
+  when: default_shell is search('/zsh')

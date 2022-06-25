@@ -1,0 +1,10 @@
+- block:
+  - name: 'APT : install tools'
+    apt:
+      name: '{{ item.name }}'
+    loop:
+      - { name: terminator }
+      - { name: wireshark }
+      - { name: nmap }
+
+  become: true

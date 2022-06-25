@@ -1,5 +1,4 @@
 - block:
-
   - name: 'WIRESHARK : add config'
     blockinfile:
       path: '{{ item.path }}'

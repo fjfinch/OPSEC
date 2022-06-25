@@ -1,11 +1,13 @@
 ---
-- name: OPSEC
+- name: SETUP
   hosts: localhost
-  become_method: sudo
   gather_facts: false
+  become_method: sudo
+
   vars:
     ansible_python_interpreter: "/usr/bin/python3"
     default_shell: '{{ lookup("env", "SHELL") }}'
+
   vars_prompt:
     - name: git_user
       prompt: git username
@@ -16,10 +18,10 @@
       private: false
 
   tasks:
-  - import_tasks: tasks/update.yml
-  - import_tasks: tasks/apt.yml
-  - import_tasks: tasks/pipx.yml
-  - import_tasks: tasks/shell.yml
-  - import_tasks: tasks/terminator.yml
-  - import_tasks: tasks/wireshark.yml
-  - import_tasks: tasks/git.yml
+    - import_tasks: tasks/apt_update.yml
+    - import_tasks: tasks/apt_install.yml
+    - import_tasks: tasks/pipx.yml
+    - import_tasks: tasks/shell.yml
+    - import_tasks: tasks/terminator.yml
+    - import_tasks: tasks/wireshark.yml
+    - import_tasks: tasks/git.yml
