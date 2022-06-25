@@ -3,6 +3,7 @@
     apt:
       name: '{{ item.name }}'
     loop:
+      - { name: zsh }
       - { name: terminator }
       - { name: wireshark }
       - { name: nmap }

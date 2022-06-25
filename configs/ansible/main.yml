@@ -6,7 +6,7 @@
 
   vars:
     ansible_python_interpreter: "/usr/bin/python3"
-    default_shell: '{{ lookup("env", "SHELL") }}'
+    default_user: '{{ lookup("env", "USER") }}'
 
   vars_prompt:
     - name: git_user
@@ -21,7 +21,7 @@
     - import_tasks: tasks/apt_update.yml
     - import_tasks: tasks/apt_install.yml
     - import_tasks: tasks/pipx.yml
-    - import_tasks: tasks/shell.yml
+    - import_tasks: tasks/zsh.yml
     - import_tasks: tasks/terminator.yml
     - import_tasks: tasks/wireshark.yml
     - import_tasks: tasks/git.yml

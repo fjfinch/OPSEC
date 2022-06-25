@@ -1,0 +1,12 @@
+- block:
+  - name: 'ZSH : change default shell'
+    user:
+      name: '{{ default_user }}'
+      shell: /usr/bin/zsh
+    become: true
+
+  - name: 'ZSH : add .zshrc'
+    copy:
+      src: ../zsh/.zshrc
+      dest: ~/.zshrc
+      mode: '644'

@@ -1,12 +1,7 @@
 - block:
-  - name: 'PIPX : update tools'
-    community.general.pipx:
-      state: upgrade_all
-
   - name: 'PIPX : install tools'
     community.general.pipx:
       name: '{{ item.name }}'
-      state: upgrade
     loop:
       - { name: crackmapexec }
       - { name: ldapdomaindump }
