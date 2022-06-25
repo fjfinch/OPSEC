@@ -10,3 +10,11 @@
       src: ../zsh/.zshrc
       dest: ~/.zshrc
       mode: '644'
+
+  - name: 'ZSH : autosuggestions'
+    git:
+      repo: http://github.com/zsh-users/zsh-autosuggestions
+      dest: ~/.zsh/zsh-autosuggestions
+
+  # change shell
+  # reboot
