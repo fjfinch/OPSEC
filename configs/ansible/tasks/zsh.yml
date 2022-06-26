@@ -5,16 +5,16 @@
       shell: /usr/bin/zsh
     become: true
 
-  - name: 'ZSH : add .zshrc'
-    copy:
-      src: ../zsh/.zshrc
-      dest: ~/.zshrc
-      mode: '644'
-
   - name: 'ZSH : add autosuggestions'
     git:
       repo: http://github.com/zsh-users/zsh-autosuggestions
       dest: ~/.zsh/zsh-autosuggestions
+
+  - name: 'ZSH : copy .zshrc'
+    copy:
+      src: ../zsh/.zshrc
+      dest: ~/.zshrc
+      mode: '644'
 
   # change shell
   # reboot

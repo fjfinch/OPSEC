@@ -1,0 +1,5 @@
+- block:
+  - name: 'GIT REPO : init submodules'
+    command: git submodule update --init
+    changed_when: output.stdout is search('Submodule path')
+    register: output

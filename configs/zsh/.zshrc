@@ -8,7 +8,8 @@
 #setopt numericglobsort     # sort filenames numerically when it makes sense
 #setopt promptsubst         # enable command substitution in prompt
 
-WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
+# don't consider certain characters part of the word
+WORDCHARS=${WORDCHARS//\/}
 
 # hide EOL sign ('%')
 PROMPT_EOL_MARK=""
@@ -146,3 +147,5 @@ fi
 # custom aliases
 alias lla='ls -lA'
 alias thm='sudo openvpn ~/Finch.ovpn'
+
+export PATH="$PATH:/home/${USER}/.local/bin"
