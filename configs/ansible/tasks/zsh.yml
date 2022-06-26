@@ -11,7 +11,7 @@
       dest: ~/.zshrc
       mode: '644'
 
-  - name: 'ZSH : autosuggestions'
+  - name: 'ZSH : add autosuggestions'
     git:
       repo: http://github.com/zsh-users/zsh-autosuggestions
       dest: ~/.zsh/zsh-autosuggestions
