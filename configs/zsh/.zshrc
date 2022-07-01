@@ -1,37 +1,47 @@
-#setopt autocd              # change directory just by typing its name
-#setopt correct            # auto correct mistakes
+start=$(date +%s%N)
 
-#setopt interactivecomments # allow comments in interactive mode
-#setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
-#setopt nonomatch           # hide error message if there is no match for the pattern
-#setopt notify              # report the status of background jobs immediately
-#setopt numericglobsort     # sort filenames numerically when it makes sense
-#setopt promptsubst         # enable command substitution in prompt
+setopt interactivecomments	# allow comments in interactive mode
+setopt magicequalsubst		# enable filename expansion for arguments of the form ‘anything=expression’
+setopt nonomatch		# hide error message if there is no match for the pattern
+setopt notify			# report the status of background jobs immediately
+setopt numericglobsort		# sort filenames numerically when it makes sense
+setopt promptsubst		# enable command substitution in prompt
+setopt glob_dots
 
-# don't consider certain characters part of the word
-WORDCHARS=${WORDCHARS//\/}
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats '%b'
 
-# hide EOL sign ('%')
+# Hide EOL sign (%) in shell
 PROMPT_EOL_MARK=""
 
-# configure key keybindings
-bindkey -e                                        # emacs key bindings
-#bindkey ' ' magic-space                           # do history expansion on space
-#bindkey '^U' backward-kill-line                   # ctrl + U
-#bindkey '^[[3;5~' kill-word                       # ctrl + Supr
-#bindkey '^[[3~' delete-char                       # delete
-bindkey '^[[1;5C' forward-word                    # ctrl + ->
-bindkey '^[[1;5D' backward-word                   # ctrl + <-
-#bindkey '^[[5~' beginning-of-buffer-or-history    # page up
-#bindkey '^[[6~' end-of-buffer-or-history          # page down
-#bindkey '^[[H' beginning-of-line                  # home
-#bindkey '^[[F' end-of-line                        # end
-#bindkey '^[[Z' undo                               # shift + tab undo last action
+# Don't consider certain characters part of the word
+WORDCHARS=${WORDCHARS//\/}
 
-# enable completion features
-#autoload -Uz compinit
-#compinit
-#zstyle ':completion:*:*:*:*:*' menu select
+# Aliases
+alias history="history 0"
+alias lla='ls -lA'
+alias thm='sudo openvpn ~/Finch.ovpn'
+
+# Pipx environments in PATH
+export PATH="$PATH:/home/${USER}/.local/bin"
+
+# configure `time` format
+TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
+
+# Keybindings
+bindkey -e				# emacs key bindings
+bindkey '^U' backward-kill-line		# ctrl + U
+bindkey '^[[3;5~' kill-word		# ctrl + Del
+bindkey '^[[1;5C' forward-word		# ctrl + ->
+bindkey '^[[1;5D' backward-word		# ctrl + <-
+
+# Tab completion + interactive drop down menu for completion features
+autoload -Uz compinit
+compinit -d ~/.cache/zcompdump
+zstyle ':completion:*:*:*:*:*' menu select
 #zstyle ':completion:*' auto-description 'specify: %d'
 #zstyle ':completion:*' completer _expand _complete
 #zstyle ':completion:*' format 'Completing %d'
@@ -43,109 +53,62 @@ bindkey '^[[1;5D' backward-word                   # ctrl + <-
 #zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 #zstyle ':completion:*' use-compctl false
 #zstyle ':completion:*' verbose true
-#zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # History configurations
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=2000
-setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_dups       # ignore duplicated commands history list
-setopt hist_ignore_space      # ignore commands that start with space
-setopt hist_verify            # show command with history expansion to user before running it
+HISTSIZE=4000
+SAVEHIST=4000
+setopt hist_expire_dups_first	# delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups		# ignore duplicated commands history list
+setopt hist_ignore_space	# ignore commands that start with space
+setopt hist_verify		# show command with history expansion to user before executing
 
-# force zsh to show the complete history
-alias history="history 0"
-
-# override default virtualenv indicator in prompt
-#VIRTUAL_ENV_DISABLE_PROMPT=1
-
-PROMPT='%B%F{red}[%D{%H:%M:%S}] %B%F{blue}%n %B%F{green}%~%b%F{reset} > '
-
-# enable syntax-highlighting
-if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-    ZSH_HIGHLIGHT_STYLES[default]=none
-    ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white,underline
-    ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
-    ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
-    ZSH_HIGHLIGHT_STYLES[global-alias]=fg=green,bold
-    ZSH_HIGHLIGHT_STYLES[precommand]=fg=green,underline
-    ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=blue,bold
-    ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green,underline
-    ZSH_HIGHLIGHT_STYLES[path]=bold
-    ZSH_HIGHLIGHT_STYLES[path_pathseparator]=
-    ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=
-    ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue,bold
-    ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=blue,bold
-    ZSH_HIGHLIGHT_STYLES[command-substitution]=none
-    ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=magenta,bold
-    ZSH_HIGHLIGHT_STYLES[process-substitution]=none
-    ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]=fg=magenta,bold
-    ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=green
-    ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=green
-    ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
-    ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]=fg=blue,bold
-    ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=yellow
-    ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=yellow
-    ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=yellow
-    ZSH_HIGHLIGHT_STYLES[rc-quote]=fg=magenta
-    ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=magenta,bold
-    ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=magenta,bold
-    ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=magenta,bold
-    ZSH_HIGHLIGHT_STYLES[assign]=none
-    ZSH_HIGHLIGHT_STYLES[redirection]=fg=blue,bold
-    ZSH_HIGHLIGHT_STYLES[comment]=fg=black,bold
-    ZSH_HIGHLIGHT_STYLES[named-fd]=none
-    ZSH_HIGHLIGHT_STYLES[numeric-fd]=none
-    ZSH_HIGHLIGHT_STYLES[arg0]=fg=cyan
-    ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=red,bold
-    ZSH_HIGHLIGHT_STYLES[bracket-level-1]=fg=blue,bold
-    ZSH_HIGHLIGHT_STYLES[bracket-level-2]=fg=green,bold
-    ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
-    ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
-    ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
-    ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
-fi
-
-# enable color support of ls, less and man, and also add handy aliases
+# Color support for files, folders, executables, etc.
 if [ -x /usr/bin/dircolors ]; then
-#    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-#    export LS_COLORS="$LS_COLORS:ow=30;44:" # fix ls color for folders with 777 permissions
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    export LS_COLORS="$LS_COLORS:ow=30;44:"			# fix ls color for folders with 777 permissions
+    zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"     # include color in autosuggestions
 
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
     alias diff='diff --color=auto'
-
-#    export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
-#    export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
-#    export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
-#    export LESS_TERMCAP_so=$'\E[01;33m'    # begin reverse video
-#    export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
-#    export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
-#    export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
-
-    # Take advantage of $LS_COLORS for completion as well
-#    zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-#    zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+    alias ip='ip --color=auto'
+    export LESS_TERMCAP_mb=$'\E[1;31m'				# begin blink
+    export LESS_TERMCAP_md=$'\E[1;36m'				# begin bold
+    export LESS_TERMCAP_me=$'\E[0m'				# reset bold/blink
+    export LESS_TERMCAP_so=$'\E[01;33m'				# begin reverse video
+    export LESS_TERMCAP_se=$'\E[0m'				# reset reverse video
+    export LESS_TERMCAP_us=$'\E[1;32m'				# begin underline
+    export LESS_TERMCAP_ue=$'\E[0m'				# reset underline
 fi
 
-# enable auto-suggestions based on the history
-if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    #. /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    . ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-    # change suggestion color
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
-fi
+VIRTUAL_ENV_DISABLE_PROMPT=1
 
-# enable command-not-found if installed
+# Prompt with prompt-Expansion
+#PROMPT='%b%F{red}[%*] %B%F{blue}%n %B%F{green}%~%b%f > '
+
+# Enable command-not-found. Shows if (similar) package exists, when not installed
 if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
-# custom aliases
-alias lla='ls -lA'
-alias thm='sudo openvpn ~/Finch.ovpn'
+# Enable zsh-syntax-highlighting.
+if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    . ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white,underline
+    ZSH_HIGHLIGHT_STYLES[arg0]=fg=cyan
+    ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=green
+    ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=green
+fi
 
-export PATH="$PATH:/home/${USER}/.local/bin"
+# Enable zsh-autosuggestionss. Grey auto-suggestions based on the history
+if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    . ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
+fi
+
+end=$(date +%s%N)
+runtime=$(((end-start)/1000000))
+PROMPT='%b%F{red}[%*] %b%f${runtime}ms ${vcs_info_msg_0_} %B%F{blue}%n %B%F{green}%~%b%f > '

@@ -1,6 +1,6 @@
 ---
 - name: SETUP
-  hosts: localhost
+  hosts: all #localhost
   gather_facts: false
   become_method: sudo
 
@@ -18,11 +18,11 @@
       private: false
 
   tasks:
-    - import_tasks: tasks/apt_update.yml
-    - import_tasks: tasks/apt_install.yml
-    - import_tasks: tasks/pipx.yml
+#    - import_tasks: tasks/apt_update.yml
+#    - import_tasks: tasks/apt_install.yml
+#    - import_tasks: tasks/pipx.yml
     - import_tasks: tasks/zsh.yml
-    - import_tasks: tasks/terminator.yml
-    - import_tasks: tasks/wireshark.yml
-    - import_tasks: tasks/git_repo.yml
-    - import_tasks: tasks/git_global.yml
+#    - import_tasks: tasks/terminator.yml
+#    - import_tasks: tasks/wireshark.yml
+#    - import_tasks: tasks/git_repo.yml
+#    - import_tasks: tasks/git_global.yml
