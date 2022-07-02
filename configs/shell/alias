@@ -1,2 +1,0 @@
-alias lla='ls -lA'
-alias thm='sudo openvpn ~/Finch.ovpn'
