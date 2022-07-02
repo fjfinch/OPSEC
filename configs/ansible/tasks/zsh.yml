@@ -5,15 +5,13 @@
       shell: /usr/bin/zsh
     become: true
 
-  - name: 'ZSH : pull zsh-autosuggestions folder'
+  - name: 'ZSH : pull zsh plugins'
     git:
-      repo: http://github.com/zsh-users/zsh-autosuggestions
-      dest: ~/.zsh/zsh-autosuggestions
-
-  - name: 'ZSH : pull zsh-syntax-highlighting folder'
-    git:
-      repo: https://github.com/zsh-users/zsh-syntax-highlighting
-      dest: ~/.zsh/zsh-syntax-highlighting
+      repo: '{{ item.repo }}'
+      dest: '{{ item.dest }}'
+    loop:
+      - { repo: http://github.com/zsh-users/zsh-autosuggestions, dest: ~/.zsh/zsh-autosuggestions }
+      - { repo: https://github.com/zsh-users/zsh-syntax-highlighting, dest: ~/.zsh/zsh-syntax-highlighting }
 
   - name: 'ZSH : copy .zshrc'
     copy:

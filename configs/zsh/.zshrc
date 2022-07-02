@@ -8,12 +8,6 @@ setopt numericglobsort		# sort filenames numerically when it makes sense
 setopt promptsubst		# enable command substitution in prompt
 setopt glob_dots
 
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
-zstyle ':vcs_info:git:*' formats '%b'
-
 # Hide EOL sign (%) in shell
 PROMPT_EOL_MARK=""
 
@@ -21,15 +15,12 @@ PROMPT_EOL_MARK=""
 WORDCHARS=${WORDCHARS//\/}
 
 # Aliases
-alias history="history 0"
+alias history='history 0'
 alias lla='ls -lA'
 alias thm='sudo openvpn ~/Finch.ovpn'
 
 # Pipx environments in PATH
 export PATH="$PATH:/home/${USER}/.local/bin"
-
-# configure `time` format
-TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
 
 # Keybindings
 bindkey -e				# emacs key bindings
@@ -48,7 +39,7 @@ zstyle ':completion:*:*:*:*:*' menu select
 #zstyle ':completion:*' group-name ''
 #zstyle ':completion:*' list-colors ''
 #zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-#zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 #zstyle ':completion:*' rehash true
 #zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 #zstyle ':completion:*' use-compctl false
@@ -86,7 +77,7 @@ fi
 
 VIRTUAL_ENV_DISABLE_PROMPT=1
 
-# Prompt with prompt-Expansion
+# Prompt with prompt-expansion
 #PROMPT='%b%F{red}[%*] %B%F{blue}%n %B%F{green}%~%b%f > '
 
 # Enable command-not-found. Shows if (similar) package exists, when not installed
@@ -111,4 +102,5 @@ fi
 
 end=$(date +%s%N)
 runtime=$(((end-start)/1000000))
-PROMPT='%b%F{red}[%*] %b%f${runtime}ms ${vcs_info_msg_0_} %B%F{blue}%n %B%F{green}%~%b%f > '
+PROMPT='%b%F{red}[%T] %B%F{blue}%n %B%F{green}%~%b%f ${runtime}ms > '
+#PROMPT='%B%F{1}%n %B%F{}%~%b%f ${runtime}ms ${vcs_info_msg_0_} > '
