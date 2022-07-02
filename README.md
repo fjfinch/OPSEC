@@ -13,16 +13,16 @@ Ansible is used to install tools on the VM with some personalized config files. 
 
 Additionally, Ansible will configure other VM settings like, global Git settings, SSH keys, changing default shell to ZSH, etc.
 
-#### Configs
-A folder containing configuration files for different programs. So I don't have to manually setup everything, every time I create a new VM.
+### Configs
+A folder containing configuration files for different programs. So I don't have to manually set up everything, every time I create a new VM.
 
-#### Notes
+### Notes
 Notes about attacks, tools, topics, etc. Written for me to understand it, not to explain it to others. Probably ignored important things, because I either really understand it, still have to write it, or ignored it bc I think it is not important :-). 
 
 Note: open the 'Notes' folder with Obisidian. It is written with obsidian and is not optimized for GitHub. Text might look janky and pictures might not load.
 
-#### Tools
-The added tools are submodules linked to their main Git repository. They are included for me to be easily pulled. Credits to the writers and contributors for making these awesome tools.
+### Tools
+Tools are mostly submodules linked to their main Git repository. They are included for me to be easily pulled. Credits to the writers and contributors for making these awesome tools.
 
 ## Install
 As discussed, this project uses Ansible to configure the VM. This requires a couple of programs:
