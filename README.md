@@ -17,13 +17,13 @@ Note: open the 'Notes' folder in Obsidian. Notes are written with Obsidian and a
 Tools are mostly submodules linked to their main Git repository. They are included for me to be easily pulled. Credits to the writers and contributors for making these awesome tools.
 
 ## Install
-Ansible is used to install tools on the VM with some personalized config files. In general, non-python tools will be installed with APT and python tools with pipx. Other weird tools will be pulled directly from Git (and stored as submodules in the tools folder of this project).
+Ansible is used to update the VM, install tools, configure them and change VM settings, like global Git settings, create SSH keys and change the default shell to ZSH. It is set up to be idempotent.
+
+In general, non-python tools will be installed with APT and python tools with pipx. Other weird tools will be pulled directly from Git (and stored as submodules in the tools folder of this project).
 
 * apt (non-python tools)
 * pipx (python tools)
 * git (other tools)
-
-Additionally, Ansible will configure other VM settings like, global Git settings, SSH keys, changing default shell to ZSH, etc.
 
 To use this repo, a couple of programs are required:
 
@@ -47,5 +47,5 @@ git clone https://github.com/fjfinch/OPSEC.git
 To configure the VM:
 
 ```bash
-ansible-playbook OPSEC/configs/ansible/main.yml -i inventory.ini -K
+ansible-playbook OPSEC/configs/ansible/main.yml -i OPSEC/configs/ansible/inventory.ini -K
 ```
