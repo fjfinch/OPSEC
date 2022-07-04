@@ -11,7 +11,7 @@
 
   - name: 'GIT GLOBAL : create ssh keypair'
     user:
-      name: '{{ default_user }}'
+      name: '{{ ansible_env.USER }}'
       generate_ssh_key: true
       ssh_key_comment: ""
     become: true

@@ -1,15 +1,9 @@
---- command
-ansible-playbook main.yml -i inventory.ini -K
-
-
 --- test
-ansible-lint main.yml
-
+ansible-lint main.yml -x yaml
 
 --- todo
-fix paths : relative vs absolute : ~/test vs /home/user/test
-  "{{ ansible_env.HOME }}"
+fix paths : relative vs absolute : ../test vs /usr/new/test
 debug
-apt install : latest?
 remove other same installed tools
 enum4linux-ng
+got init repos

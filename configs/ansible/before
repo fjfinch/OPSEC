@@ -1,1 +1,0 @@
-sudo apt update && sudo apt install -y python3-pip pipx git && pipx install ansible --include-deps && pipx ensurepath && exec $SHELL

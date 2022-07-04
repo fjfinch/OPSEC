@@ -32,7 +32,7 @@ To use this repo, a couple of programs are required:
 * pipx (to install tools, including ansible)
 * ansible (to configure the VM)
 
-Oneliner to install all:
+Oneliner to install all programs:
 
 ```bash
 sudo apt update && sudo apt install -y git python3-pip pipx && pipx install ansible --include-deps && pipx ensurepath && exec $SHELL
@@ -44,8 +44,10 @@ Next, clone this repo:
 git clone https://github.com/fjfinch/OPSEC.git
 ```
 
-To configure the VM:
+To configure the VM, go to OPSEC/configs/ansible/:
 
 ```bash
-ansible-playbook OPSEC/configs/ansible/main.yml -i OPSEC/configs/ansible/inventory.ini -K
+ansible-playbook main.yml -i inventory.ini -K
 ```
+
+If you want to configure multiple hosts, change the inventory file.

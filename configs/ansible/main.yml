@@ -1,12 +1,11 @@
 ---
-- name: SETUP
-  hosts: all #localhost
+- name: SETUP VM
+  hosts: all
   gather_facts: false
   become_method: sudo
 
   vars:
-    ansible_python_interpreter: "/usr/bin/python3"
-    default_user: '{{ lookup("env", "USER") }}'
+    ansible_python_interpreter: /usr/bin/python3
 
   vars_prompt:
     - name: git_user
@@ -17,6 +16,14 @@
       prompt: git email
       private: false
 
+  pre_tasks:
+    - name: CONNECT & RETRIEVE ENV
+      setup:
+        gather_subset:
+          - '!all'
+          - '!min'
+          - 'env'
+
   tasks:
     - import_tasks: tasks/apt_update.yml
     - import_tasks: tasks/apt_install.yml
@@ -24,5 +31,5 @@
     - import_tasks: tasks/zsh.yml
     - import_tasks: tasks/terminator.yml
     - import_tasks: tasks/wireshark.yml
-    - import_tasks: tasks/git_repo.yml
+#    - import_tasks: tasks/git_repo.yml # random command for repo - not existing for remote
     - import_tasks: tasks/git_global.yml

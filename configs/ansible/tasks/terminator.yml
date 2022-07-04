@@ -2,5 +2,5 @@
   - name: 'TERMINATOR : copy config'
     copy:
       src: ../terminator/config
-      dest: ~/.config/terminator/
+      dest: "{{ ansible_env.HOME }}/.config/terminator/"
       mode: '644'
