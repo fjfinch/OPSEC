@@ -1,6 +1,6 @@
 - block:
-  - name: 'TERMINATOR : copy config'
+  - name: 'TERMINATOR : copy config file'
     copy:
       src: ../terminator/config
-      dest: "{{ ansible_env.HOME }}/.config/terminator/"
-      mode: '644'
+      dest: '{{ ansible_env.HOME }}/.config/terminator/'
+      mode: 0644

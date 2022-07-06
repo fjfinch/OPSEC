@@ -4,5 +4,4 @@
       update_cache: true
       upgrade: safe
       autoremove: true
-
-  become: true
+    become: true

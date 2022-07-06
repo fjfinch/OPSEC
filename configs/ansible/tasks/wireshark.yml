@@ -1,10 +1,10 @@
 - block:
-  - name: 'WIRESHARK : add config'
+  - name: 'WIRESHARK : change config'
     blockinfile:
       path: '{{ item.path }}'
       block: '{{ item.block }}'
       create: true
-      mode: '644'
+      mode: 0644
     loop:
-      - { path: "{{ ansible_env.HOME }}/.config/wireshark/preferences", block: '{{ lookup("file", "../wireshark/preferences") }}' }
-      - { path: "{{ ansible_env.HOME }}/.config/wireshark/dfilter_buttons", block: '{{ lookup("file", "../wireshark/dfilter_buttons") }}' }
+      - { path: '{{ ansible_env.HOME }}/.config/wireshark/preferences', block: '{{ lookup("file", "../wireshark/preferences") }}' }
+      - { path: '{{ ansible_env.HOME }}/.config/wireshark/dfilter_buttons', block: '{{ lookup("file", "../wireshark/dfilter_buttons") }}' }

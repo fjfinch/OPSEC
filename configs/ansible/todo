@@ -6,4 +6,4 @@ fix paths : relative vs absolute : ../test vs /usr/new/test
 debug
 remove other same installed tools
 enum4linux-ng
-got init repos
+git init repos

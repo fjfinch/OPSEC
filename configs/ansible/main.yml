@@ -1,5 +1,5 @@
 ---
-- name: SETUP VM
+- name: CONFIGURE VM
   hosts: all
   gather_facts: false
   become_method: sudo
@@ -25,11 +25,11 @@
           - 'env'
 
   tasks:
-    - import_tasks: tasks/apt_update.yml
-    - import_tasks: tasks/apt_install.yml
-    - import_tasks: tasks/pipx.yml
+    - import_tasks: tasks/update.yml
+    - import_tasks: tasks/install.yml
     - import_tasks: tasks/zsh.yml
+    - import_tasks: tasks/ssh.yml
+    - import_tasks: tasks/git_global.yml
+#    - import_tasks: tasks/git_repo.yml # random command for repo - not existing for remote
     - import_tasks: tasks/terminator.yml
     - import_tasks: tasks/wireshark.yml
-#    - import_tasks: tasks/git_repo.yml # random command for repo - not existing for remote
-    - import_tasks: tasks/git_global.yml

@@ -1,4 +1,15 @@
 - block:
+  - name: 'APT : install tools'
+    apt:
+      name: '{{ item.name }}'
+    loop:
+      - { name: zsh }
+      - { name: terminator }
+      - { name: wireshark }
+      - { name: nmap }
+      - { name: smbclient }
+    become: true
+
   - name: 'PIPX : install tools'
     community.general.pipx:
       name: '{{ item.name }}'

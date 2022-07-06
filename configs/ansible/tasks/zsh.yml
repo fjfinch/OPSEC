@@ -10,11 +10,11 @@
       repo: '{{ item.repo }}'
       dest: '{{ item.dest }}'
     loop:
-      - { repo: http://github.com/zsh-users/zsh-autosuggestions, dest: "{{ ansible_env.HOME }}/.zsh/zsh-autosuggestions" }
-      - { repo: https://github.com/zsh-users/zsh-syntax-highlighting, dest: "{{ ansible_env.HOME }}/.zsh/zsh-syntax-highlighting" }
+      - { repo: http://github.com/zsh-users/zsh-autosuggestions, dest: '{{ ansible_env.HOME }}/.zsh/zsh-autosuggestions' }
+      - { repo: https://github.com/zsh-users/zsh-syntax-highlighting, dest: '{{ ansible_env.HOME }}/.zsh/zsh-syntax-highlighting' }
 
-  - name: 'ZSH : copy .zshrc'
+  - name: 'ZSH : copy .zshrc file'
     copy:
       src: ../zsh/.zshrc
-      dest: "{{ ansible_env.HOME }}/.zshrc"
-      mode: '644'
+      dest: '{{ ansible_env.HOME }}/'
+      mode: 0644
